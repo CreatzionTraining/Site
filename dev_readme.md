@@ -44,5 +44,26 @@ git commit -m "first commit"
 git push -u origin main    # Push code to GitHub main branch
 
 
+______________________________________________________________________________________________
+# Add all modified files to staging
+git add .
 
-Thank you Okay sldhjgflkjjashglidfjasgfdfd
+# Commit the staged changes with a message
+git commit -m "merge"
+
+# Switch to the Bhuvan branch
+git checkout Bhuvan
+
+# Merge the latest changes from main branch into Bhuvan
+git merge main
+
+# Pull latest updates from the remote Bhuvan branch (sync with server)
+git pull origin Bhuvan
+
+# Push your final merged changes to the remote Bhuvan branch
+git push origin Bhuvan
+
+
+
+
+Thank you
