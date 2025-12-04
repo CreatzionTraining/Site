@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F7F9FB;
+  --foreground: #0B1320;
+  --primary-blue: #0A66C2;
+  --bright-blue: #0077FF;
+  --accent-orange: #FF6B35;
+  --dark-shade: #0B1320;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-blue: var(--primary-blue);
+  --color-bright-blue: var(--bright-blue);
+  --color-accent-orange: var(--accent-orange);
+  --color-dark-shade: var(--dark-shade);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Keeping the requested light theme as the default even in dark mode for now as per "i want my main page in this format" request which implies a specific look */
+    --background: #F7F9FB;
+    --foreground: #0B1320;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+}
