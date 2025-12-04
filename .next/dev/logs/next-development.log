@@ -1,0 +1,4 @@
+[00:00:02.404] Server  LOG      ✓ Ready in 1707ms
+[00:00:07.908] Server  LOG      ○ Compiling / ...
+[00:00:12.346] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:12.807] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes

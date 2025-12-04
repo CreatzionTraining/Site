@@ -1,0 +1,23 @@
+{
+  "devFiles": [],
+  "ampDevFiles": [],
+  "polyfillFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [],
+  "pages": {
+    "/_error": [
+      "static/chunks/d700c_next_dist_compiled_99d0daa4._.js",
+      "static/chunks/d700c_next_dist_shared_lib_abbeba49._.js",
+      "static/chunks/d700c_next_dist_client_73508bdd._.js",
+      "static/chunks/d700c_next_dist_ec48683b._.js",
+      "static/chunks/d700c_next_error_245204e8.js",
+      "static/chunks/[next]_entry_page-loader_ts_65bf140b._.js",
+      "static/chunks/d700c_react-dom_d788f1ed._.js",
+      "static/chunks/d700c_8c2d988f._.js",
+      "static/chunks/[root-of-the-server]__004c0fad._.js",
+      "static/chunks/OneDrive_Desktop_creatzion_portfolio_Company_Portfolio_pages__error_2da965e7._.js",
+      "static/chunks/9f58e_Desktop_creatzion_portfolio_Company_Portfolio_pages__error_a9cf56b1._.js"
+    ]
+  },
+  "ampFirstPages": []
+}
