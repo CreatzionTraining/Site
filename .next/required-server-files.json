@@ -99,7 +99,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\Users\\BHUVAN KUMAR",
+    "outputFileTracingRoot": "C:\\Users\\SAKTHI",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -157,7 +157,7 @@
       "proxyPrefetch": "flexible",
       "optimisticClientCache": true,
       "manualClientBasePath": false,
-      "cpus": 3,
+      "cpus": 11,
       "memoryBasedWorkersCount": false,
       "imgOptConcurrency": null,
       "imgOptTimeoutInSeconds": 7,
@@ -292,12 +292,12 @@
       "@splinetool/react-spline"
     ],
     "turbopack": {
-      "root": "C:\\Users\\BHUVAN KUMAR"
+      "root": "C:\\Users\\SAKTHI"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "C:\\Users\\BHUVAN KUMAR\\Desktop\\Site",
-  "relativeAppDir": "Desktop\\Site",
+  "appDir": "C:\\Users\\SAKTHI\\OneDrive\\Desktop\\Company_Portfolio",
+  "relativeAppDir": "OneDrive\\Desktop\\Company_Portfolio",
   "files": [
     ".next\\routes-manifest.json",
     ".next\\server\\pages-manifest.json",
