@@ -10,7 +10,7 @@
   "static/chunks/bd12c_three_build_three_module_462e0042.js",
   "static/chunks/bd12c_three_build_three_module_74fb648c.js",
   "static/chunks/bd12c_@react-three_fiber_dist_3d33d476._.js",
-  "static/chunks/bd12c_bd5e4152._.js",
+  "static/chunks/bd12c_96dc9065._.js",
   "static/chunks/bd12c_aos_dist_aos_e70313ba.css"
 ],
     source: "dynamic"
