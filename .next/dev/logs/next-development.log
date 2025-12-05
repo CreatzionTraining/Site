@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [00:00:04.787] Server  LOG      ✓ Ready in 3.7s
 [00:00:08.905] Server  LOG      ○ Compiling / ...
 [00:00:30.285] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
@@ -491,3 +492,9 @@ Check the render method of `Hero`.
 [00:08:08.203] Browser WARN    THREE.Color: Invalid hex color #0ae615ff
 [00:08:19.987] Server  LOG      ✓ Compiled in 65ms
 [00:09:13.701] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+=======
+[00:00:02.121] Server  LOG      ✓ Ready in 1509ms
+[00:00:16.741] Server  LOG      ○ Compiling / ...
+[00:00:19.698] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:20.140] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+>>>>>>> main
