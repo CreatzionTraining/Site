@@ -1,500 +1,1923 @@
-<<<<<<< HEAD
-[00:00:04.787] Server  LOG      ✓ Ready in 3.7s
-[00:00:08.905] Server  LOG      ○ Compiling / ...
-[00:00:30.285] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:13.636] Server  LOG      ✓ Compiled in 1481ms
-[00:01:18.079] Server  LOG      ✓ Compiled in 259ms
-[00:03:00.221] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:04:19.194] Browser ERROR   uncaughtError: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+[00:00:01.289] Server  LOG      ✓ Ready in 917ms
+[00:00:11.439] Server  LOG      ○ Compiling / ...
+[00:00:13.545] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:13.887] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:36.262] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
 
-Check the render method of `Home`.
-[00:04:19.851] Browser LOG     THREE.WebGLRenderer: Context Lost.
-[00:04:24.509] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:04:28.096] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:04:42.466] Server  LOG      ✓ Compiled in 575ms
-[00:04:51.762] Server  LOG      ✓ Compiled in 85ms
-[00:06:40.734] Server  LOG      ✓ Compiled in 208ms
-[00:06:40.971] Browser ERROR   uncaughtError: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
 
-Check the render method of `Hero`.
-[00:06:40.971] Browser ERROR   uncaughtError: Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
 
-Check the render method of `Hero`.
-[00:06:41.527] Browser LOG     THREE.WebGLRenderer: Context Lost.
-[00:06:44.053] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:06:44.056] Server  LOG      ✓ Compiled in 440ms
-[00:06:47.174] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:06:56.926] Server  LOG      ✓ Compiled in 117ms
-[00:06:57.051] Browser WARN    THREE.Color: Invalid hex color #00ef0cff
-[00:07:08.001] Server  LOG      ✓ Compiled in 192ms
-[00:07:08.133] Browser WARN    THREE.Color: Invalid hex color #24b300ff
-[00:07:09.624] Browser WARN    THREE.Color: Invalid hex color #3ef710ff
-[00:07:09.744] Server  LOG      ✓ Compiled in 450ms
-[00:07:30.512] Server  LOG      ✓ Compiled in 95ms
-[00:07:32.201] Server  LOG      ✓ Compiled in 193ms
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.759] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #64e90cff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.760] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.761] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.761] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.762] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:34.763] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:43.434] Server  LOG      ✓ Compiled in 169ms
-[00:07:43.533] Browser WARN    THREE.Color: Invalid hex color #66ec0cff
-[00:07:52.030] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #66ec0cff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.030] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.031] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.032] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.033] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #6bf70eff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #3ef710ff
-[00:07:52.034] Browser WARN    THREE.Color: Invalid hex color #00ef0cff
-[00:08:08.019] Server  LOG      ✓ Compiled in 122ms
-[00:08:08.203] Browser WARN    THREE.Color: Invalid hex color #0ae615ff
-[00:08:19.987] Server  LOG      ✓ Compiled in 65ms
-[00:09:13.701] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-=======
-[00:00:02.121] Server  LOG      ✓ Ready in 1509ms
-[00:00:16.741] Server  LOG      ○ Compiling / ...
-[00:00:19.698] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:20.140] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
->>>>>>> main
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.264] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.267] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.268] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.292] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.294] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.296] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.299] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.302] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.304] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.307] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.309] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.312] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.314] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.315] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.317] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.320] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.322] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.323] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.325] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.327] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.329] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.330] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.332] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.335] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.336] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.337] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.339] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.341] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.342] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.344] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.345] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:36.348] Server  LOG      ✓ Compiled in 83ms
+[00:03:37.248] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:03:41.445] Server  LOG      ✓ Compiled in 56ms
+[00:03:44.251] Browser LOG     THREE.WebGLRenderer: Context Lost.
+[00:04:17.422] Server  LOG      ✓ Compiled in 28ms
+[00:04:18.239] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:14
+Parsing ecmascript source code failed
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import  from "@/components/Home";
+    |              ^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Expected ',', got 'string literal (@/components/Home, "@/components/Home")'
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:04:20.250] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:14
+Parsing ecmascript source code failed
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Homem "@/components/Home";
+    |              ^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Expected ',', got 'string literal (@/components/Home, "@/components/Home")'
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:04:29.250] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:13
+Parsing ecmascript source code failed
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Home "@/components/Home";
+    |             ^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Expected ',', got 'string literal (@/components/Home, "@/components/Home")'
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:04:34.871] Server  LOG      ✓ Compiled in 29ms
+[00:04:35.241] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:13
+Parsing ecmascript source code failed
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Home "@/components/";
+    |             ^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Expected ',', got 'string literal (@/components/, "@/components/")'
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:04:36.976] Server  LOG      ✓ Compiled in 130ms
+[00:04:37.240] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:13
+Parsing ecmascript source code failed
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Home "@/components/Home
+    |             ^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Unterminated string constant
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:04:59.537] Server  LOG      ✓ Compiled in 34ms
+[00:05:00.249] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:13
+Parsing ecmascript source code failed
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Home "@/components/Home";
+    |             ^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Expected ',', got 'string literal (@/components/Home, "@/components/Home")'
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:05:15.267] Server  LOG      ✓ Compiled in 27ms
+[00:05:16.248] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:13
+Parsing ecmascript source code failed
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Home fr/components/Home";
+    |             ^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Expected ',', got 'fr'
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:05:16.635] Server  LOG      ✓ Compiled in 39ms
+[00:05:17.240] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:13
+Parsing ecmascript source code failed
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Home /components/Home";
+    |             ^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Expected ',', got '/'
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:05:21.239] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:13
+Parsing ecmascript source code failed
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Home /components/Home";
+    |             ^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Expected ',', got '/'
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:05:26.244] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:13
+Parsing ecmascript source code failed
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Home /components/Home";
+    |             ^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Expected ',', got '/'
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:05:28.251] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:13
+Parsing ecmascript source code failed
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Home /components/Home";
+    |             ^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Expected ',', got '/'
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:05:40.556] Server  LOG      ✓ Compiled in 27ms
+[00:05:41.247] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:6:1
+Parsing ecmascript source code failed
+  4 | import Navbar from "@/components/Navbar";
+  5 | import Home                   
+> 6 | import Footer from "@/components/Footer";
+    | ^^^^^^
+  7 |
+  8 | import Lenis from "lenis";
+  9 | import AOS from "aos";
+
+Expected ',', got 'import'
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:05:43.244] Server  LOG      ✓ Compiled in 35ms
+[00:05:44.242] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:13
+Parsing ecmascript source code failed
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Home /components/Home";
+    |             ^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Expected ',', got '/'
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+[00:05:49.460] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.463] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.464] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.465] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.467] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.468] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.469] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.470] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.471] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.472] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.473] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.474] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.476] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.478] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.478] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.479] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.481] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.482] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.483] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.484] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.486] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.487] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.488] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.489] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.491] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.493] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.494] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.496] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.497] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.499] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.500] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.501] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.502] Server  LOG      ✓ Compiled in 29ms
+[00:05:50.243] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/Hero'
+  3 | import { useEffect } from "react";
+  4 | import Navbar from "@/components/Navbar";
+> 5 | import Hero from "@/components/Hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import Footer from "@/components/Footer";
+  7 |
+  8 | import Lenis from "lenis";
+
+Import map: aliased to relative './components/Hero' inside of [project]/OneDrive/Desktop/Company_Portfolio
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:07:09.316] Server  LOG      ✓ Compiled in 52ms
+[00:08:18.565] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:18.884] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
