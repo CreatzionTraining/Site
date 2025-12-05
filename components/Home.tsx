@@ -182,7 +182,7 @@ function HeroSection() {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <Link href="#contact" className="group relative px-8 py-4 bg-slate-900 text-white rounded-xl font-bold text-lg shadow-lg shadow-blue-900/20 hover:shadow-2xl hover:shadow-blue-600/40 hover:-translate-y-1 hover:scale-105 transition-all duration-300 ease-out overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
                 <span className="relative flex items-center gap-2">
                   Start Your Project <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
@@ -221,7 +221,7 @@ function HeroSection() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="h-[400px] w-[400px] lg:h-[600px] lg:w-[600px] relative flex items-center justify-center lg:justify-start mx-auto lg:mx-0"
+            className="h-[400px] w-[400px] lg:h-[600px] lg:w-[600px] relative flex items-center justify-center lg:justify-end mx-auto lg:mr-0 lg:ml-auto"
           >
             {/* Simplified 3D scene rendering */}
             <div className="relative z-10 h-full w-full">
@@ -476,7 +476,7 @@ function CTASection() {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="btn-premium px-10 py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-3 group shadow-lg shadow-blue-500/10"
+              className="btn-premium px-10 py-4 rounded-xl text-slate-900 font-bold text-lg flex items-center justify-center gap-3 group shadow-lg shadow-blue-500/10"
             >
               <span>Schedule Consultation</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
