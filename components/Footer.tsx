@@ -2,13 +2,101 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Linkedin, Twitter, Github, Instagram, Send, ArrowUp } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Linkedin, Twitter, Github, Instagram, Send, ArrowUp, ChevronDown } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
 
+// Custom Hook for Media Query
+const useMediaQuery = (width: number) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e: MediaQueryListEvent) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addListener(updateTarget);
+    setTargetReached(media.matches);
+
+    return () => media.removeListener(updateTarget);
+  }, [width, updateTarget]);
+
+  return targetReached;
+};
+
+// Reusable Footer Section Component
+function FooterSection({
+  title,
+  links,
+  className,
+  delay
+}: {
+  title: string,
+  links: { name: string, href: string }[],
+  className?: string,
+  delay: number
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useMediaQuery(768);
+
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay, duration: 0.5 }}
+    >
+      <div
+        onClick={() => isMobile && setIsOpen(!isOpen)}
+        className="flex items-center justify-between cursor-pointer md:cursor-default group select-none"
+      >
+        <h4 className="text-slate-900 font-bold text-lg mb-4 md:mb-6 tracking-wide">{title}</h4>
+        <ChevronDown
+          className={`w-5 h-5 text-slate-400 md:hidden transition-transform duration-300 mb-4 md:mb-6 ${isOpen ? 'rotate-180' : ''}`}
+        />
+      </div>
+
+      <AnimatePresence>
+        {(!isMobile || isOpen) && (
+          <motion.ul
+            className="space-y-4 overflow-hidden"
+            initial={isMobile ? { height: 0, opacity: 0 } : { opacity: 1 }}
+            animate={isMobile ? { height: "auto", opacity: 1 } : { opacity: 1 }}
+            exit={isMobile ? { height: 0, opacity: 0 } : { opacity: 1 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          >
+            {links.map((link, index) => (
+              <motion.li
+                key={link.name}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: delay + index * 0.05 }}
+              >
+                <Link
+                  href={link.href}
+                  className="text-slate-600 hover:text-blue-600 transition-colors duration-300 inline-flex items-center group/link"
+                >
+                  <span className="group-hover:translate-x-1 group-hover/link:translate-x-1 transition-transform duration-300">{link.name}</span>
+                </Link>
+              </motion.li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
 
 // Scroll to Top Button Component
 function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -19,8 +107,17 @@ function ScrollToTopButton() {
       }
     };
 
+    const handleScrollVisibility = (e: any) => {
+      setIsHidden(e.detail.isHidden);
+    };
+
     window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("toggle-scroll-button", handleScrollVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("toggle-scroll-button", handleScrollVisibility);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -32,7 +129,7 @@ function ScrollToTopButton() {
 
   return (
     <AnimatePresence>
-      {isVisible && (
+      {isVisible && !isHidden && (
         <motion.button
           initial={{ opacity: 0, scale: 0, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -134,12 +231,14 @@ export default function Footer() {
       { name: "Contact", href: "#contact" },
     ],
     services: [
-      { name: "AI", href: "#services" },
-      { name: "3D", href: "#services" },
+      { name: "AI Solutions", href: "#services" },
+      { name: "3D Design", href: "#services" },
+      { name: "Cloud Services", href: "#services" },
     ],
     resources: [
-      { name: "Cases", href: "#cases" },
+      { name: "Case Studies", href: "#cases" },
       { name: "Support", href: "#support" },
+      { name: "Documentation", href: "#docs" },
     ],
   };
 
@@ -151,128 +250,26 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-white pt-12 pb-8 border-t border-slate-200">
+    <footer className="relative bg-white pt-20 pb-8 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
+
       <div className="max-w-[90%] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-          {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-6"
-            >
-              <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4 tracking-tight">
-                CREATZION
-              </h3>
-              <p className="text-slate-600 leading-relaxed max-w-md">
-                Building the future with AI, 3D, and Cloud.
-              </p>
-            </motion.div>
-
-            {/* Social Links */}
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.1, y: -2, transition: { duration: 0.2 } }}
-                  className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
-                >
-                  <social.Icon className="w-5 h-5" />
-                </motion.a>
-              ))}
-            </div>
-          </div>
-
-          {/* Company Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            <h4 className="text-slate-900 font-bold text-lg mb-6">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-slate-600 hover:text-blue-600 transition-colors duration-300 inline-block"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Services Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <h4 className="text-slate-900 font-bold text-lg mb-6">Services</h4>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-slate-600 hover:text-blue-600 transition-colors duration-300 inline-block"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Resources Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <h4 className="text-slate-900 font-bold text-lg mb-6">Resources</h4>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-slate-600 hover:text-blue-600 transition-colors duration-300 inline-block"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-
-        {/* Newsletter Section */}
+        {/* Newsletter Section - At the Top */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-12 rounded-3xl mb-12 border border-blue-100 overflow-hidden"
+          transition={{ delay: 0.1, duration: 0.5 }}
+          className="relative bg-white/60 backdrop-blur-xl border border-slate-100 p-10 rounded-3xl mb-16 overflow-hidden shadow-sm"
         >
-          {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-indigo-200/20 to-blue-200/20 rounded-full blur-3xl" />
 
-          <div className="relative z-10 text-center max-w-2xl mx-auto">
+          <div className="relative z-10 text-center max-w-3xl mx-auto">
             <motion.h4
-              className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3"
+              className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent mb-4"
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -288,24 +285,90 @@ export default function Footer() {
           </div>
         </motion.div>
 
+        {/* Main Footer Content Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-12 mb-16">
+          {/* Brand Section */}
+          <div className="lg:col-span-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h3 className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent mb-6 tracking-tight">
+                CREATZION
+              </h3>
+              <p className="text-slate-600 leading-relaxed mb-8 text-lg">
+                Building the future with AI, 3D, and Cloud.
+              </p>
+
+              {/* Social Links */}
+              <div className="flex gap-3">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, type: "spring", stiffness: 200 }}
+                    whileHover={{ scale: 1.15, y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-11 h-11 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center text-slate-500 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 group"
+                  >
+                    <social.Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Company Links */}
+          <FooterSection
+            title="Company"
+            links={footerLinks.company}
+            className="lg:col-span-2 border-b md:border-none border-slate-100 pb-3 md:pb-0"
+            delay={0.1}
+          />
+
+          {/* Services Links */}
+          <FooterSection
+            title="Services"
+            links={footerLinks.services}
+            className="lg:col-span-3 border-b md:border-none border-slate-100 pb-3 md:pb-0"
+            delay={0.2}
+          />
+
+          {/* Resources Links */}
+          <FooterSection
+            title="Resources"
+            links={footerLinks.resources}
+            className="lg:col-span-3 border-b md:border-none border-slate-100 pb-3 md:pb-0"
+            delay={0.3}
+          />
+        </div>
+
         {/* Bottom Bar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
           className="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <p className="text-slate-500 text-sm">
             © {currentYear} Creatzion Technology. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <Link href="#privacy" className="text-slate-500 hover:text-blue-600 transition-colors">
+            <Link href="#privacy" className="text-slate-500 hover:text-blue-600 transition-colors duration-300">
               Privacy Policy
             </Link>
-            <Link href="#terms" className="text-slate-500 hover:text-blue-600 transition-colors">
+            <Link href="#terms" className="text-slate-500 hover:text-blue-600 transition-colors duration-300">
               Terms of Service
             </Link>
-            <Link href="#cookies" className="text-slate-500 hover:text-blue-600 transition-colors">
+            <Link href="#cookies" className="text-slate-500 hover:text-blue-600 transition-colors duration-300">
               Cookie Policy
             </Link>
           </div>
