@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-[00:00:03.612] Server  LOG      ✓ Ready in 2.6s
-[00:00:09.658] Server  LOG      ○ Compiling / ...
-[00:00:15.845] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:16.378] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:02:57.834] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:58.344] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-=======
-[00:00:04.015] Server  LOG      ✓ Ready in 3.1s
-[00:00:12.819] Server  LOG      ○ Compiling / ...
-[00:00:53.093] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
->>>>>>> 8ecbdd66f772ce2a60fceef491900b2fbe45a06a
+[00:00:02.121] Server  LOG      ✓ Ready in 1509ms
+[00:00:16.741] Server  LOG      ○ Compiling / ...
+[00:00:19.698] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:20.140] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
