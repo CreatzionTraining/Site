@@ -2,7 +2,7 @@
 
 :root {
   font-size: 14px;
-  --background: #F7F9FB;
+  --background: #fbfbf1;
   --foreground: #0B1320;
   --primary-blue: #0A66C2;
   --bright-blue: #0077FF;
@@ -27,8 +27,10 @@
   }
 }
 
-body {
+html, body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
 }

@@ -3,6 +3,7 @@
 import { Canvas } from "@react-three/fiber";
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Bot,
@@ -119,28 +120,42 @@ function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-white">
+    <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-background">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+
+      {/* Hero Logo with Unique Transition */}
+      <motion.div
+        initial={{ y: -100, rotateX: -90, opacity: 0 }}
+        animate={{ y: 0, rotateX: 0, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 200,
+          damping: 20,
+          delay: 0.5
+        }}
+        className="absolute top-6 left-6 z-20 pointer-events-auto perspective-[1000px]"
+      >
+        <Link href="/" className="relative w-48 sm:w-64 h-12 sm:h-20 block transform-style-3d hover:scale-105 transition-transform duration-300">
+          <Image
+            src="/Logo.png"
+            alt="Creatzion Logo"
+            fill
+            className="object-contain object-left"
+            priority
+          />
+        </Link>
+      </motion.div>
 
       <div className="max-w-[90%] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text column */}
           <motion.div
-            className="text-center lg:text-left space-y-8 w-full max-w-2xl mx-auto lg:ml-auto lg:mr-0"
+            className="text-center lg:text-left space-y-3 w-full max-w-2xl mx-auto lg:ml-auto lg:mr-0"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100"
-            >
-              <span className="text-blue-600 font-semibold text-sm tracking-wide uppercase">
-                Future of Digital Innovation
-              </span>
-            </motion.div>
+            {/* Badge removed */}
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] tracking-tight h-[160px] sm:h-[180px] lg:h-[220px] flex flex-col justify-center lg:justify-start">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] tracking-tight h-[130px] sm:h-[150px] lg:h-[160px] flex flex-col justify-center lg:justify-start">
               <motion.span custom={1} variants={textVariants} initial="hidden" animate="visible" className="block">
                 Building
               </motion.span>
@@ -246,7 +261,7 @@ function ServicesSection() {
   });
 
   return (
-    <section id="services" className="py-24 relative bg-white" ref={ref}>
+    <section id="services" className="py-24 relative bg-background" ref={ref}>
       {/* Subtle Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 

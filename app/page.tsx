@@ -108,10 +108,10 @@ export default function Home() {
           whileHover={{ x: -4 }}
         >
           <div className="flex flex-col items-center gap-2">
-            <MessageSquare className="w-5 h-5 -rotate-90" />
-            <span className="writing-mode-vertical text-sm font-semibold tracking-wide uppercase rotate-180 whitespace-nowrap">
+            <span className="writing-mode-vertical text-sm font-semibold tracking-wide uppercase whitespace-nowrap">
               Contact Us
             </span>
+            <MessageSquare className="w-5 h-5 rotate-90" />
           </div>
         </motion.button>
 

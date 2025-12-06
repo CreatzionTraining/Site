@@ -139,22 +139,7 @@ export default function Navbar() {
       <CookieConsentBanner />
 
       {/* Absolute Logo - Top Left */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        className="absolute top-6 left-6 z-50 pointer-events-auto"
-      >
-        <Link href="/" className="relative w-48 sm:w-64 h-12 sm:h-20 block">
-          <Image
-            src="/Logo.png"
-            alt="Creatzion Logo"
-            fill
-            className="object-contain object-left"
-            priority
-          />
-        </Link>
-      </motion.div>
+
 
       {/* Mobile Menu Button - Top Right */}
       <motion.button
@@ -173,15 +158,15 @@ export default function Navbar() {
           y: showNavbar ? 0 : -100,
           opacity: showNavbar ? 1 : 0
         }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={{ type: "spring", stiffness: 260, damping: 20 }}
         className="fixed top-6 left-0 right-0 z-40 hidden md:flex justify-center pointer-events-none"
       >
         <div className="pointer-events-auto">
           <motion.div
             animate={{
               width: "auto",
-              padding: scrolled ? "0.6rem 1.5rem" : "0.75rem 2rem",
-              backgroundColor: scrolled ? "rgba(255, 255, 255, 0.95)" : "rgba(255, 255, 255, 0.8)",
+              padding: "0.6rem 1.5rem",
+              backgroundColor: "rgba(255, 255, 255, 0.95)",
               backdropFilter: "blur(16px)",
               boxShadow: scrolled
                 ? "0 10px 30px -10px rgba(0, 51, 102, 0.2)"
@@ -207,38 +192,40 @@ export default function Navbar() {
             </ul>
           </motion.div>
         </div>
-      </motion.nav>
+      </motion.nav >
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl pt-24 px-6 md:hidden"
-          >
-            <ul className="flex flex-col gap-6 items-center">
-              {navItems.map((item, i) => (
-                <motion.li
-                  key={item}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Link
-                    href={`#${item.toLowerCase()}`}
-                    className="text-2xl font-bold text-[#0a192f] hover:text-[#0056b3]"
-                    onClick={() => setMobileMenuOpen(false)}
+        {
+          mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl pt-24 px-6 md:hidden"
+            >
+              <ul className="flex flex-col gap-6 items-center">
+                {navItems.map((item, i) => (
+                  <motion.li
+                    key={item}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
                   >
-                    {item}
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                    <Link
+                      href={`#${item.toLowerCase()}`}
+                      className="text-2xl font-bold text-[#0a192f] hover:text-[#0056b3]"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )
+        }
+      </AnimatePresence >
     </>
   );
 }
