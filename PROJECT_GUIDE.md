@@ -1,7 +1,5 @@
 # 🌐 CREATZION — COMPANY WEBSITE DEVELOPMENT PLAN (30 DAYS)
 
----
-
 ## Google Meet Link
 
 https://meet.google.com/qoc-ronr-tmh
@@ -18,9 +16,13 @@ https://drive.google.com/drive/folders/1-FLcP-3NLZu127sTFi7HGX-mkZu6TqeP?usp=dri
 https://github.com/CreatzionTraining/Site.git
 
 ## 🚀 Live Hosted Website
-https://creatzion-company.vercel.app
+Production URL
+main-creatzion.vercel.app
 
-https://creatzion.netlify.app
+Bhuvan Development URL
+site-git-bhuvan-creatziontrainings-projects.vercel.app
+
+Sakthi Development URL
 ---
 
 ## 🌍 REFERENCE WEBSITES
