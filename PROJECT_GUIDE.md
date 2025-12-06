@@ -16,10 +16,13 @@ https://drive.google.com/drive/folders/1-FLcP-3NLZu127sTFi7HGX-mkZu6TqeP?usp=dri
 https://github.com/CreatzionTraining/Site.git
 
 ## 🚀 Live Hosted Website
-https://creatzion-company.vercel.app  =>Offical Company website  (Production)
+Production URL
+main-creatzion.vercel.app
 
-https://creatzion.netlify.app
-=>Offical Company website (Production)
+Bhuvan Development URL
+site-git-bhuvan-creatziontrainings-projects.vercel.app
+
+Sakthi Development URL
 ---
 
 ## 🌍 REFERENCE WEBSITES
