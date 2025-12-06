@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 [00:00:04.934] Server  LOG      ✓ Ready in 3.6s
 [00:00:13.024] Server  LOG      ○ Compiling / ...
 [00:00:37.843] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:00:39.825] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
 [00:02:06.742] Browser LOG     Form submitted: {"contactNumber":"","email":"","inquiryType":"","message":"","name":"","privacyConsent":false}
+=======
+[00:00:04.469] Server  LOG      ✓ Ready in 2.9s
+[00:00:08.213] Server  LOG      ○ Compiling / ...
+[00:00:27.955] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:29.634] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+>>>>>>> main
