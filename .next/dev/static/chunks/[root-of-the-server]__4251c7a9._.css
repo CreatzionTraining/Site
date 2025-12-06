@@ -879,6 +879,11 @@
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
 
+  .translate-x-\[calc\(100\%-52px\)\] {
+    --tw-translate-x: calc(100% - 52px);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+
   .translate-x-full {
     --tw-translate-x: 100%;
     translate: var(--tw-translate-x) var(--tw-translate-y);
@@ -1490,6 +1495,10 @@
 
   .pl-3 {
     padding-left: calc(var(--spacing) * 3);
+  }
+
+  .pl-3\.5 {
+    padding-left: calc(var(--spacing) * 3.5);
   }
 
   .text-center {
@@ -2472,6 +2481,7 @@
   --bright-blue: #07f;
   --accent-orange: #ff6b35;
   --dark-shade: #0b1320;
+  font-size: 14px;
 }
 
 @media (prefers-color-scheme: dark) {
