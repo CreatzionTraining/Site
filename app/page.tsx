@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Home";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronRight, MessageSquare, Send } from "lucide-react";
+import { X, ChevronRight, Mail, Send } from "lucide-react";
 
 import Lenis from "lenis";
 import AOS from "aos";
@@ -107,11 +107,11 @@ export default function Home() {
           animate={{ x: isOpen ? "100%" : "0%" }}
           whileHover={{ x: -4 }}
         >
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-3">
+            <Mail className="w-5 h-5 rotate-90" />
             <span className="writing-mode-vertical text-sm font-semibold tracking-wide uppercase whitespace-nowrap">
               Contact Us
             </span>
-            <MessageSquare className="w-5 h-5 rotate-90" />
           </div>
         </motion.button>
 

@@ -1,369 +1,115 @@
-[00:00:01.582] Server  LOG      ✓ Ready in 1101ms
-[00:00:12.756] Server  LOG      ○ Compiling / ...
-[00:00:15.715] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:16.081] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:02:54.242] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:54.583] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:03:59.250] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:59.657] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:07:12.355] Server  LOG      ✓ Compiled in 108ms
-[00:07:13.546] Server  LOG      ✓ Compiled in 59ms
-[00:07:15.653] Server  LOG      ✓ Compiled in 45ms
-[00:08:07.028] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:07.338] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:09:54.375] Server  LOG      ✓ Compiled in 56ms
-[00:09:54.482] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
+[00:00:03.499] Server  LOG      ✓ Ready in 2.5s
+[00:00:08.231] Server  LOG      ○ Compiling / ...
+[00:00:12.187] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:12.643] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:09.064] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:09.648] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:12.241] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:12.690] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:18.472] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:18.922] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:13.652] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:14.018] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:16.054] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:16.524] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:23.273] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:23.814] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:33:23.752] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:33:24.348] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:33:27.205] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:33:27.677] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:43:36.866] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:43:37.265] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:44:00.769] Server  LOG      ✓ Compiled in 290ms
+[00:44:15.498] Server  LOG      ✓ Compiled in 145ms
+[00:47:47.690] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:47:48.266] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:48:32.374] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:48:32.741] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:49:08.411] Server  LOG      ✓ Compiled in 304ms
+[00:49:44.403] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:49:44.908] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:50:22.975] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:50:23.502] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:53:42.432] Server  LOG      ✓ Compiled in 162ms
+[00:53:43.151] Browser ERROR   uncaughtError: ReferenceError: Mail is not defined
+[00:53:44.159] Browser LOG     THREE.WebGLRenderer: Context Lost.
+[00:53:44.165] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:53:45.144] Server  LOG      ✓ Compiled in 176ms
+[00:53:45.398] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:53:46.159] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:54:01.349] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:54:01.805] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:55:08.274] Server  LOG      ✓ Compiled in 65ms
+[00:55:56.009] Server  LOG      ✓ Compiled in 59ms
+[00:56:15.442] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:56:15.951] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:59:11.592] Server  LOG      ✓ Compiled in 75ms
+[00:59:34.464] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:59:35.002] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:00:34.432] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:00:34.895] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:00:35.330] Server  LOG      ✓ Compiled in 104ms
+[01:00:40.487] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:00:40.962] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:00:48.394] Server  LOG      ✓ Compiled in 68ms
+[01:01:17.124] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:01:17.594] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:02:17.920] Server  LOG      ✓ Compiled in 62ms
+[01:02:33.158] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:02:33.637] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:23:27.153] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:23:27.509] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:26:40.753] Server  LOG      ✓ Compiled in 59ms
+[01:26:42.416] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:26:42.738] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:26:45.154] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:26:45.437] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:26:53.455] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:26:53.746] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:28:37.975] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:28:38.249] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:28:50.965] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:28:51.348] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:28:52.618] Server  LOG      ✓ Compiled in 126ms
+[01:31:44.058] Server  LOG      ✓ Compiled in 52ms
+[01:32:00.897] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:32:01.220] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:32:04.757] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:32:05.040] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:32:07.177] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:32:07.465] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:34:58.649] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:34:58.990] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:35:08.716] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:35:24.350] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:35:24.648] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:35:25.813] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:35:26.146] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:37:40.638] Server  LOG      ✓ Compiled in 52ms
+[01:37:41.163] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/components/Home.tsx:414:3
 Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
+  412 |   );
+  413 |   // Main Hero Component that combines all sections
+> 414 |   export default function Hero() {
+      |   ^^^^^^
+  415 |     return (
+  416 |       <>
+  417 |         <HeroSection />
 
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
+'import', and 'export' cannot be used outside of module code
 
 Import traces:
   Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
+    ./OneDrive/Desktop/Company_Portfolio/components/Home.tsx [Client Component Browser]
     ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
     ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
 
   Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
+    ./OneDrive/Desktop/Company_Portfolio/components/Home.tsx [Client Component SSR]
     ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
     ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-[00:10:17.859] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-
-[00:10:17.978] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-[00:10:18.915] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-[00:10:18.915] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-[00:10:19.611] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-[00:10:23.258] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-
-[00:10:23.495] Browser ERROR   uncaughtError: Error: ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-
-[00:10:23.692] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-[00:10:23.692] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-[00:10:31.004] Server  ERROR    ⨯ ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-
-[00:10:31.134] Browser ERROR   uncaughtError: Error: ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-
-[00:10:31.289] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-[00:10:31.289] Browser ERROR   ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx:190:11
-Parsing ecmascript source code failed
-  188 |           }}
-  189 |           className="rounded-full border border-[#0077FF] flex items-center justify-center transition-all duration-500 ease-out"
-> 190 |           >
-      |           ^
-  191 |           <ul className="flex items-center gap-8" role="menubar">
-  192 |             {navItems.map((item) => (
-  193 |               <li role="none" key={item}>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/Company_Portfolio/components/Navbar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/Company_Portfolio/app/page.tsx [Server Component]
-[00:11:09.493] Server  LOG      ✓ Compiled in 29ms
-[00:11:09.995] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:11:10.523] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:15:47.759] Server  LOG      ✓ Compiled in 29ms
-[00:16:15.214] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:16:15.542] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:18:27.534] Server  LOG      ✓ Compiled in 36ms
-[00:18:31.526] Browser LOG     THREE.WebGLRenderer: Context Lost.
-[00:18:40.012] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:18:40.360] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:18:48.311] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:18:48.631] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:26:13.205] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:27:25.856] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:27:26.158] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:27:27.837] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:27:28.135] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:27:35.892] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:27:36.239] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:31:41.096] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:31:41.521] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:36:44.138] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:36:44.485] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:36:46.743] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:36:47.043] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:36:55.688] Server  LOG      ✓ Compiled in 51ms
-[00:37:10.892] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:37:11.174] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:38:19.884] Server  LOG      ✓ Compiled in 88ms
-[00:39:08.883] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:39:09.165] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:40:32.050] Server  LOG      ✓ Compiled in 65ms
-[00:41:48.151] Server  LOG      ✓ Compiled in 58ms
-[00:42:08.779] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:42:09.070] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:47:30.759] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:47:31.127] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:40:51.746] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:40:52.034] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:41:41.594] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:41:41.990] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes

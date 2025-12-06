@@ -207,36 +207,14 @@ function HeroSection() {
                 Explore Our Work
               </Link>
             </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              custom={5}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              className="pt-8 flex items-center justify-center lg:justify-start gap-12 border-t border-slate-100"
-            >
-              <div>
-                <p className="text-3xl font-bold text-slate-900">500+</p>
-                <p className="text-sm text-slate-500 font-medium">Projects Delivered</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-slate-900">98%</p>
-                <p className="text-sm text-slate-500 font-medium">Client Satisfaction</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-slate-900">24/7</p>
-                <p className="text-sm text-slate-500 font-medium">Expert Support</p>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* 3D Scene column */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="h-[400px] w-[400px] lg:h-[600px] lg:w-[600px] relative flex items-center justify-center lg:justify-end mx-auto lg:mr-0 lg:ml-auto"
+            className="h-[400px] w-[400px] lg:h-[600px] lg:w-[600px] relative flex items-center justify-center lg:justify-end mx-auto lg:mr-0 lg:ml-auto flex-shrink-0"
           >
             {/* Simplified 3D scene rendering */}
             <div className="relative z-10 h-full w-full">
