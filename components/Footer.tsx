@@ -2,7 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Linkedin, Twitter, Github, Instagram, Send, ArrowUp, ChevronDown } from "lucide-react";
+import { Linkedin, Twitter, Github, Instagram, Send, ChevronDown } from "lucide-react";
+import ScrollToTop from "./ScrollToTop";
 import { useState, useEffect, useCallback } from "react";
 
 // Custom Hook for Media Query
@@ -93,60 +94,7 @@ function FooterSection({
   );
 }
 
-// Scroll to Top Button Component
-function ScrollToTopButton() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isHidden, setIsHidden] = useState(false);
 
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    const handleScrollVisibility = (e: any) => {
-      setIsHidden(e.detail.isHidden);
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    window.addEventListener("toggle-scroll-button", handleScrollVisibility);
-
-    return () => {
-      window.removeEventListener("scroll", toggleVisibility);
-      window.removeEventListener("toggle-scroll-button", handleScrollVisibility);
-    };
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  return (
-    <AnimatePresence>
-      {isVisible && !isHidden && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0, y: 20 }}
-          transition={{ duration: 0.3, type: "spring", stiffness: 260, damping: 20 }}
-          whileHover={{ scale: 1.1, y: -2 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-[9998] w-14 h-14 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 flex items-center justify-center cursor-pointer transition-all duration-300"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp className="w-6 h-6" strokeWidth={2.5} />
-        </motion.button>
-      )}
-    </AnimatePresence>
-  );
-}
 
 // Newsletter Form Component with Paper Plane Animation
 function NewsletterForm() {
@@ -376,7 +324,7 @@ export default function Footer() {
       </div>
 
       {/* Scroll to Top Button */}
-      <ScrollToTopButton />
+      <ScrollToTop />
     </footer>
   );
 }
