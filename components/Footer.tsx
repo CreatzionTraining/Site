@@ -1,8 +1,129 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Linkedin, Twitter, Github, Instagram } from "lucide-react";
+import { Linkedin, Twitter, Github, Instagram, Send, ArrowUp } from "lucide-react";
+import { useState, useEffect } from "react";
+
+
+// Scroll to Top Button Component
+function ScrollToTopButton() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0, y: 20 }}
+          transition={{ duration: 0.3, type: "spring", stiffness: 260, damping: 20 }}
+          whileHover={{ scale: 1.1, y: -2 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-[9998] w-14 h-14 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 flex items-center justify-center cursor-pointer transition-all duration-300"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-6 h-6" strokeWidth={2.5} />
+        </motion.button>
+      )}
+    </AnimatePresence>
+  );
+}
+
+// Newsletter Form Component with Paper Plane Animation
+function NewsletterForm() {
+  const [isFlying, setIsFlying] = useState(false);
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsFlying(true);
+
+    // Reset after animation
+    setTimeout(() => {
+      setIsFlying(false);
+      setEmail("");
+    }, 1000);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="relative">
+      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center max-w-xl mx-auto">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your email"
+          required
+          className="w-full sm:flex-1 px-6 py-4 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-blue-200 text-slate-900 placeholder-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all shadow-lg shadow-blue-100/50"
+        />
+        <motion.button
+          type="submit"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all overflow-hidden group"
+        >
+          <span className="relative z-10 flex items-center gap-2">
+            Subscribe
+            <AnimatePresence>
+              {!isFlying && (
+                <motion.div
+                  initial={{ opacity: 1, x: 0, rotate: 0 }}
+                  exit={{
+                    opacity: 0,
+                    x: 500,
+                    rotate: 45,
+                    transition: { duration: 0.6, ease: "easeIn" }
+                  }}
+                >
+                  <Send className="w-5 h-5" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </span>
+
+          {/* Background gradient animation */}
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+        </motion.button>
+      </div>
+
+      {/* Success message */}
+      <AnimatePresence>
+        {isFlying && (
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="text-center mt-4 text-green-600 font-semibold"
+          >
+            ✓ Subscribed successfully!
+          </motion.p>
+        )}
+      </AnimatePresence>
+    </form>
+  );
+}
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,29 +131,23 @@ export default function Footer() {
   const footerLinks = {
     company: [
       { name: "About Us", href: "#about" },
-      { name: "Careers", href: "#careers" },
-      { name: "Blog", href: "#blog" },
       { name: "Contact", href: "#contact" },
     ],
     services: [
-      { name: "AI Solutions", href: "#services" },
-      { name: "3D Development", href: "#services" },
-      { name: "Cloud Services", href: "#services" },
-      { name: "Consulting", href: "#services" },
+      { name: "AI", href: "#services" },
+      { name: "3D", href: "#services" },
     ],
     resources: [
-      { name: "Documentation", href: "#docs" },
-      { name: "Case Studies", href: "#cases" },
-      { name: "Whitepapers", href: "#papers" },
+      { name: "Cases", href: "#cases" },
       { name: "Support", href: "#support" },
     ],
   };
 
   const socialLinks = [
-    { name: "LinkedIn", Icon: Linkedin, href: "#" },
-    { name: "Twitter", Icon: Twitter, href: "#" },
-    { name: "GitHub", Icon: Github, href: "#" },
-    { name: "Instagram", Icon: Instagram, href: "#" },
+    { name: "LinkedIn", Icon: Linkedin, href: "https://www.linkedin.com/company/creatzion" },
+    { name: "Twitter", Icon: Twitter, href: "https://twitter.com/creatzion" },
+    { name: "GitHub", Icon: Github, href: "https://github.com/creatzion" },
+    { name: "Instagram", Icon: Instagram, href: "https://www.instagram.com/creatzion" },
   ];
 
   return (
@@ -48,10 +163,11 @@ export default function Footer() {
               viewport={{ once: true }}
               className="mb-6"
             >
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">CREATZION</h3>
+              <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4 tracking-tight">
+                CREATZION
+              </h3>
               <p className="text-slate-600 leading-relaxed max-w-md">
-                Building the future of technology with innovative AI solutions,
-                immersive 3D experiences, and next-generation cloud infrastructure.
+                Building the future with AI, 3D, and Cloud.
               </p>
             </motion.div>
 
@@ -61,6 +177,8 @@ export default function Footer() {
                 <motion.a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -146,32 +264,27 @@ export default function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-slate-50 p-8 rounded-2xl mb-12 border border-slate-100"
+          className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-12 rounded-3xl mb-12 border border-blue-100 overflow-hidden"
         >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h4 className="text-xl font-bold text-slate-900 mb-2">
-                Stay Updated
-              </h4>
-              <p className="text-slate-600">
-                Get the latest insights on technology and innovation.
-              </p>
-            </div>
-            <div className="flex gap-3 w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                suppressHydrationWarning
-                className="bg-white px-6 py-3 rounded-xl text-slate-900 placeholder-slate-400 outline-none focus:ring-2 focus:ring-blue-500/20 transition-all flex-1 md:w-80 border border-slate-200"
-              />
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-slate-900 hover:bg-slate-800 px-8 py-3 rounded-xl text-white font-bold whitespace-nowrap transition-colors"
-              >
-                Subscribe
-              </motion.button>
-            </div>
+          {/* Background decoration */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-indigo-200/20 to-blue-200/20 rounded-full blur-3xl" />
+
+          <div className="relative z-10 text-center max-w-2xl mx-auto">
+            <motion.h4
+              className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3"
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              Stay Updated
+            </motion.h4>
+            <p className="text-slate-600 mb-8 text-lg">
+              Get the latest tech insights delivered to your inbox.
+            </p>
+
+            {/* Newsletter Form */}
+            <NewsletterForm />
           </div>
         </motion.div>
 
@@ -198,6 +311,9 @@ export default function Footer() {
           </div>
         </motion.div>
       </div>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTopButton />
     </footer>
   );
 }

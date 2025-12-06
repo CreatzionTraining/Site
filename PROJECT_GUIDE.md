@@ -2,6 +2,10 @@
 
 ---
 
+## Google Meet Link
+
+https://meet.google.com/qoc-ronr-tmh
+
 ## 🔗 PROJECT LINKS (ACCESS REQUIRED)
 
 📄 **Google Sheet (ENV Keys)**  
