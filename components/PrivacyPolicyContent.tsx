@@ -77,7 +77,7 @@ export default function PrivacyPolicyContent({ onClose }: PrivacyPolicyContentPr
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
+      <header className="md:sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 sm:gap-4">
@@ -177,22 +177,25 @@ export default function PrivacyPolicyContent({ onClose }: PrivacyPolicyContentPr
               </nav>
 
               {/* Quick Actions - Desktop only */}
-              <div className="hidden lg:block mt-8 p-6 bg-gray-50 rounded-xl border border-gray-200">
-                <h3 className="text-sm font-bold text-gray-900 mb-4">Quick Actions</h3>
-                <div className="space-y-3">
+              {/* Quick Actions - Desktop only */}
+              <div className="hidden lg:block mt-6 pt-6 border-t border-gray-200">
+                <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3 px-4">
+                  Quick Actions
+                </h3>
+                <div className="space-y-1">
                   <button
-                    onClick={() => scrollToSection('contact')}
-                    className="w-full flex items-center gap-2 text-sm text-blue-700 hover:text-blue-800 font-medium"
+                    onClick={() => setShowContactModal(true)}
+                    className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-700 transition-all group"
                   >
-                    <Mail className="w-4 h-4" />
-                    Contact DPO
+                    <Mail className="w-4 h-4 group-hover:text-blue-700 transition-colors" />
+                    <span className="text-left">Contact DPO</span>
                   </button>
                   <button
                     onClick={() => scrollToSection('rights')}
-                    className="w-full flex items-center gap-2 text-sm text-blue-700 hover:text-blue-800 font-medium"
+                    className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-700 transition-all group"
                   >
-                    <Scale className="w-4 h-4" />
-                    Exercise Rights
+                    <Scale className="w-4 h-4 group-hover:text-blue-700 transition-colors" />
+                    <span className="text-left">Exercise Rights</span>
                   </button>
                 </div>
               </div>
@@ -233,12 +236,12 @@ export default function PrivacyPolicyContent({ onClose }: PrivacyPolicyContentPr
                   </div>
 
                   {/* Image */}
-                  <div className="relative h-96 w-full rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100">
+                  <div className="relative h-48 sm:h-56 md:h-64 w-full rounded-2xl overflow-hidden mb-8 shadow-lg">
                     <Image
-                      src="/privacy policy.png"
+                      src="/hero_privacy_v2.png"
                       alt="Privacy Policy"
                       fill
-                      className="object-contain p-8"
+                      className="object-cover"
                     />
                   </div>
 
@@ -494,12 +497,12 @@ export default function PrivacyPolicyContent({ onClose }: PrivacyPolicyContentPr
                 </p>
 
                 {/* Image */}
-                <div className="relative h-80 w-full rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-orange-50 to-red-50 border border-orange-100">
+                <div className="relative h-48 sm:h-56 md:h-64 w-full rounded-2xl overflow-hidden mb-8 shadow-lg">
                   <Image
-                    src="/security.png"
+                    src="/hero_security.png"
                     alt="Information Security"
                     fill
-                    className="object-contain p-8"
+                    className="object-cover"
                   />
                 </div>
 
@@ -679,12 +682,12 @@ export default function PrivacyPolicyContent({ onClose }: PrivacyPolicyContentPr
                 </p>
 
                 {/* Image */}
-                <div className="relative h-80 w-full rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-teal-50 to-cyan-50 border border-teal-100">
+                <div className="relative h-48 sm:h-56 md:h-64 w-full rounded-2xl overflow-hidden mb-8 shadow-lg">
                   <Image
-                    src="/globe.png"
+                    src="/hero_globe_new.png"
                     alt="Global Data Transfers"
                     fill
-                    className="object-contain p-8"
+                    className="object-cover"
                   />
                 </div>
 
