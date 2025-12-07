@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  font-size: 14px;
   --background: #F7F9FB;
   --foreground: #0B1320;
   --primary-blue: #0A66C2;
@@ -30,4 +31,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Inter', sans-serif;
+}
+
+/* Hide scrollbar for horizontal scroll navigation */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

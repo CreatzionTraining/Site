@@ -1,13 +1,13 @@
 __turbopack_load_page_chunks__("/_error", [
-  "static/chunks/bd12c_next_dist_compiled_6a32e4cd._.js",
-  "static/chunks/bd12c_next_dist_shared_lib_ac92a8e8._.js",
-  "static/chunks/bd12c_next_dist_client_9bec8b55._.js",
-  "static/chunks/bd12c_next_dist_973563bc._.js",
-  "static/chunks/bd12c_next_error_43d9fbb6.js",
-  "static/chunks/[next]_entry_page-loader_ts_32b147e9._.js",
-  "static/chunks/bd12c_react-dom_2770344c._.js",
-  "static/chunks/bd12c_a7dcf232._.js",
-  "static/chunks/[root-of-the-server]__b668eb19._.js",
-  "static/chunks/OneDrive_Desktop_Company_Portfolio_pages__error_2da965e7._.js",
-  "static/chunks/turbopack-OneDrive_Desktop_Company_Portfolio_pages__error_19e5d761._.js"
+  "static/chunks/24f09_next_dist_compiled_7db528ab._.js",
+  "static/chunks/24f09_next_dist_shared_lib_24c87ef0._.js",
+  "static/chunks/24f09_next_dist_client_dd457d49._.js",
+  "static/chunks/24f09_next_dist_11f49dd2._.js",
+  "static/chunks/24f09_next_error_f4d2bddb.js",
+  "static/chunks/[next]_entry_page-loader_ts_b77c3663._.js",
+  "static/chunks/24f09_react-dom_d0f72f42._.js",
+  "static/chunks/24f09_a4b05d7a._.js",
+  "static/chunks/[root-of-the-server]__91cd9874._.js",
+  "static/chunks/Desktop_Site_pages__error_2da965e7._.js",
+  "static/chunks/turbopack-Desktop_Site_pages__error_7a9d257b._.js"
 ])
