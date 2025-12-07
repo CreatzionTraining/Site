@@ -1,30 +1,17 @@
-[00:00:01.397] Server  LOG      ✓ Ready in 989ms
-[00:00:05.363] Server  LOG      ○ Compiling / ...
-[00:00:06.497] Server  ERROR   C:\Users\SAKTHI\OneDrive\Desktop\Company_Portfolio\.next\dev\server\chunks\ssr\[root-of-the-server]__361b74ac._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:06.499] Server  ERROR    ⨯ ReferenceError: ScrollToTop is not defined
-[00:00:06.636] Server  ERROR   C:\Users\SAKTHI\OneDrive\Desktop\Company_Portfolio\.next\dev\server\chunks\ssr\[root-of-the-server]__361b74ac._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:06.636] Server  ERROR    ⨯ ReferenceError: ScrollToTop is not defined
-[00:00:06.784] Server  ERROR   C:\Users\SAKTHI\OneDrive\Desktop\Company_Portfolio\.next\dev\server\chunks\ssr\[root-of-the-server]__361b74ac._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:06.784] Server  ERROR    ⨯ ReferenceError: ScrollToTop is not defined
-[00:00:07.073] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:07.082] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:07.264] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:07.567] Browser ERROR   uncaughtError: ReferenceError: ScrollToTop is not defined
-[00:00:08.309] Browser ERROR   uncaughtError: ReferenceError: ScrollToTop is not defined
-[00:00:08.311] Browser ERROR   uncaughtError: ReferenceError: ScrollToTop is not defined
-[00:01:00.703] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:01:00.709] Server  LOG      ✓ Compiled in 60ms
-[00:01:01.284] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:02.321] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:25.936] Browser WARN    Image with src "/cookie.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:01:27.484] Browser WARN    Image with src "/tech_space.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:30.015] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:30.333] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:36.935] Browser WARN    Image with src "/meeting_room.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:41.763] Browser WARN    Image with src "/tech_space.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:45.255] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:01:45.459] Browser WARN    Image with src "/hero_security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:45.611] Browser WARN    Image with src "/hero_privacy_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:45.778] Browser LOG     THREE.WebGLRenderer: Context Lost.
-[00:01:53.322] Browser WARN    Image with src "/hero_globe_new.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:04.490] Server  LOG      ✓ Ready in 3.4s
+[00:00:08.934] Server  LOG      ○ Compiling / ...
+[00:00:25.898] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:32.083] Browser WARN    Image with src "/meeting_room.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:36.180] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:39.973] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:46.065] Browser WARN    Image with src "/meeting_room.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:49.646] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:55.890] Browser WARN    Image with src "/meeting_room.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:02.085] Browser WARN    Image with src "/tech_space.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:09.741] Browser LOG     Form submitted: {"contactNumber":"+919003024825","email":"sarveshkumar13995@gmail.com","inquiryType":"General Inquiry","message":"ghhj","name":"Bhuvan kumar","privacyConsent":false}
+[00:03:30.301] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:30.982] Browser WARN    Image with src "/hero_security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:30.982] Browser LOG     THREE.WebGLRenderer: Context Lost.
+[00:03:31.283] Browser WARN    Image with src "/hero_privacy_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:34.223] Browser WARN    Image with src "/hero_globe_new.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:40.647] Browser LOG     THREE.WebGLRenderer: Context Lost.
