@@ -12,6 +12,21 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function Home() {
+  const [showContactButton, setShowContactButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowContactButton(true);
+      } else {
+        setShowContactButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -103,8 +118,8 @@ export default function Home() {
         <motion.button
           onClick={toggleDrawer}
           className="fixed top-1/2 right-0 z-[9990] -translate-y-1/2 bg-blue-600 text-white shadow-lg shadow-blue-900/20 rounded-l-xl py-8 pl-3.5 pr-4 flex items-center gap-3 cursor-pointer group transition-all duration-300"
-          initial={{ x: 0 }}
-          animate={{ x: isOpen ? "100%" : "0%" }}
+          initial={{ x: "100%" }}
+          animate={{ x: (showContactButton && !isOpen) ? "0%" : "100%" }}
           whileHover={{ x: -4 }}
         >
           <div className="flex flex-col items-center gap-3">
@@ -114,6 +129,7 @@ export default function Home() {
             </span>
           </div>
         </motion.button>
+
 
         {/* Backdrop */}
         <AnimatePresence>

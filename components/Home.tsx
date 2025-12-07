@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -20,10 +20,13 @@ import {
   Rocket,
   Lightbulb,
   Cpu,
-  Star
+  Star,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import Scene3D from "./Scene3D";
-import { Suspense, useRef } from "react";
+import NewsSection from "./NewsSection";
+import { Suspense, useRef, useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "react-intersection-observer";
 import Tilt from "react-parallax-tilt";
@@ -125,27 +128,52 @@ function HeroSection() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
       {/* Hero Logo with Unique Transition */}
-      <motion.div
-        initial={{ y: -100, rotateX: -90, opacity: 0 }}
-        animate={{ y: 0, rotateX: 0, opacity: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 200,
-          damping: 20,
-          delay: 0.5
-        }}
+      <div
         className="absolute top-6 left-6 z-20 pointer-events-auto perspective-[1000px]"
       >
-        <Link href="/" className="relative w-48 sm:w-64 h-12 sm:h-20 block transform-style-3d hover:scale-105 transition-transform duration-300">
-          <Image
-            src="/Logo.png"
-            alt="Creatzion Logo"
-            fill
-            className="object-contain object-left"
-            priority
-          />
+        <Link href="/" className="flex items-center gap-0 sm:gap-1 transform-style-3d hover:scale-105 transition-transform duration-300 group">
+          <motion.div
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 200,
+              damping: 15,
+              delay: 0.2
+            }}
+            className="relative z-20"
+          >
+            <Image
+              src="/creatzion_c_logo.png"
+              alt="Creatzion C Logo"
+              width={80}
+              height={80}
+              className="w-10 h-10 sm:w-16 sm:h-16 object-contain"
+              priority
+            />
+          </motion.div>
+          <motion.div
+            initial={{ x: -40, opacity: 0, scale: 0.9 }}
+            animate={{ x: 0, opacity: 1, scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 150,
+              damping: 20,
+              delay: 0.7
+            }}
+            className="relative z-10"
+          >
+            <Image
+              src="/creatzion_text_logo.png"
+              alt="Creatzion Technology"
+              width={240}
+              height={60}
+              className="h-8 sm:h-12 w-auto object-contain"
+              priority
+            />
+          </motion.div>
         </Link>
-      </motion.div>
+      </div>
 
       <div className="max-w-[90%] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -189,24 +217,9 @@ function HeroSection() {
               and next-generation cloud solutions that drive real growth.
             </motion.p>
 
-            <motion.div
-              custom={4}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <Link href="#contact" className="group relative px-8 py-4 bg-slate-900 text-white rounded-xl font-bold text-lg shadow-lg shadow-blue-900/20 hover:shadow-2xl hover:shadow-blue-600/40 hover:-translate-y-1 hover:scale-105 transition-all duration-300 ease-out overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
-                <span className="relative flex items-center gap-2">
-                  Start Your Project <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Link>
 
-              <Link href="#work" className="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-xl font-bold text-lg hover:border-blue-200 hover:bg-blue-50/50 transition-all duration-200 hover:-translate-y-1">
-                Explore Our Work
-              </Link>
-            </motion.div>
+
+
           </motion.div>
 
           {/* 3D Scene column */}
@@ -312,207 +325,177 @@ function ServicesSection() {
   );
 }
 
-// About Section Component
-function AboutSection() {
+
+
+// CTA Section Component
+function CTASection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
 
-  const features = [
+  const slides = [
     {
-      icon: Zap,
-      title: "Lightning Fast",
-      desc: "Optimized performance for seamless user experiences",
-      color: "text-amber-500",
-      bg: "bg-amber-50"
+      id: 0,
+      image: "/office_team.png",
+      tag: "Innovation Outcomes",
+      title: "Grow your business at the speed of light.",
+      titleHighlight: "speed of light.",
+      desc: "It's your time to shine. Partner with us to create extraordinary digital experiences that drive real results.",
+      stat: "300%",
+      statLabel: "Avg. ROI"
     },
     {
-      icon: Target,
-      title: "Precision Driven",
-      desc: "Data-backed decisions for measurable outcomes",
-      color: "text-red-500",
-      bg: "bg-red-50"
+      id: 1,
+      image: "/meeting_room.png",
+      tag: "Strategic Leadership",
+      title: "Define your future with data-driven strategy.",
+      titleHighlight: "data-driven strategy.",
+      desc: "Unlock potential with insights that matter. We help you navigate complex markets with precision and confidence.",
+      stat: "50%",
+      statLabel: "Efficiency Boost"
     },
     {
-      icon: ShieldCheck,
-      title: "Enterprise Security",
-      desc: "Bank-grade encryption and compliance standards",
-      color: "text-emerald-500",
-      bg: "bg-emerald-50"
-    },
-    {
-      icon: Globe,
-      title: "Global Scale",
-      desc: "Infrastructure that grows with your ambitions",
-      color: "text-blue-500",
-      bg: "bg-blue-50"
-    },
+      id: 2,
+      image: "/tech_space.png",
+      tag: "Engineering Excellence",
+      title: "Build scalable systems for tomorrow.",
+      titleHighlight: "systems for tomorrow.",
+      desc: "Robust architectures that stand the test of time. From cloud to edge, we engineer solutions that perform.",
+      stat: "99.9%",
+      statLabel: "Uptime"
+    }
   ];
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const current = slides[currentSlide];
+
   return (
-    <section id="about" className="py-24 relative bg-slate-50/50" ref={ref}>
-      <div className="max-w-[90%] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold tracking-wide uppercase mb-4">
-              Why Choose Us
-            </span>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-              Innovation Meets{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Excellence</span>
-            </h2>
-
-            <p className="text-lg text-slate-600 leading-relaxed mb-8 font-light">
-              We combine cutting-edge technology with deep industry expertise to deliver
-              solutions that don't just meet expectations—they redefine them.
-            </p>
-
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-8 py-4 rounded-xl bg-slate-900 text-white font-bold text-lg shadow-lg hover:bg-slate-800 transition-colors"
+    <section className="relative w-full bg-slate-50 overflow-hidden" ref={ref}>
+      <div className="flex flex-col lg:flex-row min-h-[700px]">
+        {/* Image Side */}
+        <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-full overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.id}
+              initial={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, scale: 1.05, filter: "blur(5px)" }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="absolute inset-0 h-full w-full"
             >
-              Learn Our Story
-            </motion.button>
-          </motion.div>
+              <Image
+                src={current.image}
+                alt={current.tag}
+                fill
+                className="object-cover"
+                priority
+              />
+              {/* Premium overlay to integrate with theme */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-transparent mix-blend-multiply pointer-events-none" />
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-          {/* Right Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {features.map((feature, index) => (
+        {/* Text Side */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-center p-10 sm:p-16 lg:p-24 bg-white relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.id}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 1.0, ease: "easeOut" }}
+              className="max-w-2xl"
+            >
               <motion.div
-                key={index}
                 initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="mb-6 flex items-center gap-4"
               >
-                <div className={`w-12 h-12 rounded-xl ${feature.bg} ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <feature.icon className="w-6 h-6" strokeWidth={2} />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {feature.desc}
-                </p>
+                <div className="h-[2px] w-12 bg-blue-600"></div>
+                <span className="text-blue-600 font-bold tracking-widest text-sm uppercase">
+                  {current.tag}
+                </span>
               </motion.div>
-            ))}
+
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-10 leading-[1.1] tracking-tight"
+              >
+                {current.title.split(current.titleHighlight)[0]}
+                <span className="text-blue-600">{current.titleHighlight}</span>
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-xl text-slate-600 mb-12 leading-relaxed font-light max-w-lg"
+              >
+                {current.desc}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="flex items-center gap-8"
+              >
+                <button className="group relative pr-16 text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors">
+                  Get Your Free Roadmap
+                  <motion.span
+                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-blue-600 text-white rounded-full p-2 group-hover:bg-blue-700 transition-all duration-300 group-hover:right-[-10px]"
+                  >
+                    <ArrowRight className="w-5 h-5" />
+                  </motion.span>
+                </button>
+
+                <div className="h-10 w-[1px] bg-slate-200"></div>
+
+                <div className="flex flex-col">
+                  <span className="text-3xl font-bold text-blue-600">{current.stat}</span>
+                  <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{current.statLabel}</span>
+                </div>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Navigation Buttons - Bottom Right Corner */}
+          <div className="absolute bottom-0 right-0 flex z-20">
+            <button
+              onClick={prevSlide}
+              className="w-16 h-16 sm:w-20 sm:h-20 bg-slate-50 text-slate-900 flex items-center justify-center hover:bg-slate-100 transition-colors border-t border-l border-slate-200"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-colors shadow-2xl shadow-blue-900/20"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-// CTA Section Component
-function CTASection() {
-  const { ref, inView } = useInView({
-    threshold: 0.3,
-    triggerOnce: true,
-  });
-
-  return (
-    <section className="py-12 relative overflow-hidden" ref={ref}>
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#004f9e]/5 via-[#0082ef]/5 to-[#00a8ff]/5"></div>
-
-      <div className="max-w-[90%] 2xl:max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="glass-card p-10 lg:p-14 rounded-3xl border border-white/50 shadow-2xl shadow-blue-900/5 backdrop-blur-xl"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-block px-5 py-2.5 rounded-full glass mb-6"
-          >
-            <span className="text-[#0056b3] font-bold text-sm tracking-wide uppercase">Let's Build Together</span>
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a192f] mb-6 leading-tight"
-          >
-            Ready to Transform Your{" "}
-            <span className="gradient-text">Vision?</span>
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-lg lg:text-xl text-[#4a5568] mb-10 max-w-2xl mx-auto font-light leading-relaxed"
-          >
-            Partner with us to create extraordinary digital experiences that drive
-            real business results and exceed expectations.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-5 justify-center"
-          >
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="btn-premium px-10 py-4 rounded-xl text-slate-900 font-bold text-lg flex items-center justify-center gap-3 group shadow-lg shadow-blue-500/10"
-            >
-              <span>Schedule Consultation</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="glass px-10 py-4 rounded-xl text-[#0056b3] font-bold text-lg border border-[#0082ef]/20 hover:border-[#00a8ff]/40 transition-all duration-300"
-            >
-              View Portfolio
-            </motion.button>
-          </motion.div>
-
-          {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="mt-10 pt-10 border-t border-gray-200/60"
-          >
-            <p className="text-[#6c757d] text-xs font-semibold uppercase tracking-wider mb-6">Trusted by industry leaders worldwide</p>
-            <div className="flex flex-wrap items-center justify-center gap-8 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-              {[
-                { Icon: Building2, label: "Enterprise" },
-                { Icon: Rocket, label: "Startups" },
-                { Icon: Lightbulb, label: "Innovation" },
-                { Icon: Cpu, label: "Tech" },
-                { Icon: Star, label: "Quality" }
-              ].map(({ Icon, label }, i) => (
-                <motion.div
-                  key={i}
-                  className="text-[#0056b3] flex flex-col items-center gap-2"
-                  whileHover={{ scale: 1.05, opacity: 1, color: "#007bff" }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                  title={label}
-                >
-                  <Icon className="w-8 h-8" strokeWidth={1.5} />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );
@@ -524,8 +507,8 @@ export default function Hero() {
     <>
       <HeroSection />
       <ServicesSection />
-      <AboutSection />
       <CTASection />
+      <NewsSection />
     </>
   );
 }

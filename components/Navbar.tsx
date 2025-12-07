@@ -133,14 +133,12 @@ export default function Navbar() {
                 {navItems.map((item, i) => (
                   <motion.li
                     key={item}
-                    initial={{ y: -100, opacity: 0, scale: 0.5 }}
-                    animate={{ y: 0, opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{
-                      delay: i * 0.15,
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 12,
-                      mass: 1
+                      delay: i * 0.1,
+                      duration: 0.4,
+                      ease: "easeOut"
                     }}
                   >
                     <Link
