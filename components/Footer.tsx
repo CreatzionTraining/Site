@@ -443,11 +443,11 @@ export default function Footer({}: FooterProps) {
                 Privacy Policy
               </Link>
               <span className="text-white/40">•</span>
-                <Link href="#terms" className="text-white/60 hover:text-[#0077FF] transition-colors duration-300 px-3 py-1">
+                <Link href="/terms" className="text-white/60 hover:text-[#0077FF] transition-colors duration-300 px-3 py-1">
                   Terms of Service
                 </Link>
                 <span className="text-white/40">•</span>
-                <Link href="#cookies" className="text-white/60 hover:text-[#0077FF] transition-colors duration-300 px-3 py-1">
+                <Link href="/cookies" className="text-white/60 hover:text-[#0077FF] transition-colors duration-300 px-3 py-1">
                   Cookie Policy
                 </Link>
               </div>

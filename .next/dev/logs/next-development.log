@@ -1,284 +1,135 @@
-[00:00:02.632] Server  LOG      ✓ Ready in 1886ms
-[00:00:08.055] Server  LOG      ○ Compiling / ...
-[00:00:22.221] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:26.730] Browser WARN    Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:26.731] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:02:11.074] Server  LOG      ✓ Compiled in 686ms
-[00:02:20.039] Server  LOG      ✓ Compiled in 317ms
-[00:02:47.227] Server  LOG      ✓ Compiled in 142ms
-[00:02:47.675] Browser ERROR   ./Desktop/Site/app/page.tsx:17:14
-Parsing ecmascript source code failed
-  15 |                 </button>
-  16 |               </div>
-> 17 |             </motion.div>
-     |              ^^^^^^^^^^^^
-  18 |           )}
-  19 |         </AnimatePresence>
-  20 |
-
-Unterminated regexp literal
-
-Import traces:
-  Client Component Browser:
-    ./Desktop/Site/app/page.tsx [Client Component Browser]
-    ./Desktop/Site/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./Desktop/Site/app/page.tsx [Client Component SSR]
-    ./Desktop/Site/app/page.tsx [Server Component]
-[00:03:05.762] Browser LOG     THREE.WebGLRenderer: Context Lost.
-[00:03:44.512] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:46.199] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/Desktop/S...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-+                           className="inter_5972bc34-module__OU16Qa__className"
--                           className="inter_5972bc34-module__OU16Qa__className antigravity-scroll-lock"
-                          >
-                  ...
-
-[00:03:47.230] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:04:59.977] Server  LOG      ○ Compiling /privacy ...
-[00:05:24.213] Browser LOG     THREE.WebGLRenderer: Context Lost.
-[00:05:24.597] Browser WARN    Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:05:24.980] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:05:36.147] Browser LOG     THREE.WebGLRenderer: Context Lost.
-[00:05:39.665] Browser WARN    Image with src "/security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:05:44.177] Browser WARN    Image with src "/globe.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:07:33.675] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:07:44.709] Server  LOG      ✓ Compiled in 123ms
-[00:07:52.712] Browser WARN    Image with src "/security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:07:59.689] Browser WARN    Image with src "/globe.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:11:53.148] Server  LOG      ✓ Compiled in 831ms
-[00:12:14.974] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:12:20.006] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/privacy" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/Desktop/S...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <RootLayout>
-                        <html
-                          lang="en"
--                         data-jetski-tab-id="413094220"
-                        >
-                  ...
-
-[00:12:20.006] Browser WARN    Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:12:20.006] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:12:52.493] Browser WARN    Image with src "/security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:12:53.561] Browser WARN    Image with src "/globe.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:15:07.685] Server  LOG      ✓ Compiled in 358ms
-[00:16:01.782] Server  LOG      ✓ Compiled in 1363ms
-[00:16:35.439] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:16:36.391] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/privacy" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/Desktop/S...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <RootLayout>
-                        <html
-                          lang="en"
--                         data-jetski-tab-id="413094309"
-                        >
-                  ...
-
-[00:16:36.391] Browser WARN    Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:16:36.391] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:17:08.559] Browser WARN    Image with src "/security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:17:08.732] Browser WARN    Image with src "/globe.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:29:18.051] Server  LOG      ✓ Compiled in 816ms
-[00:29:18.379] Browser ERROR   uncaughtError: ReferenceError: AnimatePresence is not defined
-[00:29:38.685] Server  LOG      ✓ Compiled in 636ms
-[00:29:38.757] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:29:43.150] Browser WARN    Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:29:43.150] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:30:05.797] Browser WARN    Image with src "/security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:30:06.185] Browser WARN    Image with src "/globe.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:30:19.050] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:30:20.772] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/privacy" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/Desktop/S...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <RootLayout>
-                        <html
-                          lang="en"
--                         data-jetski-tab-id="413094398"
-                        >
-                  ...
-
-[00:30:20.772] Browser WARN    Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:30:21.148] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:30:53.460] Browser LOG     Contact form submitted: {"email":"sarveshkumar13995@gmail.com","message":"asdasdasasdasd","name":"wadswsadasd","subject":"data-access"}
-[00:31:22.255] Browser LOG     Contact form submitted: {"email":"bhuvankumar142004@gmail.com","message":"adasda","name":"asdasadasdasdasda","subject":"data-access"}
-[00:33:04.138] Server  LOG      ✓ Compiled in 445ms
-[00:33:38.088] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:33:38.845] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/privacy" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/Desktop/S...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <RootLayout>
-                        <html
-                          lang="en"
--                         data-jetski-tab-id="413094580"
-                        >
-                  ...
-
-[00:33:38.845] Browser WARN    Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:33:39.137] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:33:59.166] Browser LOG     Contact form submitted: {"email":"sarveshkumar13995@gmail.com","message":"gyhjghjhg","name":"swedffff","subject":"data-correction"}
-[00:35:56.212] Server  LOG      ✓ Compiled in 191ms
-[00:36:30.042] Server  LOG      ✓ Compiled in 678ms
-[00:37:01.207] Browser LOG     Contact form submitted: {"email":"bhuvankumar142004@gmail.com","message":"asdasd","name":"asdasda","subject":"data-deletion"}
-[00:37:28.223] Browser LOG     Contact form submitted: {"email":"bhuvankumar142004@gmail.com","message":"adas","name":"asdasd","subject":"data-correction"}
-[00:42:35.450] Browser LOG     Contact form submitted: {"email":"sarveshkumar13995@gmail.com","message":"sfdsf","name":"sdfsd","subject":"data-deletion"}
-[00:44:19.578] Browser LOG     Contact form submitted: {"email":"sarveshkumar13995@gmail.com","message":"dfsdfsd","name":"sdfs","subject":"data-access"}
-[01:00:54.689] Browser LOG     Contact form submitted: {"email":"sarveshkumar13995@gmail.com","message":"sfsdf","name":"sdfsdf","subject":"data-deletion"}
-[01:01:09.432] Server  LOG      ✓ Compiled in 1981ms
-[01:01:18.993] Browser LOG     Contact form submitted: {"email":"sarveshkumar13995@gmail.com","message":"sdfsdf","name":"sdsd","subject":"data-access"}
-[01:01:44.568] Browser WARN    Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[01:02:29.526] Browser LOG     Contact form submitted: {"email":"bhuvankumar142004@gmail.com","message":"dzdfxgdxht","name":"yfdydy","subject":"data-access"}
-[01:02:44.829] Browser WARN    Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[01:02:44.829] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[01:02:46.951] Browser WARN    Image with src "/security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[01:02:53.317] Browser WARN    Image with src "/globe.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[01:06:08.061] Server  LOG      ✓ Compiled in 219ms
-[01:06:50.395] Server  LOG      ✓ Compiled in 465ms
-[01:07:18.667] Browser WARN    Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[01:07:18.667] Browser WARN    Image with src "/security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[01:07:18.667] Browser WARN    Image with src "/globe.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[01:07:22.003] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[01:08:08.175] Browser WARN    Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[01:10:04.149] Server  LOG      ✓ Compiled in 743ms
-[01:10:04.719] Browser ERROR   unhandledRejection: Error: No link element found for chunk /_next/static/chunks/%5Broot-of-the-server%5D__0fec4874._.css
-[01:10:57.847] Server  LOG      ✓ Compiled in 634ms
-[01:10:57.848] Browser ERROR   uncaughtError: NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
-[01:10:57.848] Browser ERROR   uncaughtError: NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
-[01:10:57.848] Browser ERROR   unhandledRejection: Error: No link element found for chunk /_next/static/chunks/%5Broot-of-the-server%5D__0fec4874._.css
-[01:13:12.306] Server  LOG      ✓ Compiled in 632ms
-[01:13:16.669] Browser ERROR   unhandledRejection: Error: No link element found for chunk /_next/static/chunks/%5Broot-of-the-server%5D__0fec4874._.css
-[01:13:41.111] Server  LOG      ✓ Compiled in 917ms
-[01:13:44.665] Browser ERROR   unhandledRejection: Error: No link element found for chunk /_next/static/chunks/%5Broot-of-the-server%5D__0fec4874._.css
-[01:13:44.665] Browser ERROR   unhandledRejection: Error: No link element found for chunk /_next/static/chunks/%5Broot-of-the-server%5D__0fec4874._.css
-[01:14:07.299] Server  LOG      ✓ Compiled in 770ms
-[01:14:07.544] Browser ERROR   unhandledRejection: Error: No link element found for chunk /_next/static/chunks/%5Broot-of-the-server%5D__0fec4874._.css
-[01:16:23.858] Server  LOG      ✓ Compiled in 601ms
-[01:16:26.428] Browser ERROR   unhandledRejection: Error: No link element found for chunk /_next/static/chunks/%5Broot-of-the-server%5D__0fec4874._.css
-[01:17:16.079] Server  LOG      ✓ Compiled in 532ms
-[01:17:16.674] Browser ERROR   unhandledRejection: Error: No link element found for chunk /_next/static/chunks/%5Broot-of-the-server%5D__0fec4874._.css
-[01:17:54.471] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:03.356] Server  LOG      ✓ Ready in 2.4s
+[00:00:10.192] Server  LOG      ○ Compiling / ...
+[00:00:24.075] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:41.991] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:54.100] Server  LOG      ○ Compiling /privacy ...
+[00:01:01.166] Browser LOG     THREE.WebGLRenderer: Context Lost.
+[00:01:32.818] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:02:21.693] Server  LOG      ✓ Compiled in 1080ms
+[00:04:40.887] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:06:40.194] Browser LOG     Contact form submitted: {"email":"sarveshkumar13995@gmail.com","message":"zczxc","name":"xzczxc","subject":"data-deletion"}
+[00:06:51.367] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:07:00.654] Browser WARN    Image with src "/privacy policy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:22:54.385] Browser WARN    Image with src "/security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:25:31.919] Browser WARN    Image with src "/globe.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:32:58.841] Server  LOG      ✓ Compiled in 576ms
+[00:33:04.580] Browser WARN    Image with src "/privacy_policy_new.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:33:04.580] Browser WARN    Image with src "/security_new.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:33:04.580] Browser WARN    Image with src "/globe_new.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:40:08.914] Server  LOG      ✓ Compiled in 1089ms
+[00:41:22.742] Browser WARN    Image with src "/privacy_policy_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:41:22.742] Browser WARN    Image with src "/security_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:41:22.742] Browser WARN    Image with src "/globe_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:44:07.408] Server  LOG      ✓ Compiled in 1622ms
+[00:44:08.847] Browser ERROR   unhandledRejection: Error: No link element found for chunk /_next/static/chunks/%5Broot-of-the-server%5D__0fec4874._.css
+[00:44:27.173] Browser WARN    Image with src "/privacy_policy_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:44:39.669] Browser WARN    Image with src "/security_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:44:54.184] Server  LOG      ✓ Compiled in 207ms
+[00:47:14.993] Server  LOG      ✓ Compiled in 2.2s
+[00:47:56.642] Browser WARN    Image with src "/globe_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:50:49.046] Server  LOG      ✓ Compiled in 526ms
+[00:51:31.782] Server  LOG      ✓ Compiled in 215ms
+[00:57:32.911] Server  LOG      ✓ Compiled in 162ms
+[00:57:34.015] Browser WARN    Image with src "/privacy_banner.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:57:34.015] Browser WARN    Image with src "/globe_banner.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:57:34.177] Browser WARN    Image with src "/security_banner.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:03:18.106] Server  LOG      ✓ Compiled in 828ms
+[01:03:19.903] Browser WARN    Image with src "/globe_banner_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:03:19.903] Browser WARN    Image with src "/privacy_banner_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:09:39.409] Browser WARN    Image with src "/globe_banner_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:09:39.519] Browser WARN    Image with src "/globe_banner_v2.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:09:41.510] Browser WARN    Image with src "/security_banner.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:09:42.739] Browser WARN    Image with src "/privacy_banner_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:11:11.939] Browser WARN    Image with src "/privacy_banner_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:11:12.587] Browser WARN    Image with src "/privacy_banner_v2.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:11:15.029] Browser WARN    Image with src "/security_banner.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:11:18.175] Browser WARN    Image with src "/globe_banner_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:11:42.677] Browser WARN    Image with src "/globe_banner_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:11:43.024] Browser WARN    Image with src "/globe_banner_v2.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:11:44.502] Browser WARN    Image with src "/security_banner.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:11:44.502] Browser WARN    Image with src "/privacy_banner_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:12:13.030] Server  LOG      ✓ Compiled in 233ms
+[01:12:14.339] Server  LOG      ✓ Compiled in 232ms
+[01:12:17.461] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/privacy_baner_v2.png" "received" null
+[01:12:35.050] Server  LOG      ✓ Compiled in 316ms
+[01:12:36.895] Server  LOG      ✓ Compiled in 225ms
+[01:12:38.513] Server  LOG      ✓ Compiled in 536ms
+[01:12:39.120] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[01:12:39.120] Browser ERROR   Image is missing required "src" property: <img>
+[01:12:40.033] Browser ERROR   {"message":"Failed to construct 'URL': Invalid URL"}
+[01:12:40.033] Browser ERROR   {"message":"Failed to construct 'URL': Invalid URL"}
+[01:12:40.033] Browser ERROR   uncaughtError: Error: Failed to parse src "p" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[01:12:40.205] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:12:40.988] Server  ERROR   C:\Users\BHUVAN KUMAR\Desktop\Site\.next\dev\server\chunks\ssr\24f09_next_3690cb95._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:12:40.998] Server  ERROR   TypeError: Invalid URL
+[01:12:41.068] Server  ERROR   C:\Users\BHUVAN KUMAR\Desktop\Site\.next\dev\server\chunks\ssr\24f09_next_3690cb95._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:12:41.078] Server  ERROR    ⨯ Error: Failed to parse src "pub" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[01:12:41.142] Browser ERROR   {"message":"Failed to construct 'URL': Invalid URL"}
+[01:12:41.142] Browser ERROR   {"message":"Failed to construct 'URL': Invalid URL"}
+[01:12:41.142] Browser ERROR   uncaughtError: Error: Failed to parse src "pub" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[01:12:42.940] Browser ERROR   {"message":"Failed to construct 'URL': Invalid URL"}
+[01:12:42.940] Browser ERROR   {"message":"Failed to construct 'URL': Invalid URL"}
+[01:12:42.940] Browser ERROR   uncaughtError: Error: Failed to parse src "pub" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[01:12:45.639] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:12:45.642] Server  LOG      ✓ Compiled in 206ms
+[01:12:46.495] Server  ERROR   C:\Users\BHUVAN KUMAR\Desktop\Site\.next\dev\server\chunks\ssr\24f09_next_3690cb95._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:12:46.516] Server  ERROR   TypeError: Invalid URL
+[01:12:46.571] Server  ERROR   C:\Users\BHUVAN KUMAR\Desktop\Site\.next\dev\server\chunks\ssr\24f09_next_3690cb95._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:12:46.600] Server  ERROR    ⨯ Error: Failed to parse src "public/privacy_policy_v2.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[01:12:49.893] Browser ERROR   {"message":"Failed to construct 'URL': Invalid URL"}
+[01:12:49.893] Browser ERROR   {"message":"Failed to construct 'URL': Invalid URL"}
+[01:12:49.893] Browser ERROR   uncaughtError: Error: Failed to parse src "public/privacy_policy_v2.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[01:12:56.251] Server  LOG      ✓ Compiled in 206ms
+[01:12:56.318] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:12:57.817] Server  ERROR   C:\Users\BHUVAN KUMAR\Desktop\Site\.next\dev\server\chunks\ssr\24f09_next_3690cb95._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:12:57.822] Server  ERROR   TypeError: Invalid URL
+[01:12:57.983] Server  ERROR   C:\Users\BHUVAN KUMAR\Desktop\Site\.next\dev\server\chunks\ssr\24f09_next_3690cb95._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:12:58.054] Server  ERROR    ⨯ Error: Failed to parse src "public/privacy_banner_v2.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[01:12:59.448] Browser ERROR   {"message":"Failed to construct 'URL': Invalid URL"}
+[01:12:59.448] Browser ERROR   {"message":"Failed to construct 'URL': Invalid URL"}
+[01:12:59.448] Browser ERROR   uncaughtError: Error: Failed to parse src "public/privacy_banner_v2.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[01:13:06.257] Server  LOG      ✓ Compiled in 241ms
+[01:13:06.697] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:13:07.854] Server  ERROR   C:\Users\BHUVAN KUMAR\Desktop\Site\.next\dev\server\chunks\ssr\24f09_next_3690cb95._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:13:07.873] Server  ERROR   TypeError: Invalid URL
+[01:13:07.905] Server  ERROR   C:\Users\BHUVAN KUMAR\Desktop\Site\.next\dev\server\chunks\ssr\24f09_next_3690cb95._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:13:07.935] Server  ERROR    ⨯ Error: Failed to parse src "privacy_banner_v2.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[01:13:09.243] Server  LOG      ✓ Compiled in 7ms
+[01:13:12.429] Browser ERROR   {"message":"Failed to construct 'URL': Invalid URL"}
+[01:13:12.429] Browser ERROR   {"message":"Failed to construct 'URL': Invalid URL"}
+[01:13:12.429] Browser ERROR   uncaughtError: Error: Failed to parse src "./privacy_banner_v2.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[01:13:14.215] Server  LOG      ✓ Compiled in 377ms
+[01:13:14.229] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:13:17.345] Browser WARN    Image with src "/privacy_banner_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:13:17.346] Browser WARN    Image with src "/security_banner.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:13:17.346] Browser WARN    Image with src "/globe_banner_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:17:08.214] Server  LOG      ✓ Compiled in 227ms
+[01:17:08.903] Browser WARN    Image with src "/privacy_banner.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:21:54.868] Server  LOG      ✓ Compiled in 863ms
+[01:21:57.076] Browser WARN    Image with src "/hero_security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:21:57.510] Browser WARN    Image with src "/hero_privacy.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:21:58.185] Browser WARN    Image with src "/hero_globe.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:27:47.224] Server  LOG      ✓ Compiled in 518ms
+[01:27:50.891] Browser WARN    Image with src "/user_globe_final.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:27:50.891] Browser WARN    Image with src "/hero_privacy_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:34:04.819] Server  LOG      ✓ Compiled in 447ms
+[01:34:05.745] Browser WARN    Image with src "/hero_globe_new.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:34:52.774] Browser WARN    Image with src "/hero_privacy_v2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:36:41.625] Server  LOG      ✓ Compiled in 658ms
+[01:36:56.353] Browser WARN    Image with src "/hero_security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:37:01.413] Browser WARN    Image with src "/hero_globe_new.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:41:32.644] Browser WARN    Image with src "/Logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:42:49.243] Server  LOG      ✓ Compiled in 254ms
+[01:44:05.227] Server  LOG      ✓ Compiled in 307ms
+[01:44:31.699] Server  LOG      ✓ Compiled in 285ms
+[01:44:51.308] Server  LOG      ○ Compiling /terms ...
+[01:44:59.903] Browser WARN    Image with src "/hero_security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:45:01.897] Browser LOG     THREE.WebGLRenderer: Context Lost.
+[01:45:45.058] Browser ERROR   uncaughtError: ReferenceError: Eye is not defined
+[01:46:46.118] Server  LOG      ✓ Compiled in 1043ms
+[01:46:47.660] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:46:50.893] Browser WARN    Image with src "/hero_security.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:47:06.811] Browser WARN    Image with src "/hero_globe_new.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
