@@ -2,192 +2,314 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Linkedin, Twitter, Github, Instagram, Send, ChevronDown } from "lucide-react";
-import ScrollToTop from "./ScrollToTop";
-import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import { Linkedin, Twitter, Github, Instagram, Send, ArrowUp, ChevronDown, Mail } from "lucide-react";
+import { useState, useEffect } from "react";
 
-// Custom Hook for Media Query
-const useMediaQuery = (width: number) => {
-  const [targetReached, setTargetReached] = useState(false);
-
-  const updateTarget = useCallback((e: MediaQueryListEvent) => {
-    if (e.matches) {
-      setTargetReached(true);
-    } else {
-      setTargetReached(false);
-    }
-  }, []);
+// Scroll to Top Button Component
+function ScrollToTopButton() {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const media = window.matchMedia(`(max-width: ${width}px)`);
-    media.addListener(updateTarget);
-    setTargetReached(media.matches);
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
 
-    return () => media.removeListener(updateTarget);
-  }, [width, updateTarget]);
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
 
-  return targetReached;
-};
-
-// Reusable Footer Section Component
-function FooterSection({
-  title,
-  links,
-  className,
-  delay
-}: {
-  title: string,
-  links: { name: string, href: string }[],
-  className?: string,
-  delay: number
-}) {
-  const [isOpen, setIsOpen] = useState(false);
-  const isMobile = useMediaQuery(768);
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay, duration: 0.5 }}
-    >
-      <div
-        onClick={() => isMobile && setIsOpen(!isOpen)}
-        className="flex items-center justify-between cursor-pointer md:cursor-default group select-none"
-      >
-        <h4 className="text-slate-900 font-bold text-lg mb-4 md:mb-6 tracking-wide">{title}</h4>
-        <ChevronDown
-          className={`w-5 h-5 text-slate-400 md:hidden transition-transform duration-300 mb-4 md:mb-6 ${isOpen ? 'rotate-180' : ''}`}
-        />
-      </div>
-
-      <AnimatePresence>
-        {(!isMobile || isOpen) && (
-          <motion.ul
-            className="space-y-4 overflow-hidden"
-            initial={isMobile ? { height: 0, opacity: 0 } : { opacity: 1 }}
-            animate={isMobile ? { height: "auto", opacity: 1 } : { opacity: 1 }}
-            exit={isMobile ? { height: 0, opacity: 0 } : { opacity: 1 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          >
-            {links.map((link, index) => (
-              <motion.li
-                key={link.name}
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: delay + index * 0.05 }}
-              >
-                <Link
-                  href={link.href}
-                  className="text-slate-600 hover:text-blue-600 transition-colors duration-300 inline-flex items-center group/link"
-                >
-                  <span className="group-hover:translate-x-1 group-hover/link:translate-x-1 transition-transform duration-300">{link.name}</span>
-                </Link>
-              </motion.li>
-            ))}
-          </motion.ul>
-        )}
-      </AnimatePresence>
-    </motion.div>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
+          transition={{ duration: 0.3 }}
+          whileHover={{ scale: 1.1, y: -2 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-[9998] w-12 h-12 bg-[#0A66C2] hover:bg-[#0077FF] text-white rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-5 h-5" strokeWidth={2.5} />
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
 }
 
-
-
-// Newsletter Form Component with Paper Plane Animation
+// Newsletter Form Component
 function NewsletterForm() {
   const [isFlying, setIsFlying] = useState(false);
   const [email, setEmail] = useState("");
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [ripples, setRipples] = useState<{ id: number; x: number; y: number }[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsFlying(true);
 
-    // Reset after animation
     setTimeout(() => {
       setIsFlying(false);
       setEmail("");
+      setShowSuccess(true);
+
+      // Hide success message after 3 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 3000);
     }, 1000);
   };
 
+  const createRipple = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.currentTarget;
+    const rect = button.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const newRipple = { id: Date.now(), x, y };
+    setRipples([...ripples, newRipple]);
+
+    setTimeout(() => {
+      setRipples(prev => prev.filter(r => r.id !== newRipple.id));
+    }, 600);
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="relative">
-      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center max-w-xl mx-auto">
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          required
-          className="w-full sm:flex-1 px-6 py-4 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-blue-200 text-slate-900 placeholder-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all shadow-lg shadow-blue-100/50"
-        />
-        <motion.button
-          type="submit"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all overflow-hidden group"
-        >
-          <span className="relative z-10 flex items-center gap-2">
-            Subscribe
-            <AnimatePresence>
-              {!isFlying && (
-                <motion.div
-                  initial={{ opacity: 1, x: 0, rotate: 0 }}
-                  exit={{
-                    opacity: 0,
-                    x: 500,
-                    rotate: 45,
-                    transition: { duration: 0.6, ease: "easeIn" }
-                  }}
-                >
-                  <Send className="w-5 h-5" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </span>
-
-          {/* Background gradient animation */}
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-        </motion.button>
-      </div>
-
-      {/* Success message */}
-      <AnimatePresence>
-        {isFlying && (
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            className="text-center mt-4 text-green-600 font-semibold"
+    <>
+      <form onSubmit={handleSubmit} className="relative w-full max-w-md">
+        <div className="flex flex-col sm:flex-row gap-3">
+          <div className="relative flex-1">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+              <Mail className="w-5 h-5" />
+            </div>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email address"
+              required
+              suppressHydrationWarning
+              className="w-full pl-12 pr-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 text-sm outline-none focus:border-white focus:ring-2 focus:ring-white/30 transition-all shadow-sm"
+            />
+          </div>
+          <motion.button
+            type="submit"
+            onClick={createRipple}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative px-8 py-3 bg-white text-[#164b80] font-bold rounded-lg transition-all flex items-center justify-center gap-2 text-sm shadow-lg hover:shadow-2xl overflow-hidden group"
           >
-            ✓ Subscribed successfully!
-          </motion.p>
+            {/* Ripple effects */}
+            {ripples.map((ripple) => (
+              <span
+                key={ripple.id}
+                className="absolute rounded-full bg-blue-200 animate-ping opacity-75"
+                style={{
+                  left: ripple.x,
+                  top: ripple.y,
+                  width: '20px',
+                  height: '20px',
+                  transform: 'translate(-50%, -50%)'
+                }}
+              />
+            ))}
+
+            <span className="relative z-10 flex items-center gap-2">
+              Subscribe
+              <AnimatePresence mode="wait">
+                {!isFlying ? (
+                  <motion.div
+                    key="send"
+                    initial={{ opacity: 1 }}
+                    exit={{ opacity: 0, x: 100, rotate: 45, transition: { duration: 0.5 } }}
+                  >
+                    <Send className="w-4 h-4" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="loading"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 360 }}
+                    transition={{ rotate: { duration: 1, repeat: Infinity, ease: "linear" } }}
+                  >
+                    <div className="w-4 h-4 border-2 border-[#164b80] border-t-transparent rounded-full" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </span>
+
+            {/* Animated gradient background on hover */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+
+            {/* Shine effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+          </motion.button>
+        </div>
+      </form>
+
+      {/* Success Popup Notification */}
+      <AnimatePresence>
+        {showSuccess && (
+          <motion.div
+            initial={{ opacity: 0, y: -50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.9 }}
+            transition={{ type: "spring", damping: 20, stiffness: 300 }}
+            className="fixed top-4 left-1/2 -translate-x-1/2 md:top-auto md:bottom-8 md:left-auto md:right-8 md:translate-x-0 z-[9999] bg-white rounded-xl shadow-2xl p-4 flex items-center gap-3 max-w-sm w-[calc(100%-2rem)] md:w-auto"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+              className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0"
+            >
+              <motion.svg
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="w-6 h-6 text-white"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <motion.path d="M20 6L9 17l-5-5" />
+              </motion.svg>
+            </motion.div>
+            <div className="flex-1">
+              <h4 className="text-gray-900 font-bold text-sm">Successfully Subscribed!</h4>
+              <p className="text-gray-600 text-xs mt-0.5">Thank you for subscribing to our newsletter.</p>
+            </div>
+            <button
+              onClick={() => setShowSuccess(false)}
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
-    </form>
+    </>
   );
 }
 
-export default function Footer() {
+// Footer Section with Mobile Dropdown
+function FooterSection({
+  title,
+  links,
+  delay
+}: {
+  title: string;
+  links: { name: string; href: string }[];
+  delay: number;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+    >
+      {/* Mobile: Clickable header with dropdown */}
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-between cursor-pointer md:cursor-default mb-4"
+      >
+        <h4 className="text-white font-semibold text-sm">{title}</h4>
+        <ChevronDown
+          className={`w-4 h-4 text-white/60 md:hidden transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+            }`}
+        />
+      </div>
+
+      {/* Desktop: Always visible, Mobile: Dropdown */}
+      <AnimatePresence initial={false}>
+        <motion.ul
+          initial={false}
+          animate={{
+            height: !isMobile || isOpen ? "auto" : 0,
+            opacity: !isMobile || isOpen ? 1 : 0
+          }}
+          className="space-y-2.5 overflow-hidden md:!h-auto md:!opacity-100"
+        >
+          {links.map((link) => (
+            <li key={link.name}>
+              <Link
+                href={link.href}
+                className="text-white/70 hover:text-white transition-colors duration-300 text-sm inline-block hover:translate-x-1 transform transition-transform"
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </motion.ul>
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+interface FooterProps { }
+
+export default function Footer({ }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = {
-    company: [
-      { name: "About Us", href: "#about" },
-      { name: "Contact", href: "#contact" },
-    ],
-    services: [
-      { name: "AI Solutions", href: "#services" },
-      { name: "3D Design", href: "#services" },
-      { name: "Cloud Services", href: "#services" },
-    ],
-    resources: [
-      { name: "Case Studies", href: "#cases" },
-      { name: "Support", href: "#support" },
-      { name: "Documentation", href: "#docs" },
-    ],
+  const footerSections = {
+    company: {
+      title: "Company",
+      links: [
+        { name: "About Us", href: "#about" },
+        { name: "Careers", href: "#careers" },
+        { name: "Contact", href: "#contact" },
+      ]
+    },
+    services: {
+      title: "Services",
+      links: [
+        { name: "AI Solutions", href: "#services" },
+        { name: "3D Design", href: "#services" },
+        { name: "Cloud Services", href: "#services" },
+      ]
+    },
+    resources: {
+      title: "Resources",
+      links: [
+        { name: "Case Studies", href: "#cases" },
+        { name: "Documentation", href: "#docs" },
+        { name: "Support", href: "#support" },
+      ]
+    }
   };
 
   const socialLinks = [
@@ -198,133 +320,143 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-background pt-20 pb-8 overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+    <footer className="relative bg-[#164b80] text-white overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }} />
       </div>
 
-      <div className="max-w-[90%] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Newsletter Section - At the Top */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          className="relative bg-white/60 backdrop-blur-xl border border-slate-100 p-10 rounded-3xl mb-16 overflow-hidden shadow-sm"
-        >
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main Footer Content */}
+        <div className="py-10">
+          {/* Top Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-8 pb-8 border-b border-white/10">
+            {/* Logo & Description */}
+            <div className="lg:col-span-2">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                {/* Logo Image */}
+                <div className="mb-4">
+                  <Image
+                    src="/logo3 (1).png"
+                    alt="Creatzion Technology"
+                    width={180}
+                    height={50}
+                    className="h-12 w-auto"
+                  />
+                </div>
 
-          <div className="relative z-10 text-center max-w-3xl mx-auto">
-            <motion.h4
-              className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent mb-4"
-              initial={{ opacity: 0, y: -10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              Stay Updated
-            </motion.h4>
-            <p className="text-slate-600 mb-8 text-lg">
-              Get the latest tech insights delivered to your inbox.
-            </p>
+                <p className="text-white/70 text-sm leading-relaxed mb-5">
+                  Building the future with AI, 3D innovation, and cloud solutions.
+                </p>
 
-            {/* Newsletter Form */}
-            <NewsletterForm />
+                {/* Social Links */}
+                <div className="flex gap-2.5">
+                  {socialLinks.map((social, index) => (
+                    <motion.a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, type: "spring" }}
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-9 h-9 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg flex items-center justify-center text-white/70 hover:text-white hover:bg-[#0A66C2] hover:border-[#0077FF] transition-all duration-300"
+                      aria-label={social.name}
+                    >
+                      <social.Icon className="w-4 h-4" />
+                    </motion.a>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Links Columns */}
+            <FooterSection
+              title={footerSections.company.title}
+              links={footerSections.company.links}
+              delay={0.1}
+            />
+
+            <FooterSection
+              title={footerSections.services.title}
+              links={footerSections.services.links}
+              delay={0.2}
+            />
+
+            <FooterSection
+              title={footerSections.resources.title}
+              links={footerSections.resources.links}
+              delay={0.3}
+            />
           </div>
-        </motion.div>
 
-        {/* Main Footer Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-12 mb-16">
-          {/* Brand Section */}
-          <div className="lg:col-span-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <h3 className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent mb-6 tracking-tight ml-2">
-                CREATZION
-              </h3>
-              <p className="text-slate-600 leading-relaxed mb-8 text-lg">
-                Building the future with AI, 3D, and Cloud.
+          {/* Stay Updated Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mb-8 pb-8 border-b border-white/10"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h3 className="text-lg font-bold mb-1 text-white">Stay Updated</h3>
+                <p className="text-white/70 text-sm">
+                  Get the latest insights and updates delivered to your inbox.
+                </p>
+              </div>
+              <div className="md:flex md:justify-end">
+                <NewsletterForm />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Bottom Section */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+          >
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <p className="text-white/60 text-sm">
+                © {currentYear} Creatzion. All rights reserved.
               </p>
 
-              {/* Social Links */}
-              <div className="flex gap-3">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, type: "spring", stiffness: 200 }}
-                    whileHover={{ scale: 1.15, y: -3 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-11 h-11 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center text-slate-500 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 group"
-                  >
-                    <social.Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  </motion.a>
-                ))}
+              <div className="flex flex-wrap items-center justify-center gap-1 text-sm">
+                <Link
+                  href="/privacy"
+                  className="text-white/60 hover:text-[#0077FF] transition-colors duration-300 px-3 py-1 cursor-pointer"
+                >
+                  Privacy Policy
+                </Link>
+                <span className="text-white/40">•</span>
+                <Link href="/terms" className="text-white/60 hover:text-[#0077FF] transition-colors duration-300 px-3 py-1">
+                  Terms of Service
+                </Link>
+                <span className="text-white/40">•</span>
+                <Link href="/cookies" className="text-white/60 hover:text-[#0077FF] transition-colors duration-300 px-3 py-1">
+                  Cookie Policy
+                </Link>
               </div>
-            </motion.div>
-          </div>
-
-          {/* Company Links */}
-          <FooterSection
-            title="Company"
-            links={footerLinks.company}
-            className="lg:col-span-2 border-b md:border-none border-slate-100 pb-3 md:pb-0"
-            delay={0.1}
-          />
-
-          {/* Services Links */}
-          <FooterSection
-            title="Services"
-            links={footerLinks.services}
-            className="lg:col-span-3 border-b md:border-none border-slate-100 pb-3 md:pb-0"
-            delay={0.2}
-          />
-
-          {/* Resources Links */}
-          <FooterSection
-            title="Resources"
-            links={footerLinks.resources}
-            className="lg:col-span-3 border-b md:border-none border-slate-100 pb-3 md:pb-0"
-            delay={0.3}
-          />
+            </div>
+          </motion.div>
         </div>
-
-        {/* Bottom Bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4"
-        >
-          <p className="text-slate-500 text-sm">
-            © {currentYear} Creatzion Technology. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm">
-            <Link href="#privacy" className="text-slate-500 hover:text-blue-600 transition-colors duration-300">
-              Privacy Policy
-            </Link>
-            <Link href="#terms" className="text-slate-500 hover:text-blue-600 transition-colors duration-300">
-              Terms of Service
-            </Link>
-            <Link href="#cookies" className="text-slate-500 hover:text-blue-600 transition-colors duration-300">
-              Cookie Policy
-            </Link>
-          </div>
-        </motion.div>
       </div>
 
       {/* Scroll to Top Button */}
-      <ScrollToTop />
+      <ScrollToTopButton />
     </footer>
   );
 }

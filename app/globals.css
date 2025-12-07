@@ -34,3 +34,13 @@ html, body {
   scroll-behavior: smooth;
   overscroll-behavior: none;
 }
+
+/* Hide scrollbar for horizontal scroll navigation */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

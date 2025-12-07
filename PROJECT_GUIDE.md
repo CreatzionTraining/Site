@@ -23,6 +23,9 @@ Bhuvan Development URL
 site-git-bhuvan-creatziontrainings-projects.vercel.app
 
 Sakthi Development URL
+site-git-sakthi-creatziontrainings-projects.vercel.app
+
+
 ---
 
 ## 🌍 REFERENCE WEBSITES
