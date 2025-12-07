@@ -102,10 +102,10 @@ export default function Home() {
         {/* Trigger Button - Fixed to Right Side */}
         <motion.button
           onClick={toggleDrawer}
-          className="fixed top-1/2 right-0 z-[9990] -translate-y-1/2 translate-x-[calc(100%-48px)] hover:translate-x-0 transition-transform duration-300 bg-blue-600 text-white shadow-lg shadow-blue-900/20 rounded-l-xl py-8 pl-3 pr-4 flex items-center gap-3 cursor-pointer group"
-          whileHover={{ x: 0 }}
-          initial={{ x: "calc(100% - 48px)" }}
-          animate={{ x: isOpen ? "100%" : "calc(100% - 48px)" }}
+          className="fixed top-1/2 right-0 z-[9990] -translate-y-1/2 bg-blue-600 text-white shadow-lg shadow-blue-900/20 rounded-l-xl py-8 pl-3.5 pr-4 flex items-center gap-3 cursor-pointer group transition-all duration-300"
+          initial={{ x: 0 }}
+          animate={{ x: isOpen ? "100%" : "0%" }}
+          whileHover={{ x: -4 }}
         >
           <div className="flex flex-col items-center gap-2">
             <MessageSquare className="w-5 h-5 -rotate-90" />
