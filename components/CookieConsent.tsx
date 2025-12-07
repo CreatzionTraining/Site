@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Cookie } from "lucide-react";
+import Image from "next/image";
 
 export default function CookieConsent() {
     const [showConsent, setShowConsent] = useState(false);
@@ -26,11 +26,6 @@ export default function CookieConsent() {
         setShowConsent(false);
     };
 
-    const handleCustomize = () => {
-        sessionStorage.setItem("cookieConsent", "customized");
-        setShowConsent(false);
-    };
-
     return (
         <AnimatePresence>
             {showConsent && (
@@ -45,8 +40,8 @@ export default function CookieConsent() {
                         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
                             <div className="flex items-start gap-4 flex-1">
                                 <div className="flex-shrink-0">
-                                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
-                                        <Cookie className="w-6 h-6 text-blue-600" />
+                                    <div className="w-12 h-12 flex items-center justify-center">
+                                        <Image src="/cookie.png" alt="Cookie" width={48} height={48} className="object-contain" />
                                     </div>
                                 </div>
                                 <div className="flex-1">
@@ -60,14 +55,7 @@ export default function CookieConsent() {
                                 </div>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
-                                <motion.button
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    onClick={handleCustomize}
-                                    className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl border-2 border-blue-600 hover:bg-blue-50 transition-all whitespace-nowrap"
-                                >
-                                    Customize
-                                </motion.button>
+
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
