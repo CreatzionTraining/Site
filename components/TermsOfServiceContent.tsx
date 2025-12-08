@@ -30,16 +30,23 @@ export default function TermsOfServiceContent({ onClose }: TermsOfServiceContent
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0
+      rootMargin: '-10% 0px -50% 0px',
+      threshold: [0, 0.25, 0.5, 0.75, 1]
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
+      // Find the entry with the highest intersection ratio
+      const visibleEntries = entries.filter(entry => entry.isIntersecting);
+      if (visibleEntries.length > 0) {
+        // Sort by intersection ratio and position
+        const mostVisible = visibleEntries.sort((a, b) => {
+          if (Math.abs(a.intersectionRatio - b.intersectionRatio) < 0.1) {
+            return a.boundingClientRect.top - b.boundingClientRect.top;
+          }
+          return b.intersectionRatio - a.intersectionRatio;
+        })[0];
+        setActiveSection(mostVisible.target.id);
+      }
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
@@ -94,39 +101,54 @@ export default function TermsOfServiceContent({ onClose }: TermsOfServiceContent
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#164b80] to-[#0A66C2] text-white py-12 sm:py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
-              <Book className="w-4 h-4" />
-              <span className="text-sm font-medium">Terms of Service</span>
-            </div>
-            
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-              Creatzion Terms of Service
-            </h1>
-            
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-relaxed mb-6 sm:mb-8">
-              Please read these Terms of Service carefully before using our website or services. 
-              By accessing or using any part of the site, you agree to be bound by these terms.
-            </p>
-            
-            <div className="flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-white rounded-full" />
-                <span className="text-white/80">Last Updated: December 6, 2025</span>
+      <section className="relative bg-white text-white py-12 sm:py-14 md:py-16 lg:py-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/terms_services.png"
+            alt="Terms of Service Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Subtle dark gradient on left for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
+                <Book className="w-4 h-4" />
+                <span className="text-sm font-medium">Terms of Service</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-white rounded-full" />
-                <span className="text-white/80">Effective Date: December 6, 2025</span>
+              
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Creatzion Terms of Service
+              </h1>
+              
+              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed mb-8">
+                Please read these Terms of Service carefully before using our website or services. 
+                By accessing or using any part of the site, you agree to be bound by these terms.
+              </p>
+              
+              <div className="flex flex-wrap gap-4 text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-white rounded-full" />
+                  <span className="text-white/80">Last Updated: December 6, 2025</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-white rounded-full" />
+                  <span className="text-white/80">Effective Date: December 6, 2025</span>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -136,7 +158,7 @@ export default function TermsOfServiceContent({ onClose }: TermsOfServiceContent
           
           {/* Sidebar Navigation */}
           <aside className="lg:col-span-3">
-            <div className="lg:sticky lg:top-24">
+            <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:pr-2">
               <h2 className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-wide mb-3 sm:mb-4 px-1">
                 On This Page
               </h2>
@@ -278,6 +300,69 @@ export default function TermsOfServiceContent({ onClose }: TermsOfServiceContent
               </motion.div>
             </section>
 
+            {/* User Accounts Section */}
+            <section id="account" className="scroll-mt-24">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">User Accounts</h2>
+                <p className="text-gray-700 leading-relaxed mb-8">
+                  When you create an account with us, you must provide information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div className="p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <Lock className="w-5 h-5 text-blue-700" />
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900">Account Security</h3>
+                    </div>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2 text-sm text-gray-700">
+                        <ChevronRight className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span>You are responsible for safeguarding your password</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-gray-700">
+                        <ChevronRight className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span>Do not share your account credentials</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-gray-700">
+                        <ChevronRight className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span>Notify us immediately of any unauthorized access</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                        <Users className="w-5 h-5 text-green-700" />
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900">Your Responsibilities</h3>
+                    </div>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2 text-sm text-gray-700">
+                        <ChevronRight className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>Maintain accurate account information</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-gray-700">
+                        <ChevronRight className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>Comply with all applicable laws and regulations</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-gray-700">
+                        <ChevronRight className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>Use services in accordance with these Terms</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+            </section>
+
             {/* Intellectual Property Section */}
             <section id="intellectual" className="scroll-mt-24">
               <motion.div
@@ -293,6 +378,47 @@ export default function TermsOfServiceContent({ onClose }: TermsOfServiceContent
               </motion.div>
             </section>
 
+            {/* Termination Section */}
+            <section id="termination" className="scroll-mt-24">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Termination</h2>
+                <p className="text-gray-700 leading-relaxed mb-8">
+                  We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms. Upon termination, your right to use the services will immediately cease.
+                </p>
+
+                <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
+                  <div className="flex items-start gap-4">
+                    <AlertTriangle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">Termination Rights</h3>
+                      <p className="text-gray-700 mb-4">
+                        If you wish to terminate your account, you may simply discontinue using the services. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.
+                      </p>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2 text-sm text-gray-700">
+                          <ChevronRight className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                          <span>We reserve the right to refuse service to anyone</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-sm text-gray-700">
+                          <ChevronRight className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                          <span>Termination may occur without prior notice</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-sm text-gray-700">
+                          <ChevronRight className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                          <span>Your data may be retained as required by law</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </section>
+
              {/* Limitation of Liability Section */}
              <section id="liability" className="scroll-mt-24">
               <motion.div
@@ -305,6 +431,35 @@ export default function TermsOfServiceContent({ onClose }: TermsOfServiceContent
                 <p className="text-gray-700 leading-relaxed mb-8">
                   In no event shall Creatzion, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the services.
                 </p>
+              </motion.div>
+            </section>
+
+            {/* Governing Law Section */}
+            <section id="governing" className="scroll-mt-24">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Governing Law</h2>
+                <p className="text-gray-700 leading-relaxed mb-8">
+                  These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions. Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.
+                </p>
+                
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Gavel className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">Jurisdiction</h3>
+                      <p className="text-gray-700 text-sm leading-relaxed">
+                        Any disputes arising from these Terms or your use of our services shall be subject to the exclusive jurisdiction of the courts located in India. By using our services, you consent to the jurisdiction and venue of such courts.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             </section>
 
@@ -355,7 +510,7 @@ export default function TermsOfServiceContent({ onClose }: TermsOfServiceContent
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="fixed z-[10001] top-4 md:top-auto md:bottom-8 md:right-8 left-4 right-4 md:left-auto md:w-[500px] max-h-[calc(100vh-2rem)] md:max-h-[calc(100vh-4rem)] overflow-hidden bg-white rounded-2xl shadow-2xl"
+              className="fixed z-[10001] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:top-auto md:bottom-8 md:right-8 md:left-auto md:translate-x-0 md:translate-y-0 w-[calc(100%-2rem)] md:w-[500px] max-h-[calc(100vh-2rem)] md:max-h-[calc(100vh-4rem)] overflow-hidden bg-white rounded-2xl shadow-2xl"
             >
               <div className="bg-gradient-to-r from-[#164b80] via-[#0A66C2] to-[#0082ef] text-white p-6">
                 <div className="flex items-start justify-between gap-4">
