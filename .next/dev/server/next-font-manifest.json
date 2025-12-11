@@ -1,15 +1,9 @@
 {
   "app": {
-    "[project]/Desktop/Site/app/cookies/page": [
+    "[project]/Desktop/Site/app/contact/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
     ],
     "[project]/Desktop/Site/app/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
-    ],
-    "[project]/Desktop/Site/app/privacy/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
-    ],
-    "[project]/Desktop/Site/app/terms/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
     ]
   },
