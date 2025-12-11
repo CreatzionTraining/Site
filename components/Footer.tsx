@@ -247,7 +247,7 @@ export default function Footer({ }: FooterProps) {
       links: [
         { name: "About Us", href: "#about" },
         { name: "Careers", href: "#careers" },
-        { name: "Contact", href: "#contact" },
+        { name: "Contact", href: "/contact" },
       ]
     },
     services: {
