@@ -1,7 +1,9 @@
-[00:00:10.481] Server  LOG      ✓ Ready in 7.3s
-[00:00:14.834] Server  LOG      ○ Compiling / ...
-[00:00:43.212] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:48.978] Browser WARN    Image with src "/meeting_room.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:53.991] Browser WARN    Image with src "/tech_space.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:02.182] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:01:02.962] Browser LOG     THREE.WebGLRenderer: Context Lost.
+[00:00:07.348] Server  LOG      ✓ Ready in 5.2s
+[00:00:10.632] Server  LOG      ○ Compiling / ...
+[00:00:22.747] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:23.750] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:24.259] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:26.121] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:30.389] Browser WARN    Image with src "/meeting_room.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:32.244] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:00:32.856] Browser LOG     THREE.WebGLRenderer: Context Lost.

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { 
   Mail, 
   Phone, 
@@ -23,22 +24,9 @@ import {
 } from "lucide-react";
 
 export default function ContactUsContent() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    company: "",
-    jobTitle: "",
-    industry: "",
-    projectType: "",
-    budget: "",
-    timeline: "",
-    message: "",
-  });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const projectTypes = [
     "Digital Transformation",
@@ -68,33 +56,62 @@ export default function ContactUsContent() {
     "Flexible"
   ];
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        company: "",
-        jobTitle: "",
-        industry: "",
-        projectType: "",
-        budget: "",
-        timeline: "",
-        message: "",
-      });
-    }, 3000);
+    setError(null);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Prepare template parameters
+    const templateParams = {
+      name: `${formData.get('firstName')} ${formData.get('lastName')}`,
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      company: formData.get('company'),
+      jobTitle: formData.get('jobTitle'),
+      industry: formData.get('industry'),
+      projectType: formData.get('projectType'),
+      budget: formData.get('budget') || 'Not specified',
+      timeline: formData.get('timeline') || 'Not specified',
+      message: formData.get('message'),
+      title: formData.get('projectType'), // For auto-reply template
+      website_link: 'https://creatzion.com', // Update with your actual website
+    };
+
+    try {
+      // Send auto-reply email to user
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_AUTO_REPLY_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      // Send notification email to business
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      setIsSubmitted(true);
+      form.reset();
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (err) {
+      console.error('EmailJS Error:', err);
+      setError('Failed to send message. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -421,35 +438,42 @@ export default function ContactUsContent() {
                       <CheckCircle2 className="w-10 h-10 text-green-600" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You for Reaching Out!</h3>
-                    <p className="text-gray-600 mb-4">Our business development team will contact you within 24 hours.</p>
-                    <p className="text-sm text-gray-500">Reference ID: #{Math.random().toString(36).substr(2, 9).toUpperCase()}</p>
+                    <p className="text-gray-600 mb-4">We've sent you a confirmation email. Our business development team will contact you within 24 hours.</p>
+                    <p className="text-sm text-gray-500">Please check your inbox (and spam folder) for our confirmation email.</p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Error Message */}
+                    {error && (
+                      <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+                        <p className="text-red-600 text-sm">{error}</p>
+                      </div>
+                    )}
+                    
                     {/* Personal Information */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
                           First Name <span className="text-red-500">*</span>
                         </label>
                         <input
+                          id="firstName"
                           type="text"
+                          name="firstName"
                           required
-                          value={formData.firstName}
-                          onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
                           placeholder="John"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
                           Last Name <span className="text-red-500">*</span>
                         </label>
                         <input
+                          id="lastName"
                           type="text"
+                          name="lastName"
                           required
-                          value={formData.lastName}
-                          onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
                           placeholder="Doe"
                         />
@@ -459,27 +483,27 @@ export default function ContactUsContent() {
                     {/* Contact Details */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
                           Business Email <span className="text-red-500">*</span>
                         </label>
                         <input
+                          id="email"
                           type="email"
+                          name="email"
                           required
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
                           placeholder="john.doe@company.com"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
                           Phone Number <span className="text-red-500">*</span>
                         </label>
                         <input
+                          id="phone"
                           type="tel"
+                          name="phone"
                           required
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
                           placeholder="+1 (234) 567-8900"
                         />
@@ -489,27 +513,27 @@ export default function ContactUsContent() {
                     {/* Company Information */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
                           Company Name <span className="text-red-500">*</span>
                         </label>
                         <input
+                          id="company"
                           type="text"
+                          name="company"
                           required
-                          value={formData.company}
-                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
                           placeholder="Your Company Inc."
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="jobTitle" className="block text-sm font-semibold text-gray-700 mb-2">
                           Job Title <span className="text-red-500">*</span>
                         </label>
                         <input
+                          id="jobTitle"
                           type="text"
+                          name="jobTitle"
                           required
-                          value={formData.jobTitle}
-                          onChange={(e) => setFormData({ ...formData, jobTitle: e.target.value })}
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
                           placeholder="CTO, VP Engineering, etc."
                         />
@@ -518,14 +542,14 @@ export default function ContactUsContent() {
 
                     {/* Industry */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="industry" className="block text-sm font-semibold text-gray-700 mb-2">
                         Industry <span className="text-red-500">*</span>
                       </label>
                       <input
+                        id="industry"
                         type="text"
+                        name="industry"
                         required
-                        value={formData.industry}
-                        onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
                         placeholder="e.g., Healthcare, Finance, Retail, Manufacturing"
                       />
@@ -534,13 +558,13 @@ export default function ContactUsContent() {
                     {/* Project Details */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="projectType" className="block text-sm font-semibold text-gray-700 mb-2">
                           Project Type <span className="text-red-500">*</span>
                         </label>
                         <select
+                          id="projectType"
+                          name="projectType"
                           required
-                          value={formData.projectType}
-                          onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all bg-white"
                         >
                           <option value="">Select type</option>
@@ -550,12 +574,12 @@ export default function ContactUsContent() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="budget" className="block text-sm font-semibold text-gray-700 mb-2">
                           Budget Range
                         </label>
                         <select
-                          value={formData.budget}
-                          onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                          id="budget"
+                          name="budget"
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all bg-white"
                         >
                           <option value="">Select range</option>
@@ -565,12 +589,12 @@ export default function ContactUsContent() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="timeline" className="block text-sm font-semibold text-gray-700 mb-2">
                           Timeline
                         </label>
                         <select
-                          value={formData.timeline}
-                          onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                          id="timeline"
+                          name="timeline"
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all bg-white"
                         >
                           <option value="">Select timeline</option>
@@ -583,14 +607,14 @@ export default function ContactUsContent() {
 
                     {/* Project Description */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
                         Project Description <span className="text-red-500">*</span>
                       </label>
                       <textarea
+                        id="message"
+                        name="message"
                         required
                         rows={5}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all resize-none"
                         placeholder="Tell us about your project goals, challenges, and expected outcomes..."
                       />
