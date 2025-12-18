@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [00:00:06.769] Server  LOG      ✓ Ready in 5.1s
 [00:00:11.404] Server  LOG      ○ Compiling / ...
 [00:00:26.912] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
@@ -10,6 +11,14 @@
 [00:16:46.326] Server  LOG      ✓ Compiled in 702ms
 [00:19:30.960] Server  LOG      ✓ Compiled in 2.1s
 [00:19:37.568] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+=======
+[00:00:05.443] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:06.389] Server  LOG      ✓ Ready in 5.3s
+[00:00:09.648] Server  LOG      ○ Compiling /login ...
+[00:00:22.554] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:22.691] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:23.403] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+>>>>>>> Bhuvan
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -22,6 +31,7 @@ It can also happen if the client has a browser extension installed which messes 
 %s%s https://react.dev/link/hydration-mismatch 
 
   ...
+<<<<<<< HEAD
     <SegmentViewNode type="page" pagePath="/Desktop/S...">
       <SegmentTrieNode>
       <ClientPageRoot Component={function ContactPage} serverProvidedParams={{...}}>
@@ -117,3 +127,69 @@ It can also happen if the client has a browser extension installed which messes 
 [00:29:44.799] Browser WARN    Image with src "/meeting_room.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
 [00:29:49.787] Browser WARN    Image with src "/tech_space.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
 [01:09:24.840] Server  LOG        Reload env: .env
+=======
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/signup" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/Desktop/S...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         data-jetski-tab-id="413095492"
+                        >
+                  ...
+
+[00:00:28.138] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:01:27.874] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:26.561] Server  LOG        Reload env: .env
+[00:13:51.967] Server  LOG        Reload env: .env
+[00:14:34.966] Server  LOG        Reload env: .env
+[00:15:16.613] Server  LOG        Reload env: .env
+[00:16:07.779] Server  LOG        Reload env: .env
+[00:20:45.162] Server  LOG        Reload env: .env
+[00:23:01.087] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:24:30.881] Server  LOG     [next-auth][debug][CREATE_STATE] {}
+[00:24:30.888] Server  LOG     [next-auth][debug][CREATE_PKCECODEVERIFIER] {}
+[00:24:30.897] Server  LOG     [next-auth][debug][GET_AUTHORIZATION_URL] {}
+[00:24:38.881] Server  LOG     [next-auth][debug][PROFILE_DATA] {}
+[00:24:38.883] Server  LOG     [next-auth][debug][OAUTH_CALLBACK_RESPONSE] {}
+[00:24:38.887] Server  LOG     [next-auth][debug][adapter_getUserByAccount] {}
+[00:24:39.365] Server  LOG     prisma:query "SELECT \"public\".\"accounts\".\"id\", \"public\".\"accounts\".\"user_id\" FROM \"public\".\"accounts\" WHERE ((\"public\".\"accounts\".\"provider\" = $1 AND \"public\".\"accounts\".\"provider_account_id\" = $2) AND 1=1) LIMIT $3 OFFSET $4"
+[00:24:39.373] Server  LOG     [next-auth][debug][adapter_getUser] {}
+[00:24:39.445] Server  LOG     prisma:query "SELECT \"public\".\"users\".\"id\", \"public\".\"users\".\"name\", \"public\".\"users\".\"email\", \"public\".\"users\".\"email_verified\", \"public\".\"users\".\"image\", \"public\".\"users\".\"password\", \"public\".\"users\".\"created_at\", \"public\".\"users\".\"updated_at\" FROM \"public\".\"users\" WHERE (\"public\".\"users\".\"id\" = $1 AND 1=1) LIMIT $2 OFFSET $3"
+[00:24:39.448] Server  LOG     [next-auth][debug][adapter_getUserByAccount] {}
+[00:24:39.484] Server  LOG     prisma:query "SELECT \"public\".\"accounts\".\"id\", \"public\".\"accounts\".\"user_id\" FROM \"public\".\"accounts\" WHERE ((\"public\".\"accounts\".\"provider\" = $1 AND \"public\".\"accounts\".\"provider_account_id\" = $2) AND 1=1) LIMIT $3 OFFSET $4"
+[00:24:39.485] Server  LOG     [next-auth][debug][adapter_getUserByEmail] {}
+[00:24:39.554] Server  LOG     prisma:query "SELECT \"public\".\"users\".\"id\", \"public\".\"users\".\"name\", \"public\".\"users\".\"email\", \"public\".\"users\".\"email_verified\", \"public\".\"users\".\"image\", \"public\".\"users\".\"password\", \"public\".\"users\".\"created_at\", \"public\".\"users\".\"updated_at\" FROM \"public\".\"users\" WHERE (\"public\".\"users\".\"email\" = $1 AND 1=1) LIMIT $2 OFFSET $3"
+[00:24:39.555] Server  LOG     [next-auth][debug][adapter_createUser] {}
+[00:24:39.626] Server  LOG     prisma:query "INSERT INTO \"public\".\"users\" (\"id\",\"name\",\"email\",\"email_verified\",\"image\",\"created_at\",\"updated_at\") VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING \"public\".\"users\".\"id\", \"public\".\"users\".\"name\", \"public\".\"users\".\"email\", \"public\".\"users\".\"email_verified\", \"public\".\"users\".\"image\", \"public\".\"users\".\"password\", \"public\".\"users\".\"created_at\", \"public\".\"users\".\"updated_at\""
+[00:24:39.629] Server  LOG     [next-auth][debug][adapter_linkAccount] {}
+[00:24:39.705] Server  LOG     prisma:query "INSERT INTO \"public\".\"accounts\" (\"id\",\"user_id\",\"type\",\"provider\",\"provider_account_id\",\"refresh_token\",\"access_token\",\"expires_at\",\"token_type\",\"scope\",\"id_token\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) RETURNING \"public\".\"accounts\".\"id\", \"public\".\"accounts\".\"user_id\", \"public\".\"accounts\".\"type\", \"public\".\"accounts\".\"provider\", \"public\".\"accounts\".\"provider_account_id\", \"public\".\"accounts\".\"refresh_token\", \"public\".\"accounts\".\"access_token\", \"public\".\"accounts\".\"expires_at\", \"public\".\"accounts\".\"token_type\", \"public\".\"accounts\".\"scope\", \"public\".\"accounts\".\"id_token\", \"public\".\"accounts\".\"session_state\""
+[00:24:39.707] Server  LOG     User signed in: creatzionworkspace@gmail.com
+[00:24:42.735] Server  LOG      ○ Compiling / ...
+[00:24:50.738] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:52.401] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:25:30.729] Browser WARN    Image with src "/meeting_room.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:25:35.043] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:38.366] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:26:16.505] Server  LOG     prisma:query "SELECT 1"
+[00:26:16.539] Server  LOG     prisma:query "SELECT \"public\".\"users\".\"id\", \"public\".\"users\".\"name\", \"public\".\"users\".\"email\", \"public\".\"users\".\"email_verified\", \"public\".\"users\".\"image\", \"public\".\"users\".\"password\", \"public\".\"users\".\"created_at\", \"public\".\"users\".\"updated_at\" FROM \"public\".\"users\" WHERE (\"public\".\"users\".\"email\" = $1 AND 1=1) LIMIT $2 OFFSET $3"
+[00:26:25.114] Server  LOG     prisma:query "SELECT \"public\".\"users\".\"id\", \"public\".\"users\".\"name\", \"public\".\"users\".\"email\", \"public\".\"users\".\"email_verified\", \"public\".\"users\".\"image\", \"public\".\"users\".\"password\", \"public\".\"users\".\"created_at\", \"public\".\"users\".\"updated_at\" FROM \"public\".\"users\" WHERE (\"public\".\"users\".\"email\" = $1 AND 1=1) LIMIT $2 OFFSET $3"
+[00:26:27.152] Server  LOG     prisma:query "INSERT INTO \"public\".\"users\" (\"id\",\"name\",\"email\",\"password\",\"created_at\",\"updated_at\") VALUES ($1,$2,$3,$4,$5,$6) RETURNING \"public\".\"users\".\"id\", \"public\".\"users\".\"name\", \"public\".\"users\".\"email\", \"public\".\"users\".\"email_verified\", \"public\".\"users\".\"image\", \"public\".\"users\".\"password\", \"public\".\"users\".\"created_at\", \"public\".\"users\".\"updated_at\""
+[00:26:27.447] Server  LOG     prisma:query "SELECT \"public\".\"users\".\"id\", \"public\".\"users\".\"name\", \"public\".\"users\".\"email\", \"public\".\"users\".\"email_verified\", \"public\".\"users\".\"image\", \"public\".\"users\".\"password\", \"public\".\"users\".\"created_at\", \"public\".\"users\".\"updated_at\" FROM \"public\".\"users\" WHERE (\"public\".\"users\".\"email\" = $1 AND 1=1) LIMIT $2 OFFSET $3"
+[00:26:28.861] Server  LOG     User signed in: creatzionworksppace@gmail.com
+[00:26:31.863] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:50:56.280] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:50:58.826] Browser LOG     THREE.WebGLRenderer: Context Lost.
+>>>>>>> Bhuvan

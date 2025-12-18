@@ -1,1 +1,10 @@
+<<<<<<< HEAD
 []
+=======
+[
+  {
+    "regexp": "^/.*$",
+    "originalSource": "/:path*"
+  }
+]
+>>>>>>> Bhuvan
