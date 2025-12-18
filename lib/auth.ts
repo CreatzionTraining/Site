@@ -128,7 +128,6 @@ export const authOptions: NextAuthOptions = {
   // Custom pages
   pages: {
     signIn: "/login",
-    error: "/login",
   },
 
   // Session configuration - JWT strategy for scalability
@@ -227,6 +226,20 @@ export const authOptions: NextAuthOptions = {
         session.user.image = token.picture as string;
       }
       return session;
+    },
+
+    // Redirect callback - handles where to redirect after login
+    async redirect({ url, baseUrl }) {
+      // If URL is relative, prepend baseUrl
+      if (url.startsWith("/")) {
+        return `${baseUrl}${url}`;
+      }
+      // If URL is on the same origin, allow it
+      else if (new URL(url).origin === baseUrl) {
+        return url;
+      }
+      // Otherwise redirect to home page
+      return baseUrl;
     },
   },
 
