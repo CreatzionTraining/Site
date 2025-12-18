@@ -1,11 +1,4 @@
 {
-<<<<<<< HEAD
-  "/contact/page": "app/contact/page.js",
-  "/page": "app/page.js"
-=======
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/login/page": "app/login/page.js",
-  "/page": "app/page.js",
-  "/signup/page": "app/signup/page.js"
->>>>>>> Bhuvan
+  "/page": "app/page.js"
 }

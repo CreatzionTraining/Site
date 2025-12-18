@@ -1,20 +1,7 @@
 {
   "app": {
-<<<<<<< HEAD
-    "[project]/Desktop/Site/app/contact/page": [
-=======
-    "[project]/Desktop/Site/app/login/page": [
->>>>>>> Bhuvan
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
-    ],
     "[project]/Desktop/Site/app/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
-<<<<<<< HEAD
-=======
-    ],
-    "[project]/Desktop/Site/app/signup/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
->>>>>>> Bhuvan
     ]
   },
   "appUsingSizeAdjust": true,
