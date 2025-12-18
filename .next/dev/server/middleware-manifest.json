@@ -1,9 +1,5 @@
 {
   "version": 3,
-<<<<<<< HEAD
-  "middleware": {},
-  "sortedMiddleware": [],
-=======
   "middleware": {
     "/": {
       "files": [
@@ -15,8 +11,8 @@
       "page": "/",
       "matchers": [
         {
-          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?(?:\\/((?!api|_next\\/static|_next\\/image|favicon.ico|login|signup).*))(\\\\.json)?[\\/#\\?]?$",
-          "originalSource": "/((?!api|_next/static|_next/image|favicon.ico|login|signup).*)"
+          "regexp": "^/.*$",
+          "originalSource": "/:path*"
         }
       ],
       "wasm": [],
@@ -24,15 +20,14 @@
       "env": {
         "__NEXT_BUILD_ID": "development",
         "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "JSIojWtWmNui9r43iD6foNlNaIwjp4F8COxeg9P5WTo=",
-        "__NEXT_PREVIEW_MODE_ID": "c3c1fa45bab56cbb0cfd03c981859385",
-        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "f41ae9f1e40c6a938aa2fb2640475e658887bc1aba68043ea970bdb2ede1083f",
-        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c3777fccf34cc54d875a32a493aa9a039ad20c1a0458ccd9018a923c1865832c"
+        "__NEXT_PREVIEW_MODE_ID": "8105279ad9095bf8d6bb6547b9aca006",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "5dc2375b2d77d843b646a6b42b4e8e653809c8b36829328150fdd83c7da41aa9",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "12d334fc5061b398d1447190b599c6af67f6e7af89be4c882a58b86dc7879721"
       }
     }
   },
   "sortedMiddleware": [
     "/"
   ],
->>>>>>> Bhuvan
   "functions": {}
 }
