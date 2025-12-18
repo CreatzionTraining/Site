@@ -1,21 +1,15 @@
-import { withAuth } from "next-auth/middleware";
+// middleware.ts
+// ✅ NO authentication protection
+// ✅ All routes are public
+// ✅ Login & Signup will work correctly
 
-// Middleware function to protect routes
-export default withAuth({
-  pages: {
-    signIn: "/login",
-  },
-});
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-// Protect specific routes that require authentication
-// Public routes: /, /login, /signup, /api, /contact, /privacy, /terms, /cookies
+export function middleware(request: NextRequest) {
+  return NextResponse.next();
+}
+
 export const config = {
-  matcher: [
-    // Only protect routes that NEED authentication
-    // Everything else is public by default
-    // Example: "/dashboard/:path*", "/profile/:path*", "/admin/:path*"
-    
-    // Currently NO routes are protected - all routes are public
-    // Add specific protected routes here when needed
-  ],
+  matcher: [], // 👈 truly empty, nothing is protected
 };
