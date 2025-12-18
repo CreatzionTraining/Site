@@ -8,14 +8,14 @@ export default withAuth({
 });
 
 // Protect specific routes that require authentication
-// Login and signup pages are PUBLIC (not protected)
+// Currently: ALL routes are PUBLIC (no authentication required)
+// Add routes here if you want to protect specific pages in the future
 export const config = {
   matcher: [
-    // Protect these routes (require authentication)
-    // Example: "/dashboard/:path*", "/profile/:path*"
-    // NOTE: /login and /signup are NOT in this list, so they're public
-    
-    // Exclude public routes from middleware
-    "/((?!api|_next/static|_next/image|favicon.ico|login|signup).*)",
+    // Add protected routes here when needed
+    // Example: "/dashboard/:path*", "/profile/:path*", "/admin/:path*"
+    // 
+    // Currently empty = no routes are protected
+    // Users can access the entire site without logging in
   ],
 };
