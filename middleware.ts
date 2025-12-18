@@ -8,14 +8,14 @@ export default withAuth({
 });
 
 // Protect specific routes that require authentication
-// Currently: ALL routes are PUBLIC (no authentication required)
-// Add routes here if you want to protect specific pages in the future
+// Public routes: /, /login, /signup, /api, /contact, /privacy, /terms, /cookies
 export const config = {
   matcher: [
-    // Add protected routes here when needed
+    // Only protect routes that NEED authentication
+    // Everything else is public by default
     // Example: "/dashboard/:path*", "/profile/:path*", "/admin/:path*"
-    // 
-    // Currently empty = no routes are protected
-    // Users can access the entire site without logging in
+    
+    // Currently NO routes are protected - all routes are public
+    // Add specific protected routes here when needed
   ],
 };
