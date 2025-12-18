@@ -50,7 +50,8 @@ if (!process.env.NEXTAUTH_URL || process.env.NODE_ENV === "production") {
  */
 export const authOptions: NextAuthOptions = {
   // Use Prisma adapter for database persistence
-  adapter: PrismaAdapter(prisma),
+  // TEMPORARILY DISABLED - Using JWT-only for now
+  // adapter: PrismaAdapter(prisma),
 
   // Authentication providers
   providers: [
@@ -145,58 +146,11 @@ export const authOptions: NextAuthOptions = {
 
   // Callbacks for session and JWT handling
   callbacks: {
-    // Sign in callback - handles account linking
+    // Sign in callback - simplified for JWT-only
     async signIn({ user, account, profile }) {
-      // If signing in with OAuth provider
-      if (account?.provider && user.email) {
-        try {
-          // Check if user with this email already exists
-          const existingUser = await prisma.user.findUnique({
-            where: { email: user.email },
-            include: { accounts: true },
-          });
-
-          if (existingUser) {
-            // Check if this provider is already linked
-            const accountExists = existingUser.accounts.some(
-              (acc: { provider: string }) => acc.provider === account.provider
-            );
-
-            // If provider not linked, link it automatically
-            if (!accountExists) {
-              await prisma.account.create({
-                data: {
-                  userId: existingUser.id,
-                  type: account.type,
-                  provider: account.provider,
-                  providerAccountId: account.providerAccountId,
-                  refresh_token: account.refresh_token,
-                  access_token: account.access_token,
-                  expires_at: account.expires_at,
-                  token_type: account.token_type,
-                  scope: account.scope,
-                  id_token: account.id_token,
-                  session_state: account.session_state,
-                },
-              });
-            }
-
-            // Update login tracking
-            await prisma.user.update({
-              where: { id: existingUser.id },
-              data: {
-                lastLogin: new Date(),
-                lastLoginMethod: account.provider,
-                loginCount: { increment: 1 },
-              },
-            });
-          }
-        } catch (error) {
-          console.error("Account linking error:", error);
-        }
-      }
-
-      return true; // Allow sign in
+      // Allow all sign-ins
+      // Account linking will be handled when Prisma adapter is re-enabled
+      return true;
     },
 
     // JWT callback - runs when JWT is created or updated
@@ -247,20 +201,21 @@ export const authOptions: NextAuthOptions = {
   events: {
     async signIn({ user, account, profile, isNewUser }) {
       // Track login for credentials-based auth
-      if (account?.provider === "credentials" && user.id) {
-        try {
-          await prisma.user.update({
-            where: { id: user.id },
-            data: {
-              lastLogin: new Date(),
-              lastLoginMethod: "credentials",
-              loginCount: { increment: 1 },
-            },
-          });
-        } catch (error) {
-          console.error("Login tracking error:", error);
-        }
-      }
+      // TEMPORARILY DISABLED - Using JWT-only
+      // if (account?.provider === "credentials" && user.id) {
+      //   try {
+      //     await prisma.user.update({
+      //       where: { id: user.id },
+      //       data: {
+      //         lastLogin: new Date(),
+      //         lastLoginMethod: "credentials",
+      //         loginCount: { increment: 1 },
+      //       },
+      //     });
+      //   } catch (error) {
+      //     console.error("Login tracking error:", error);
+      //   }
+      // }
       
       // Log successful sign-ins (server-side only)
       console.log(`User signed in: ${user.email} via ${account?.provider || "credentials"}`);
