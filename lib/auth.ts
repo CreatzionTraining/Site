@@ -66,6 +66,7 @@ export const authOptions: NextAuthOptions = {
           response_type: "code",
         },
       },
+      allowDangerousEmailAccountLinking: true, // Allow linking accounts with same email
     }),
 
     // GitHub OAuth - Credentials from environment variables
@@ -184,15 +185,27 @@ export const authOptions: NextAuthOptions = {
 
     // Redirect callback - handles where to redirect after login
     async redirect({ url, baseUrl }) {
+      // Prevent redirect loops - never redirect to login/signup after successful auth
+      if (url.includes('/login') || url.includes('/signup')) {
+        return baseUrl; // Go to home page instead
+      }
+      
       // If URL is relative, prepend baseUrl
       if (url.startsWith("/")) {
         return `${baseUrl}${url}`;
       }
+      
       // If URL is on the same origin, allow it
-      else if (new URL(url).origin === baseUrl) {
-        return url;
+      try {
+        if (new URL(url).origin === baseUrl) {
+          return url;
+        }
+      } catch {
+        // Invalid URL, go to home
+        return baseUrl;
       }
-      // Otherwise redirect to home page
+      
+      // Default: redirect to home page
       return baseUrl;
     },
   },
