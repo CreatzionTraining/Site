@@ -1,5 +1,4 @@
-# Today's Updates (Dec 8, 2025)
-
+# Today's Updates (Dec 8, 2025){}
 - **TermsOfServiceContent.tsx** – Added Governing Law, User Accounts, and Termination sections; redesigned hero section with full-width background.
 
 - **CookiePolicyContent.tsx** – Added professional hero background; fixed mobile modal centering.
