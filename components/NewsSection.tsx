@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ExternalLink, Calendar, Building2 } from "lucide-react";
 
 interface NewsItem {
     category: string;
@@ -65,6 +66,7 @@ const FALLBACK_NEWS: NewsItem[] = [
 export default function NewsSection() {
     const [news, setNews] = useState<NewsItem[]>(FALLBACK_NEWS);
     const [isPaused, setIsPaused] = useState(false);
+    const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
 
     // Fetch News from Finnhub
     useEffect(() => {
@@ -95,6 +97,14 @@ export default function NewsSection() {
 
         fetchNews();
     }, []);
+
+    const handleNewsClick = (item: NewsItem) => {
+        setSelectedNews(item);
+    };
+
+    const closeModal = () => {
+        setSelectedNews(null);
+    };
 
     return (
         <section className="py-32 bg-white text-slate-900 relative overflow-hidden flex flex-col justify-center border-t border-slate-100">
@@ -148,11 +158,14 @@ export default function NewsSection() {
                                 <span className="text-sm font-semibold text-slate-500 mb-4 tracking-wide block">
                                     {dateStr}
                                 </span>
-                                <a href={item.url} target="_blank" rel="noopener noreferrer" className="group/link block">
+                                <button
+                                    onClick={() => handleNewsClick(item)}
+                                    className="group/link block text-left"
+                                >
                                     <h2 className="text-xl md:text-5xl font-bold leading-tight text-slate-900 hover:text-blue-600 transition-colors">
                                         {item.headline}
                                     </h2>
-                                </a>
+                                </button>
                             </div>
                         );
                     })}
@@ -175,16 +188,102 @@ export default function NewsSection() {
                                 <span className="text-sm font-semibold text-slate-500 mb-4 tracking-wide block">
                                     {dateStr}
                                 </span>
-                                <a href={item.url} target="_blank" rel="noopener noreferrer" className="group/link block">
+                                <button
+                                    onClick={() => handleNewsClick(item)}
+                                    className="group/link block text-left"
+                                >
                                     <h2 className="text-xl md:text-5xl font-bold leading-tight text-slate-900 hover:text-blue-600 transition-colors">
                                         {item.headline}
                                     </h2>
-                                </a>
+                                </button>
                             </div>
                         );
                     })}
                 </div>
             </div>
+
+            {/* News Modal */}
+            <AnimatePresence>
+                {selectedNews && (
+                    <>
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={closeModal}
+                            className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[9998]"
+                        />
+
+                        {/* Modal */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[9999] w-[90%] max-w-3xl max-h-[80vh] overflow-y-auto bg-white rounded-2xl shadow-2xl"
+                        >
+                            {/* Close Button */}
+                            <button
+                                onClick={closeModal}
+                                className="absolute top-4 right-4 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-all z-10"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+
+                            {/* Content */}
+                            <div className="p-8 md:p-12">
+                                {/* Category Badge */}
+                                <span className="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold uppercase tracking-wide mb-4">
+                                    {selectedNews.category}
+                                </span>
+
+                                {/* Headline */}
+                                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
+                                    {selectedNews.headline}
+                                </h2>
+
+                                {/* Meta Info */}
+                                <div className="flex flex-wrap items-center gap-4 mb-8 text-sm text-slate-500">
+                                    <div className="flex items-center gap-2">
+                                        <Calendar className="w-4 h-4" />
+                                        <span>
+                                            {new Date(selectedNews.datetime * 1000).toLocaleDateString('en-US', {
+                                                month: 'long',
+                                                day: 'numeric',
+                                                year: 'numeric'
+                                            })}
+                                        </span>
+                                    </div>
+                                    <div className="h-4 w-px bg-slate-300" />
+                                    <div className="flex items-center gap-2">
+                                        <Building2 className="w-4 h-4" />
+                                        <span>{selectedNews.source}</span>
+                                    </div>
+                                </div>
+
+                                {/* Summary */}
+                                <p className="text-lg text-slate-600 leading-relaxed mb-8">
+                                    {selectedNews.summary}
+                                </p>
+
+                                {/* Read More Link */}
+                                {selectedNews.url && selectedNews.url !== "#" && (
+                                    <a
+                                        href={selectedNews.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all hover:gap-3"
+                                    >
+                                        <span>Read Full Article</span>
+                                        <ExternalLink className="w-4 h-4" />
+                                    </a>
+                                )}
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
         </section>
     );
 }

@@ -30,16 +30,23 @@ export default function PrivacyPolicyContent({ onClose }: PrivacyPolicyContentPr
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0
+      rootMargin: '-10% 0px -50% 0px',
+      threshold: [0, 0.25, 0.5, 0.75, 1]
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
+      // Find the entry with the highest intersection ratio
+      const visibleEntries = entries.filter(entry => entry.isIntersecting);
+      if (visibleEntries.length > 0) {
+        // Sort by intersection ratio and position
+        const mostVisible = visibleEntries.sort((a, b) => {
+          if (Math.abs(a.intersectionRatio - b.intersectionRatio) < 0.1) {
+            return a.boundingClientRect.top - b.boundingClientRect.top;
+          }
+          return b.intersectionRatio - a.intersectionRatio;
+        })[0];
+        setActiveSection(mostVisible.target.id);
+      }
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
@@ -95,39 +102,54 @@ export default function PrivacyPolicyContent({ onClose }: PrivacyPolicyContentPr
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#164b80] to-[#0A66C2] text-white py-12 sm:py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
-              <Shield className="w-4 h-4" />
-              <span className="text-sm font-medium">Privacy Notice</span>
-            </div>
-            
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-              Creatzion Website Privacy Notice
-            </h1>
-            
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-relaxed mb-6 sm:mb-8">
-              Creatzion and its affiliated companies are firmly committed to protecting your privacy. 
-              Learn what we do with the personal information we collect.
-            </p>
-            
-            <div className="flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-white rounded-full" />
-                <span className="text-white/80">Last Updated: December 6, 2025</span>
+      <section className="relative bg-white text-white py-12 sm:py-14 md:py-16 lg:py-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/privacy_policy.png"
+            alt="Privacy Policy Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Subtle dark gradient on left for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
+                <Shield className="w-4 h-4" />
+                <span className="text-sm font-medium">Privacy Notice</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-white rounded-full" />
-                <span className="text-white/80">Effective Date: December 6, 2025</span>
+              
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Creatzion Website Privacy Notice
+              </h1>
+              
+              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed mb-8">
+                Creatzion and its affiliated companies are firmly committed to protecting your privacy. 
+                Learn what we do with the personal information we collect.
+              </p>
+              
+              <div className="flex flex-wrap gap-4 text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-white rounded-full" />
+                  <span className="text-white/80">Last Updated: December 6, 2025</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-white rounded-full" />
+                  <span className="text-white/80">Effective Date: December 6, 2025</span>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -137,7 +159,7 @@ export default function PrivacyPolicyContent({ onClose }: PrivacyPolicyContentPr
           
           {/* Sidebar Navigation - Horizontal scroll on mobile, sidebar on desktop */}
           <aside className="lg:col-span-3">
-            <div className="lg:sticky lg:top-24">
+            <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:pr-2">
               <h2 className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-wide mb-3 sm:mb-4 px-1">
                 On This Page
               </h2>

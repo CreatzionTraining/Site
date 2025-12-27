@@ -13,19 +13,29 @@ import "aos/dist/aos.css";
 
 export default function Home() {
   const [showContactButton, setShowContactButton] = useState(false);
+  const [isNearFooter, setIsNearFooter] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowContactButton(true);
-      } else {
-        setShowContactButton(false);
+      const scrolled = window.scrollY > 300;
+      
+      // Check if near footer
+      const footer = document.querySelector('footer');
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        // Hide button if footer is visible in viewport (with 100px buffer)
+        const nearFooter = footerRect.top < windowHeight + 100;
+        setIsNearFooter(nearFooter);
       }
+      
+      setShowContactButton(scrolled && !isNearFooter);
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isNearFooter]);
 
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({

@@ -3,53 +3,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Twitter, Github, Instagram, Send, ArrowUp, ChevronDown, Mail } from "lucide-react";
+import { Linkedin, Twitter, Github, Instagram, Send, ChevronDown, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
-
-// Scroll to Top Button Component
-function ScrollToTopButton() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0 }}
-          transition={{ duration: 0.3 }}
-          whileHover={{ scale: 1.1, y: -2 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-[9998] w-12 h-12 bg-[#0A66C2] hover:bg-[#0077FF] text-white rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp className="w-5 h-5" strokeWidth={2.5} />
-        </motion.button>
-      )}
-    </AnimatePresence>
-  );
-}
+import ScrollToTop from "./ScrollToTop";
 
 // Newsletter Form Component
 function NewsletterForm() {
@@ -103,7 +59,7 @@ function NewsletterForm() {
               placeholder="Enter your email address"
               required
               suppressHydrationWarning
-              className="w-full pl-12 pr-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 text-sm outline-none focus:border-white focus:ring-2 focus:ring-white/30 transition-all shadow-sm"
+              className="w-full pl-12 pr-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all shadow-sm"
             />
           </div>
           <motion.button
@@ -456,7 +412,7 @@ export default function Footer({ }: FooterProps) {
       </div>
 
       {/* Scroll to Top Button */}
-      <ScrollToTopButton />
+      <ScrollToTop />
     </footer>
   );
 }
