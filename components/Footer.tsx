@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Twitter, Github, Instagram, Send, ChevronDown, Mail } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ScrollToTop from "./ScrollToTop";
 
 // Newsletter Form Component
@@ -13,6 +13,12 @@ function NewsletterForm() {
   const [email, setEmail] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
   const [ripples, setRipples] = useState<{ id: number; x: number; y: number }[]>([]);
+  const [mounted, setMounted] = useState(false);
+  const rippleIdRef = useRef(0);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,18 +37,51 @@ function NewsletterForm() {
   };
 
   const createRipple = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!mounted) return;
+    
     const button = e.currentTarget;
     const rect = button.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const newRipple = { id: Date.now(), x, y };
+    rippleIdRef.current += 1;
+    const newRipple = { id: rippleIdRef.current, x, y };
     setRipples([...ripples, newRipple]);
 
     setTimeout(() => {
       setRipples(prev => prev.filter(r => r.id !== newRipple.id));
     }, 600);
   };
+
+  if (!mounted) {
+    return (
+      <div className="relative w-full max-w-md">
+        <div className="flex flex-col sm:flex-row gap-3">
+          <div className="relative flex-1">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+              <Mail className="w-5 h-5" />
+            </div>
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              disabled
+              className="w-full pl-12 pr-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all shadow-sm"
+            />
+          </div>
+          <button
+            type="button"
+            disabled
+            className="relative px-8 py-3 bg-white text-[#164b80] font-bold rounded-lg transition-all flex items-center justify-center gap-2 text-sm shadow-lg overflow-hidden"
+          >
+            <span className="relative z-10 flex items-center gap-2">
+              Subscribe
+              <Send className="w-4 h-4" />
+            </span>
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -58,7 +97,6 @@ function NewsletterForm() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
               required
-              suppressHydrationWarning
               className="w-full pl-12 pr-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all shadow-sm"
             />
           </div>
@@ -247,7 +285,7 @@ export default function Footer({ }: FooterProps) {
       links: [
         { name: "About Us", href: "#about" },
         { name: "Careers", href: "#careers" },
-        { name: "Contact", href: "#contact" },
+        { name: "Contact", href: "/contact" },
       ]
     },
     services: {

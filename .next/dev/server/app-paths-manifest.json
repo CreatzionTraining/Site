@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
+=======
+  "/contact/page": "app/contact/page.js",
+>>>>>>> 8d4deb85dc0dbfbda31d5c86e868dbba812d1d08
   "/page": "app/page.js"
 }
