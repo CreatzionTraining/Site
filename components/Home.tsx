@@ -148,7 +148,7 @@ function HeroSection() {
               alt="Creatzion C Logo"
               width={80}
               height={80}
-              className="w-10 h-10 sm:w-16 sm:h-16 object-contain"
+              className="w-12 h-12 sm:w-20 sm:h-20 object-contain"
               priority
             />
           </motion.div>
@@ -168,7 +168,7 @@ function HeroSection() {
               alt="Creatzion Technology"
               width={240}
               height={60}
-              className="h-8 sm:h-12 w-auto object-contain"
+              className="h-10 sm:h-16 w-auto object-contain"
               priority
             />
           </motion.div>
@@ -481,19 +481,28 @@ function CTASection() {
           </AnimatePresence>
 
           {/* Navigation Buttons - Bottom Right Corner */}
-          <div className="absolute bottom-0 right-0 flex z-20">
-            <button
+          <div className="absolute bottom-8 right-8 flex gap-3 z-20">
+            <motion.button
               onClick={prevSlide}
-              className="w-16 h-16 sm:w-20 sm:h-20 bg-slate-50 text-slate-900 flex items-center justify-center hover:bg-slate-100 transition-colors border-t border-l border-slate-200"
+              whileHover={{ scale: 1.1, x: -3 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white border-2 border-slate-200 text-slate-700 flex items-center justify-center hover:border-blue-500 transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden"
             >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 relative z-10 group-hover:text-white transition-colors duration-300" />
+            </motion.button>
+            <motion.button
               onClick={nextSlide}
-              className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-colors shadow-2xl shadow-blue-900/20"
+              whileHover={{ scale: 1.1, x: 3 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 overflow-hidden"
             >
-              <ChevronRight className="w-6 h-6" />
-            </button>
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 relative z-10 group-hover:translate-x-0.5 transition-transform duration-300" />
+
+              {/* Animated ring effect */}
+              <div className="absolute inset-0 rounded-full border-2 border-white/30 scale-100 group-hover:scale-110 opacity-100 group-hover:opacity-0 transition-all duration-500" />
+            </motion.button>
           </div>
         </div>
       </div>

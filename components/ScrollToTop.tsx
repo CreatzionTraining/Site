@@ -6,6 +6,8 @@ import { ArrowUp } from "lucide-react";
 
 export default function ScrollToTop() {
     const [isVisible, setIsVisible] = useState(false);
+    const [isNearFooter, setIsNearFooter] = useState(false);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const { scrollYProgress } = useScroll();
 
     // Smooth spring animation for the progress circle
@@ -17,16 +19,35 @@ export default function ScrollToTop() {
 
     useEffect(() => {
         const toggleVisibility = () => {
-            if (window.scrollY > 100) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
+            const scrolled = window.scrollY > 100;
+            
+            // Check if near footer
+            const footer = document.querySelector('footer');
+            if (footer) {
+                const footerRect = footer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                // Hide button if footer is visible in viewport (with 100px buffer)
+                const nearFooter = footerRect.top < windowHeight + 100;
+                setIsNearFooter(nearFooter);
             }
+            
+            setIsVisible(scrolled && !isNearFooter && !isDrawerOpen);
+        };
+
+        // Listen for drawer toggle events
+        const handleDrawerToggle = (event: CustomEvent) => {
+            setIsDrawerOpen(event.detail.isHidden);
         };
 
         window.addEventListener("scroll", toggleVisibility);
-        return () => window.removeEventListener("scroll", toggleVisibility);
-    }, []);
+        window.addEventListener('toggle-scroll-button', handleDrawerToggle as EventListener);
+        toggleVisibility(); // Initial check
+        
+        return () => {
+            window.removeEventListener("scroll", toggleVisibility);
+            window.removeEventListener('toggle-scroll-button', handleDrawerToggle as EventListener);
+        };
+    }, [isNearFooter, isDrawerOpen]);
 
     const scrollToTop = () => {
         window.scrollTo({
