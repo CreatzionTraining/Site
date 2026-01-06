@@ -24,8 +24,6 @@ yarn-error.log*
 
 # Local env files (CRITICAL: Never commit these)
 .env
-.env.local
-.env.production
 
 # Vercel
 .vercel

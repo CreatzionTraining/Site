@@ -1,13 +1,16 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const returnUrl = searchParams.get('returnUrl') || '/';
+  
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -33,7 +36,8 @@ export default function LoginPage() {
         return;
       }
 
-      router.push("/");
+      // Redirect to return URL or home
+      router.push(returnUrl);
       router.refresh();
     } catch (error) {
       setError("Something went wrong. Please try again.");
@@ -44,7 +48,7 @@ export default function LoginPage() {
   const handleOAuthSignIn = async (provider: string) => {
     setLoading(true);
     try {
-      await signIn(provider, { callbackUrl: "/" });
+      await signIn(provider, { callbackUrl: returnUrl });
     } catch (error) {
       setError("Failed to sign in with " + provider);
       setLoading(false);
@@ -92,6 +96,7 @@ export default function LoginPage() {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-300/50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
                 placeholder="you@example.com"
+                suppressHydrationWarning
               />
             </div>
 
@@ -107,6 +112,7 @@ export default function LoginPage() {
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-300/50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
                 placeholder="••••••••"
+                suppressHydrationWarning
               />
             </div>
 
