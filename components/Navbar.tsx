@@ -103,7 +103,7 @@ export default function Navbar() {
                   }}
                 >
                   <Link
-                    href={item === "Contact" ? "/contact" : `#${item.toLowerCase()}`}
+                    href={item === "Contact" ? "/contact" : item === "Work" ? "/careers" : `#${item.toLowerCase()}`}
                     className="relative group block px-1 py-1"
                     role="menuitem"
                   >
@@ -142,7 +142,7 @@ export default function Navbar() {
                     }}
                   >
                     <Link
-                      href={item === "Contact" ? "/contact" : `#${item.toLowerCase()}`}
+                      href={item === "Contact" ? "/contact" : item === "Work" ? "/careers" : `#${item.toLowerCase()}`}
                       className="text-2xl font-bold text-[#0a192f] hover:text-[#0056b3]"
                       onClick={() => setMobileMenuOpen(false)}
                     >

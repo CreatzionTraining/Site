@@ -49,9 +49,9 @@ if (!process.env.NEXTAUTH_URL || process.env.NODE_ENV === "production") {
  * URL automatically switches between localhost and production
  */
 export const authOptions: NextAuthOptions = {
-  // Use Prisma adapter for database persistence
-  adapter: PrismaAdapter(prisma),
-
+  // JWT-only strategy (no adapter) - more reliable for OAuth
+  // Database operations still happen in callbacks for tracking
+  
   // Authentication providers
   providers: [
     // Google OAuth - Credentials from environment variables
@@ -145,16 +145,34 @@ export const authOptions: NextAuthOptions = {
 
   // Callbacks for session and JWT handling
   callbacks: {
-    // Sign in callback - handles account linking
+    // Sign in callback - handles user creation and account linking
     async signIn({ user, account, profile }) {
       // If signing in with OAuth provider
       if (account?.provider && user.email) {
         try {
           // Check if user with this email already exists
-          const existingUser = await prisma.user.findUnique({
+          let existingUser = await prisma.user.findUnique({
             where: { email: user.email },
             include: { accounts: true },
           });
+
+          // If user doesn't exist, create them
+          if (!existingUser) {
+            console.log(`Creating new user: ${user.email}`);
+            existingUser = await prisma.user.create({
+              data: {
+                email: user.email,
+                name: user.name || user.email?.split('@')[0],
+                image: user.image,
+                emailVerified: new Date(),
+                lastLogin: new Date(),
+                lastLoginMethod: account.provider,
+                loginCount: 1,
+              },
+              include: { accounts: true },
+            });
+            console.log(`User created successfully: ${existingUser.id}`);
+          }
 
           if (existingUser) {
             // Check if this provider is already linked
@@ -162,8 +180,9 @@ export const authOptions: NextAuthOptions = {
               (acc: { provider: string }) => acc.provider === account.provider
             );
 
-            // If provider not linked, link it automatically
+            // If provider not linked, link it
             if (!accountExists) {
+              console.log(`Linking ${account.provider} account for user: ${existingUser.id}`);
               await prisma.account.create({
                 data: {
                   userId: existingUser.id,
@@ -179,9 +198,11 @@ export const authOptions: NextAuthOptions = {
                   session_state: account.session_state,
                 },
               });
+              console.log(`Account linked successfully`);
             }
 
             // Update login tracking
+            console.log(`Updating login tracking for user: ${existingUser.id}`);
             await prisma.user.update({
               where: { id: existingUser.id },
               data: {
@@ -190,13 +211,23 @@ export const authOptions: NextAuthOptions = {
                 loginCount: { increment: 1 },
               },
             });
+            console.log(`Login tracking updated`);
+
+            // Update user ID in the session
+            user.id = existingUser.id;
           }
         } catch (error) {
-          console.error("Account linking error:", error);
+          console.error("Sign in callback error:", error);
+          // Log the full error for debugging
+          if (error instanceof Error) {
+            console.error("Error details:", error.message);
+            console.error("Error stack:", error.stack);
+          }
+          // Still allow sign in even if database fails
         }
       }
 
-      return true; // Allow sign in
+      return true; // Always allow sign in
     },
 
     // JWT callback - runs when JWT is created or updated
@@ -230,15 +261,51 @@ export const authOptions: NextAuthOptions = {
 
     // Redirect callback - handles where to redirect after login
     async redirect({ url, baseUrl }) {
+      console.log("Redirect callback - url:", url, "baseUrl:", baseUrl);
+      
+      // Parse the URL to get query parameters
+      try {
+        const urlObj = new URL(url, baseUrl);
+        
+        // Check for returnUrl in query params (from our job application flow)
+        const returnUrl = urlObj.searchParams.get('returnUrl');
+        if (returnUrl) {
+          console.log("Found returnUrl:", returnUrl);
+          // Decode and return the returnUrl
+          const decodedUrl = decodeURIComponent(returnUrl);
+          return decodedUrl.startsWith('/') ? `${baseUrl}${decodedUrl}` : decodedUrl;
+        }
+        
+        // Check for callbackUrl (NextAuth default)
+        const callbackUrl = urlObj.searchParams.get('callbackUrl');
+        if (callbackUrl) {
+          console.log("Found callbackUrl:", callbackUrl);
+          const decodedCallback = decodeURIComponent(callbackUrl);
+          // Only use callbackUrl if it's not the login page
+          if (!decodedCallback.includes('/login')) {
+            return decodedCallback.startsWith('/') ? `${baseUrl}${decodedCallback}` : decodedCallback;
+          }
+        }
+      } catch (error) {
+        console.error("Error parsing redirect URL:", error);
+      }
+      
       // If URL is relative, prepend baseUrl
-      if (url.startsWith("/")) {
+      if (url.startsWith("/") && !url.startsWith("/login")) {
         return `${baseUrl}${url}`;
       }
-      // If URL is on the same origin, allow it
-      else if (new URL(url).origin === baseUrl) {
-        return url;
+      
+      // If URL is on the same origin and not login page, allow it
+      try {
+        if (new URL(url).origin === baseUrl && !url.includes('/login')) {
+          return url;
+        }
+      } catch {
+        // Invalid URL, fall through to default
       }
-      // Otherwise redirect to home page
+      
+      // Default: redirect to home page
+      console.log("Redirecting to home page");
       return baseUrl;
     },
   },
@@ -256,9 +323,13 @@ export const authOptions: NextAuthOptions = {
               lastLoginMethod: "credentials",
               loginCount: { increment: 1 },
             },
+          }).catch((error) => {
+            console.error("Login tracking error:", error);
+            // Don't throw - just log the error
           });
         } catch (error) {
           console.error("Login tracking error:", error);
+          // Don't throw - allow sign in to continue
         }
       }
       
