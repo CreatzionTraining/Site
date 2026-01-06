@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { Search, MapPin, Clock, Briefcase, ArrowRight, Filter, ChevronLeft, Upload, FileText } from "lucide-react";
@@ -22,7 +22,7 @@ interface Job {
   benefits: string[];
 }
 
-export default function Jobs() {
+function JobsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { data: session, status } = useSession();
@@ -903,5 +903,21 @@ export default function Jobs() {
         </div>
       </section>
     </div>
+  );
+}
+
+// Wrapper component with Suspense boundary for useSearchParams
+export default function Jobs() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-[#0077FF] border-r-transparent"></div>
+          <p className="mt-4 text-gray-600">Loading jobs...</p>
+        </div>
+      </div>
+    }>
+      <JobsContent />
+    </Suspense>
   );
 }
