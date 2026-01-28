@@ -1,19 +1,8 @@
-<<<<<<< HEAD
-[00:00:01.326] Server  LOG      ✓ Ready in 933ms
-[00:00:04.360] Server  LOG      ○ Compiling / ...
-[00:00:06.769] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:08.035] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:43.672] Browser WARN    Image with src "/meeting_room.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:48.671] Browser WARN    Image with src "/tech_space.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:02:00.093] Server  LOG      ✓ Compiled in 188ms
-=======
-[00:00:07.348] Server  LOG      ✓ Ready in 5.2s
-[00:00:10.632] Server  LOG      ○ Compiling / ...
-[00:00:22.747] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:23.750] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:24.259] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:26.121] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:30.389] Browser WARN    Image with src "/meeting_room.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:32.244] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:00:32.856] Browser LOG     THREE.WebGLRenderer: Context Lost.
->>>>>>> 8d4deb85dc0dbfbda31d5c86e868dbba812d1d08
+[00:00:01.443] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.683] Server  LOG      ✓ Ready in 1250ms
+[00:00:07.534] Server  LOG      ○ Compiling / ...
+[00:00:10.557] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:10.964] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:12.648] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:00:17.337] Browser WARN    Image with src "/meeting_room.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:22.357] Browser WARN    Image with src "/tech_space.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
