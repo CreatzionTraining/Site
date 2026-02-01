@@ -3,9 +3,9 @@
   "middleware": {
     "/": {
       "files": [
-        "server/edge/chunks/OneDrive_Desktop_Company_Portfolio_37f2e598._.js",
-        "server/edge/chunks/[root-of-the-server]__75d27388._.js",
-        "server/edge/chunks/turbopack-OneDrive_Desktop_Company_Portfolio_edge-wrapper_8821c4dd.js"
+        "server/edge/chunks/OneDrive_Desktop_Site_4df273d1._.js",
+        "server/edge/chunks/[root-of-the-server]__b2230145._.js",
+        "server/edge/chunks/turbopack-OneDrive_Desktop_Site_edge-wrapper_3ea7b634.js"
       ],
       "name": "middleware",
       "page": "/",
@@ -20,9 +20,9 @@
       "env": {
         "__NEXT_BUILD_ID": "development",
         "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "JSIojWtWmNui9r43iD6foNlNaIwjp4F8COxeg9P5WTo=",
-        "__NEXT_PREVIEW_MODE_ID": "6392f4e4dc02896140a339d8fcd7a696",
-        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "2a783466143e6fcc5a5d57680443753164c1da3340cc242485dfae5bfafdcca4",
-        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "a1ce267d7419d4fd3fd0ee1dbe3315573765a1d7baa6b68a2a9365efdc336ed2"
+        "__NEXT_PREVIEW_MODE_ID": "50b28ed68f3c1698a91e195ab179aeff",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "90f63c26cb73e334bb718fd09524d85f1c44d5b736b1a8455b3ca5dddb321159",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b9b91bb04179c58a213cc7ab6e03da0abade2cf6bd513e44e0d7899c2d905c1b"
       }
     }
   },
