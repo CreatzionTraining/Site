@@ -1,8 +1,3 @@
 {
-<<<<<<< HEAD
-  "/about/page": "app/about/page.js",
-=======
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
->>>>>>> 84c51d82a52743542424244e9bfdc8754f60c03d
   "/page": "app/page.js"
 }
