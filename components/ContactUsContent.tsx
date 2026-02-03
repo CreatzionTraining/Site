@@ -13,20 +13,19 @@ import {
   Briefcase,
   Building2,
   Users,
-  TrendingUp,
   Award,
-  Target,
-  Rocket,
   CheckCircle2,
-  ArrowRight,
-  Lightbulb,
-  Handshake
+  Clock,
+  Shield,
+  Zap
 } from "lucide-react";
 
 export default function ContactUsContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [referenceNumber, setReferenceNumber] = useState<string>("");
+  const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const projectTypes = [
     "Digital Transformation",
@@ -78,8 +77,8 @@ export default function ContactUsContent() {
       budget: formData.get('budget') || 'Not specified',
       timeline: formData.get('timeline') || 'Not specified',
       message: formData.get('message'),
-      title: formData.get('projectType'), // For auto-reply template
-      website_link: 'https://creatzion.com', // Update with your actual website
+      title: formData.get('projectType'),
+      website_link: 'https://creatzion.com',
     };
 
     try {
@@ -99,13 +98,17 @@ export default function ContactUsContent() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
 
+      // Generate unique reference number
+      const refNum = `CRZ-${Date.now()}-${Math.random().toString(36).substr(2, 6).toUpperCase()}`;
+      setReferenceNumber(refNum);
       setIsSubmitted(true);
       form.reset();
 
-      // Reset success message after 5 seconds
+      // Reset success message after 10 seconds
       setTimeout(() => {
         setIsSubmitted(false);
-      }, 5000);
+        setReferenceNumber("");
+      }, 10000);
     } catch (err) {
       console.error('EmailJS Error:', err);
       setError('Failed to send message. Please try again or contact us directly.');
@@ -115,118 +118,108 @@ export default function ContactUsContent() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {/* Hero Section - Simplified and Modern */}
       <section className="relative bg-gradient-to-br from-[#164b80] via-[#0A66C2] to-[#0077FF] text-white overflow-hidden">
-        {/* Animated Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
+            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1.5px, transparent 0)',
+            backgroundSize: '48px 48px'
           }} />
         </div>
 
-        {/* Floating Shapes */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Floating Gradient Orbs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             animate={{ 
-              y: [0, -20, 0],
-              rotate: [0, 5, 0]
+              y: [0, -30, 0],
+              x: [0, 20, 0],
+              scale: [1, 1.1, 1]
             }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-20 right-10 w-72 h-72 bg-white/10 rounded-full blur-3xl"
           />
           <motion.div
             animate={{ 
-              y: [0, 20, 0],
-              rotate: [0, -5, 0]
+              y: [0, 30, 0],
+              x: [0, -20, 0],
+              scale: [1, 1.2, 1]
             }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-20 left-20 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-20 left-10 w-96 h-96 bg-white/10 rounded-full blur-3xl"
           />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+          <div className="text-center max-w-4xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+              <motion.span 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="inline-block mb-6"
+                className="inline-block px-6 py-2.5 bg-white/15 backdrop-blur-md border border-white/20 rounded-full text-sm font-semibold mb-6"
               >
-                <span className="px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-semibold flex items-center gap-2 w-fit">
+                <span className="flex items-center gap-2">
                   <Briefcase className="w-4 h-4" />
-                  Let's Build Something Great Together
+                  Let's Create Something Amazing
                 </span>
-              </motion.div>
+              </motion.span>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Partner With Us
+                Get in Touch
               </h1>
               
-              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                Transform your business with cutting-edge technology solutions. Our team of experts is ready to bring your vision to life.
+              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
+                Have a project in mind? We'd love to hear about it. Share your vision and let's build something extraordinary together.
               </p>
 
-              {/* Value Props */}
-              <div className="space-y-4 mb-8">
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="flex items-center gap-3"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4"
                 >
-                  <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5" />
-                  </div>
-                  <span className="text-white/90">Enterprise-grade solutions tailored to your needs</span>
+                  <Building2 className="w-8 h-8 mx-auto mb-2" />
+                  <div className="text-3xl font-bold">500+</div>
+                  <div className="text-sm text-white/80">Projects</div>
                 </motion.div>
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="flex items-center gap-3"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4"
                 >
-                  <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5" />
-                  </div>
-                  <span className="text-white/90">Proven track record with Fortune 500 companies</span>
+                  <Users className="w-8 h-8 mx-auto mb-2" />
+                  <div className="text-3xl font-bold">200+</div>
+                  <div className="text-sm text-white/80">Clients</div>
                 </motion.div>
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="flex items-center gap-3"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4"
                 >
-                  <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5" />
-                  </div>
-                  <span className="text-white/90">End-to-end support from concept to deployment</span>
+                  <Globe className="w-8 h-8 mx-auto mb-2" />
+                  <div className="text-3xl font-bold">50+</div>
+                  <div className="text-sm text-white/80">Countries</div>
                 </motion.div>
-              </div>
-            </motion.div>
-
-            {/* Right Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-                <Image
-                  src="/contact_business_hero.png"
-                  alt="Business Partnership"
-                  width={700}
-                  height={500}
-                  className="w-full h-auto"
-                />
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4"
+                >
+                  <Award className="w-8 h-8 mx-auto mb-2" />
+                  <div className="text-3xl font-bold">98%</div>
+                  <div className="text-sm text-white/80">Satisfaction</div>
+                </motion.div>
               </div>
             </motion.div>
           </div>
@@ -235,419 +228,467 @@ export default function ContactUsContent() {
         {/* Wave Divider */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="rgb(249, 250, 251)"/>
           </svg>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Building2 className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">500+</div>
-              <div className="text-gray-600 font-medium">Projects Delivered</div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">200+</div>
-              <div className="text-gray-600 font-medium">Enterprise Clients</div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Globe className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">50+</div>
-              <div className="text-gray-600 font-medium">Countries Worldwide</div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Award className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">98%</div>
-              <div className="text-gray-600 font-medium">Client Satisfaction</div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Main Contact Section */}
-      <section className="py-20 lg:py-28 bg-gray-50">
+      <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            {/* Left Side - Contact Info */}
-            <div className="lg:col-span-2 space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            
+            {/* Left Sidebar - Contact Info */}
+            <div className="lg:col-span-1 space-y-6">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
               >
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                  Let's Discuss Your Project
-                </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Share your vision with us, and we'll help you turn it into reality with innovative technology solutions.
-                </p>
-              </motion.div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
+                
+                {/* Contact Cards */}
+                <div className="space-y-4">
+                  <motion.div
+                    whileHover={{ x: 4 }}
+                    className="group bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <Mail className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-900 mb-1">Email Us</h3>
+                        <p className="text-sm text-gray-600 mb-2">For business inquiries</p>
+                        <a href="mailto:business@creatzion.com" className="text-[#0A66C2] font-medium hover:text-[#0077FF] transition-colors text-sm">
+                          business@creatzion.com
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
 
-              {/* Contact Cards */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Business Inquiries</h3>
-                    <p className="text-sm text-gray-600 mb-2">For partnerships and project discussions</p>
-                    <a href="mailto:business@creatzion.com" className="text-[#0A66C2] font-medium hover:text-[#0077FF] transition-colors">
-                      business@creatzion.com
-                    </a>
-                  </div>
+                  <motion.div
+                    whileHover={{ x: 4 }}
+                    className="group bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <Phone className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-900 mb-1">Call Us</h3>
+                        <p className="text-sm text-gray-600 mb-2">Mon-Fri, 9am-6pm</p>
+                        <a href="tel:+1234567890" className="text-[#0A66C2] font-medium hover:text-[#0077FF] transition-colors text-sm">
+                          +1 (234) 567-890
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ x: 4 }}
+                    className="group bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <MapPin className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-900 mb-1">Visit Us</h3>
+                        <p className="text-sm text-gray-600">
+                          123 Innovation Drive<br />
+                          Tech Park, Suite 500<br />
+                          San Francisco, CA 94105
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Direct Line</h3>
-                    <p className="text-sm text-gray-600 mb-2">Speak with our business development team</p>
-                    <a href="tel:+1234567890" className="text-[#0A66C2] font-medium hover:text-[#0077FF] transition-colors">
-                      +1 (234) 567-890
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Headquarters</h3>
-                    <p className="text-sm text-gray-600">
-                      123 Innovation Drive<br />
-                      Tech Park, Suite 500<br />
-                      San Francisco, CA 94105
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Why Choose Us */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="bg-gradient-to-br from-[#164b80] to-[#0A66C2] rounded-2xl p-6 text-white"
-              >
-                <Lightbulb className="w-10 h-10 mb-4" />
-                <h3 className="font-bold text-xl mb-3">Why Partner With Creatzion?</h3>
-                <ul className="space-y-2 text-white/90 text-sm">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <span>Industry-leading expertise in AI, Cloud, and Digital Transformation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <span>Agile methodology ensuring on-time, on-budget delivery</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <span>Dedicated account management and 24/7 support</span>
-                  </li>
-                </ul>
+                {/* Why Choose Us Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="bg-gradient-to-br from-[#164b80] to-[#0A66C2] rounded-2xl p-6 text-white mt-6"
+                >
+                  <Shield className="w-10 h-10 mb-4" />
+                  <h3 className="font-bold text-lg mb-3">Why Partner With Us?</h3>
+                  <ul className="space-y-2.5 text-sm text-white/90">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                      <span>Industry-leading expertise in AI & Cloud</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                      <span>On-time, on-budget delivery guaranteed</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                      <span>24/7 dedicated support team</span>
+                    </li>
+                  </ul>
+                </motion.div>
               </motion.div>
             </div>
 
-            {/* Right Side - Project Inquiry Form */}
+            {/* Right Side - Contact Form */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="lg:col-span-3"
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="lg:col-span-2"
             >
-              <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-8 lg:p-10">
+              <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 lg:p-10">
                 <div className="mb-8">
-                  <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">Start Your Project</h2>
-                  <p className="text-gray-600">Tell us about your business needs and we'll create a customized solution.</p>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Start Your Project</h2>
+                  <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
                 </div>
 
                 {isSubmitted ? (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     className="text-center py-12"
                   >
-                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <CheckCircle2 className="w-10 h-10 text-green-600" />
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                      className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                    >
+                      <CheckCircle2 className="w-10 h-10 text-white" />
+                    </motion.div>
+                    
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Message Sent Successfully!</h3>
+                    <p className="text-gray-600 mb-6">Thank you for reaching out. We've received your inquiry.</p>
+                    
+                    {/* Reference Number Card */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl p-6 mb-6 max-w-md mx-auto"
+                    >
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        <Zap className="w-5 h-5 text-[#0A66C2]" />
+                        <p className="text-sm font-semibold text-gray-700">Your Reference Number</p>
+                      </div>
+                      <p className="text-2xl font-bold text-[#0A66C2] font-mono tracking-wider mb-2">{referenceNumber}</p>
+                      <p className="text-xs text-gray-600">Save this number for tracking your inquiry</p>
+                    </motion.div>
+                    
+                    <div className="flex items-center justify-center gap-2 text-sm text-gray-600 mb-4">
+                      <Clock className="w-4 h-4" />
+                      <span>Our team will respond within 24 hours</span>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You for Reaching Out!</h3>
-                    <p className="text-gray-600 mb-4">We've sent you a confirmation email. Our business development team will contact you within 24 hours.</p>
-                    <p className="text-sm text-gray-500">Please check your inbox (and spam folder) for our confirmation email.</p>
+                    
+                    <p className="text-sm text-gray-500">Please check your email (including spam folder) for confirmation.</p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Error Message */}
                     {error && (
-                      <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-                        <p className="text-red-600 text-sm">{error}</p>
-                      </div>
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-red-50 border-l-4 border-red-500 rounded-xl p-4"
+                      >
+                        <p className="text-red-700 text-sm font-medium">{error}</p>
+                      </motion.div>
                     )}
                     
                     {/* Personal Information */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
-                          First Name <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          id="firstName"
-                          type="text"
-                          name="firstName"
-                          required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
-                          placeholder="John"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Last Name <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          id="lastName"
-                          type="text"
-                          name="lastName"
-                          required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
-                          placeholder="Doe"
-                        />
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <div className="w-8 h-8 bg-[#0A66C2] text-white rounded-lg flex items-center justify-center text-sm font-bold">1</div>
+                        Personal Details
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                          <label htmlFor="firstName" className="block text-sm font-semibold text-gray-900 mb-2">
+                            First Name <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id="firstName"
+                            type="text"
+                            name="firstName"
+                            required
+                            onFocus={() => setFocusedField('firstName')}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full px-4 py-3.5 rounded-xl border-2 ${
+                              focusedField === 'firstName' 
+                                ? 'border-[#0A66C2] ring-4 ring-[#0A66C2]/10' 
+                                : 'border-gray-200 hover:border-gray-300'
+                            } outline-none transition-all`}
+                            placeholder="John"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="lastName" className="block text-sm font-semibold text-gray-900 mb-2">
+                            Last Name <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id="lastName"
+                            type="text"
+                            name="lastName"
+                            required
+                            onFocus={() => setFocusedField('lastName')}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full px-4 py-3.5 rounded-xl border-2 ${
+                              focusedField === 'lastName' 
+                                ? 'border-[#0A66C2] ring-4 ring-[#0A66C2]/10' 
+                                : 'border-gray-200 hover:border-gray-300'
+                            } outline-none transition-all`}
+                            placeholder="Doe"
+                          />
+                        </div>
                       </div>
                     </div>
 
                     {/* Contact Details */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Business Email <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          id="email"
-                          type="email"
-                          name="email"
-                          required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
-                          placeholder="john.doe@company.com"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Phone Number <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          id="phone"
-                          type="tel"
-                          name="phone"
-                          required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
-                          placeholder="+1 (234) 567-8900"
-                        />
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <div className="w-8 h-8 bg-[#0A66C2] text-white rounded-lg flex items-center justify-center text-sm font-bold">2</div>
+                        Contact Information
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+                            Email Address <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            required
+                            onFocus={() => setFocusedField('email')}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full px-4 py-3.5 rounded-xl border-2 ${
+                              focusedField === 'email' 
+                                ? 'border-[#0A66C2] ring-4 ring-[#0A66C2]/10' 
+                                : 'border-gray-200 hover:border-gray-300'
+                            } outline-none transition-all`}
+                            placeholder="john.doe@company.com"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
+                            Phone Number <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id="phone"
+                            type="tel"
+                            name="phone"
+                            required
+                            onFocus={() => setFocusedField('phone')}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full px-4 py-3.5 rounded-xl border-2 ${
+                              focusedField === 'phone' 
+                                ? 'border-[#0A66C2] ring-4 ring-[#0A66C2]/10' 
+                                : 'border-gray-200 hover:border-gray-300'
+                            } outline-none transition-all`}
+                            placeholder="+1 (234) 567-8900"
+                          />
+                        </div>
                       </div>
                     </div>
 
                     {/* Company Information */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Company Name <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          id="company"
-                          type="text"
-                          name="company"
-                          required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
-                          placeholder="Your Company Inc."
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="jobTitle" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Job Title <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          id="jobTitle"
-                          type="text"
-                          name="jobTitle"
-                          required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
-                          placeholder="CTO, VP Engineering, etc."
-                        />
-                      </div>
-                    </div>
-
-                    {/* Industry */}
                     <div>
-                      <label htmlFor="industry" className="block text-sm font-semibold text-gray-700 mb-2">
-                        Industry <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        id="industry"
-                        type="text"
-                        name="industry"
-                        required
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all"
-                        placeholder="e.g., Healthcare, Finance, Retail, Manufacturing"
-                      />
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <div className="w-8 h-8 bg-[#0A66C2] text-white rounded-lg flex items-center justify-center text-sm font-bold">3</div>
+                        Company Details
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                          <label htmlFor="company" className="block text-sm font-semibold text-gray-900 mb-2">
+                            Company Name <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id="company"
+                            type="text"
+                            name="company"
+                            required
+                            onFocus={() => setFocusedField('company')}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full px-4 py-3.5 rounded-xl border-2 ${
+                              focusedField === 'company' 
+                                ? 'border-[#0A66C2] ring-4 ring-[#0A66C2]/10' 
+                                : 'border-gray-200 hover:border-gray-300'
+                            } outline-none transition-all`}
+                            placeholder="Your Company Inc."
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="jobTitle" className="block text-sm font-semibold text-gray-900 mb-2">
+                            Job Title <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id="jobTitle"
+                            type="text"
+                            name="jobTitle"
+                            required
+                            onFocus={() => setFocusedField('jobTitle')}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full px-4 py-3.5 rounded-xl border-2 ${
+                              focusedField === 'jobTitle' 
+                                ? 'border-[#0A66C2] ring-4 ring-[#0A66C2]/10' 
+                                : 'border-gray-200 hover:border-gray-300'
+                            } outline-none transition-all`}
+                            placeholder="CEO, CTO, VP Engineering"
+                          />
+                        </div>
+                      </div>
+                      <div className="mt-5">
+                        <label htmlFor="industry" className="block text-sm font-semibold text-gray-900 mb-2">
+                          Industry <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id="industry"
+                          type="text"
+                          name="industry"
+                          required
+                          onFocus={() => setFocusedField('industry')}
+                          onBlur={() => setFocusedField(null)}
+                          className={`w-full px-4 py-3.5 rounded-xl border-2 ${
+                            focusedField === 'industry' 
+                              ? 'border-[#0A66C2] ring-4 ring-[#0A66C2]/10' 
+                              : 'border-gray-200 hover:border-gray-300'
+                          } outline-none transition-all`}
+                          placeholder="e.g., Healthcare, Finance, Technology"
+                        />
+                      </div>
                     </div>
 
                     {/* Project Details */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      <div>
-                        <label htmlFor="projectType" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Project Type <span className="text-red-500">*</span>
-                        </label>
-                        <select
-                          id="projectType"
-                          name="projectType"
-                          required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all bg-white"
-                        >
-                          <option value="">Select type</option>
-                          {projectTypes.map((type) => (
-                            <option key={type} value={type}>{type}</option>
-                          ))}
-                        </select>
-                      </div>
-                      <div>
-                        <label htmlFor="budget" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Budget Range
-                        </label>
-                        <select
-                          id="budget"
-                          name="budget"
-                          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all bg-white"
-                        >
-                          <option value="">Select range</option>
-                          {budgetRanges.map((range) => (
-                            <option key={range} value={range}>{range}</option>
-                          ))}
-                        </select>
-                      </div>
-                      <div>
-                        <label htmlFor="timeline" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Timeline
-                        </label>
-                        <select
-                          id="timeline"
-                          name="timeline"
-                          className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all bg-white"
-                        >
-                          <option value="">Select timeline</option>
-                          {timelines.map((time) => (
-                            <option key={time} value={time}>{time}</option>
-                          ))}
-                        </select>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <div className="w-8 h-8 bg-[#0A66C2] text-white rounded-lg flex items-center justify-center text-sm font-bold">4</div>
+                        Project Information
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <div>
+                          <label htmlFor="projectType" className="block text-sm font-semibold text-gray-900 mb-2">
+                            Project Type <span className="text-red-500">*</span>
+                          </label>
+                          <select
+                            id="projectType"
+                            name="projectType"
+                            required
+                            onFocus={() => setFocusedField('projectType')}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full px-4 py-3.5 rounded-xl border-2 ${
+                              focusedField === 'projectType' 
+                                ? 'border-[#0A66C2] ring-4 ring-[#0A66C2]/10' 
+                                : 'border-gray-200 hover:border-gray-300'
+                            } outline-none transition-all bg-white cursor-pointer`}
+                          >
+                            <option value="">Select type</option>
+                            {projectTypes.map((type) => (
+                              <option key={type} value={type}>{type}</option>
+                            ))}
+                          </select>
+                        </div>
+                        <div>
+                          <label htmlFor="budget" className="block text-sm font-semibold text-gray-900 mb-2">
+                            Budget Range
+                          </label>
+                          <select
+                            id="budget"
+                            name="budget"
+                            onFocus={() => setFocusedField('budget')}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full px-4 py-3.5 rounded-xl border-2 ${
+                              focusedField === 'budget' 
+                                ? 'border-[#0A66C2] ring-4 ring-[#0A66C2]/10' 
+                                : 'border-gray-200 hover:border-gray-300'
+                            } outline-none transition-all bg-white cursor-pointer`}
+                          >
+                            <option value="">Select range</option>
+                            {budgetRanges.map((range) => (
+                              <option key={range} value={range}>{range}</option>
+                            ))}
+                          </select>
+                        </div>
+                        <div>
+                          <label htmlFor="timeline" className="block text-sm font-semibold text-gray-900 mb-2">
+                            Timeline
+                          </label>
+                          <select
+                            id="timeline"
+                            name="timeline"
+                            onFocus={() => setFocusedField('timeline')}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full px-4 py-3.5 rounded-xl border-2 ${
+                              focusedField === 'timeline' 
+                                ? 'border-[#0A66C2] ring-4 ring-[#0A66C2]/10' 
+                                : 'border-gray-200 hover:border-gray-300'
+                            } outline-none transition-all bg-white cursor-pointer`}
+                          >
+                            <option value="">Select timeline</option>
+                            {timelines.map((time) => (
+                              <option key={time} value={time}>{time}</option>
+                            ))}
+                          </select>
+                        </div>
                       </div>
                     </div>
 
                     {/* Project Description */}
                     <div>
-                      <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                        Project Description <span className="text-red-500">*</span>
+                      <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
+                        Tell Us About Your Project <span className="text-red-500">*</span>
                       </label>
                       <textarea
                         id="message"
                         name="message"
                         required
-                        rows={5}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0A66C2] focus:ring-2 focus:ring-[#0A66C2]/20 outline-none transition-all resize-none"
-                        placeholder="Tell us about your project goals, challenges, and expected outcomes..."
+                        rows={6}
+                        onFocus={() => setFocusedField('message')}
+                        onBlur={() => setFocusedField(null)}
+                        className={`w-full px-4 py-3.5 rounded-xl border-2 ${
+                          focusedField === 'message' 
+                            ? 'border-[#0A66C2] ring-4 ring-[#0A66C2]/10' 
+                            : 'border-gray-200 hover:border-gray-300'
+                        } outline-none transition-all resize-none`}
+                        placeholder="Share your project goals, challenges, and what you're looking to achieve. The more details you provide, the better we can help you..."
                       />
                     </div>
 
                     {/* Privacy Notice */}
-                    <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                      <p className="text-sm text-gray-600">
-                        <strong>Confidentiality Assured:</strong> All information shared will be treated with strict confidentiality. 
-                        We respect your privacy and adhere to our{" "}
-                        <a href="/privacy" className="text-[#0A66C2] hover:text-[#0077FF] font-medium">
-                          Privacy Policy
-                        </a>.
-                      </p>
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-5">
+                      <div className="flex items-start gap-3">
+                        <Shield className="w-5 h-5 text-[#0A66C2] flex-shrink-0 mt-0.5" />
+                        <p className="text-sm text-gray-700">
+                          <strong className="text-gray-900">Your privacy matters.</strong> All information is kept strictly confidential and secure. Read our{" "}
+                          <a href="/privacy" className="text-[#0A66C2] hover:text-[#0077FF] font-semibold underline">
+                            Privacy Policy
+                          </a>.
+                        </p>
+                      </div>
                     </div>
 
                     {/* Submit Button */}
                     <motion.button
                       type="submit"
                       disabled={isSubmitting}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full bg-gradient-to-r from-[#0A66C2] to-[#0077FF] text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-2xl transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+                      whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                      whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                      className="w-full bg-gradient-to-r from-[#0A66C2] to-[#0077FF] text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-2xl transition-all flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed text-lg group"
                     >
                       {isSubmitting ? (
                         <>
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                          <span>Submitting...</span>
+                          <div className="w-5 h-5 border-3 border-white border-t-transparent rounded-full animate-spin" />
+                          <span>Sending Your Message...</span>
                         </>
                       ) : (
                         <>
-                          <span>Submit Project Inquiry</span>
-                          <Send className="w-5 h-5" />
+                          <span>Send Message</span>
+                          <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </>
                       )}
                     </motion.button>
@@ -659,131 +700,53 @@ export default function ContactUsContent() {
         </div>
       </section>
 
-      {/* Collaboration Section */}
-      <section className="py-20 lg:py-28 bg-white">
+      {/* Collaboration Process Section */}
+      <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="text-center mb-16">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/contact_collaboration.png"
-                  alt="Team Collaboration"
-                  width={700}
-                  height={500}
-                  className="w-full h-auto"
-                />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                How We Work Together
-              </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Our collaborative approach ensures your project's success from discovery to deployment and beyond.
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">How We Work Together</h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Our proven process ensures your project's success from start to finish
               </p>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-xl flex items-center justify-center flex-shrink-0 text-white font-bold">
-                    1
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-2 text-lg">Discovery & Strategy</h3>
-                    <p className="text-gray-600">We analyze your business needs and create a comprehensive roadmap aligned with your goals.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-xl flex items-center justify-center flex-shrink-0 text-white font-bold">
-                    2
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-2 text-lg">Design & Development</h3>
-                    <p className="text-gray-600">Our expert team brings your vision to life with cutting-edge technology and best practices.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-xl flex items-center justify-center flex-shrink-0 text-white font-bold">
-                    3
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-2 text-lg">Testing & Deployment</h3>
-                    <p className="text-gray-600">Rigorous quality assurance and smooth deployment ensure a flawless launch.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] rounded-xl flex items-center justify-center flex-shrink-0 text-white font-bold">
-                    4
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-2 text-lg">Support & Growth</h3>
-                    <p className="text-gray-600">Ongoing support and optimization to help your solution evolve with your business.</p>
-                  </div>
-                </div>
-              </div>
             </motion.div>
           </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-20 lg:py-24 bg-gradient-to-br from-[#164b80] via-[#0A66C2] to-[#0077FF] relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }} />
-        </div>
-
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Handshake className="w-20 h-20 text-white mx-auto mb-6" />
-            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
-              Ready to Transform Your Business?
-            </h2>
-            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-              Join hundreds of leading companies who trust Creatzion to deliver innovative technology solutions that drive real business results.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
-                href="#contact-form"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 bg-white text-[#0A66C2] font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { step: "1", title: "Discovery", desc: "We analyze your needs and create a strategic roadmap", icon: "🎯" },
+              { step: "2", title: "Design", desc: "Expert team brings your vision to life", icon: "✨" },
+              { step: "3", title: "Development", desc: "Building with cutting-edge technology", icon: "🚀" },
+              { step: "4", title: "Support", desc: "Ongoing optimization and growth", icon: "💎" }
+            ].map((item, index) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative"
               >
-                <span>Start Your Project</span>
-                <ArrowRight className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                href="tel:+1234567890"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/20 transition-all"
-              >
-                <Phone className="w-5 h-5" />
-                <span>Call Us Now</span>
-              </motion.a>
-            </div>
-          </motion.div>
+                <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 rounded-2xl p-6 hover:border-[#0A66C2] transition-all group">
+                  <div className="text-4xl mb-4">{item.icon}</div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 bg-gradient-to-br from-[#0A66C2] to-[#0077FF] text-white rounded-lg flex items-center justify-center font-bold text-sm">
+                      {item.step}
+                    </div>
+                    <h3 className="font-bold text-gray-900 text-lg">{item.title}</h3>
+                  </div>
+                  <p className="text-gray-600 text-sm">{item.desc}</p>
+                </div>
+                {index < 3 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-[#0A66C2] to-transparent" />
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

@@ -1,8 +1,11 @@
 {
   "app": {
+<<<<<<< HEAD
     "[project]/Desktop/Site/app/about/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
     ],
+=======
+>>>>>>> 84c51d82a52743542424244e9bfdc8754f60c03d
     "[project]/Desktop/Site/app/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
     ]

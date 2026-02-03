@@ -65,13 +65,13 @@ function NewsletterForm() {
               type="email"
               placeholder="Enter your email address"
               disabled
-              className="w-full pl-12 pr-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all shadow-sm"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/95 backdrop-blur-sm border border-white/30 text-gray-900 placeholder-gray-500 text-sm outline-none focus:border-white focus:ring-2 focus:ring-white/50 transition-all shadow-sm"
             />
           </div>
           <button
             type="button"
             disabled
-            className="relative px-8 py-3 bg-white text-[#164b80] font-bold rounded-lg transition-all flex items-center justify-center gap-2 text-sm shadow-lg overflow-hidden"
+            className="relative px-8 py-3 bg-white text-[#0A66C2] font-bold rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg overflow-hidden"
           >
             <span className="relative z-10 flex items-center gap-2">
               Subscribe
@@ -97,7 +97,7 @@ function NewsletterForm() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
               required
-              className="w-full pl-12 pr-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all shadow-sm"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/95 backdrop-blur-sm border border-white/30 text-gray-900 placeholder-gray-500 text-sm outline-none focus:border-white focus:ring-2 focus:ring-white/50 transition-all shadow-sm"
             />
           </div>
           <motion.button
@@ -105,7 +105,7 @@ function NewsletterForm() {
             onClick={createRipple}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="relative px-8 py-3 bg-white text-[#164b80] font-bold rounded-lg transition-all flex items-center justify-center gap-2 text-sm shadow-lg hover:shadow-2xl overflow-hidden group"
+            className="relative px-8 py-3 bg-white text-[#0A66C2] font-bold rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg hover:shadow-2xl overflow-hidden group"
           >
             {/* Ripple effects */}
             {ripples.map((ripple) => (
@@ -140,14 +140,14 @@ function NewsletterForm() {
                     animate={{ opacity: 1, scale: 1, rotate: 360 }}
                     transition={{ rotate: { duration: 1, repeat: Infinity, ease: "linear" } }}
                   >
-                    <div className="w-4 h-4 border-2 border-[#164b80] border-t-transparent rounded-full" />
+                    <div className="w-4 h-4 border-2 border-[#0A66C2] border-t-transparent rounded-full" />
                   </motion.div>
                 )}
               </AnimatePresence>
             </span>
 
             {/* Animated gradient background on hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
 
             {/* Shine effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
@@ -241,7 +241,7 @@ function FooterSection({
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between cursor-pointer md:cursor-default mb-4"
       >
-        <h4 className="text-white font-semibold text-sm">{title}</h4>
+        <h4 className="text-white font-bold text-base mb-1">{title}</h4>
         <ChevronDown
           className={`w-4 h-4 text-white/60 md:hidden transition-transform duration-300 ${isOpen ? "rotate-180" : ""
             }`}
@@ -262,9 +262,9 @@ function FooterSection({
             <li key={link.name}>
               <Link
                 href={link.href}
-                className="text-white/70 hover:text-white transition-colors duration-300 text-sm inline-block hover:translate-x-1 transform transition-transform"
+                className="text-white/80 hover:text-white transition-all duration-300 text-sm inline-flex items-center gap-2 group"
               >
-                {link.name}
+                <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
               </Link>
             </li>
           ))}
@@ -314,9 +314,8 @@ export default function Footer({ }: FooterProps) {
   ];
 
   return (
-    <footer className="relative bg-[#164b80] text-white overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-5">
+    <footer className="relative bg-gradient-to-br from-[#164b80] via-[#0A66C2] to-[#0077FF] text-white overflow-hidden">{/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-25">
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
           backgroundSize: '40px 40px'
@@ -365,7 +364,7 @@ export default function Footer({ }: FooterProps) {
                       transition={{ delay: index * 0.1, type: "spring" }}
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-9 h-9 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg flex items-center justify-center text-white/70 hover:text-white hover:bg-[#0A66C2] hover:border-[#0077FF] transition-all duration-300"
+                      className="w-9 h-9 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 hover:border-white/40 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
                       aria-label={social.name}
                     >
                       <social.Icon className="w-4 h-4" />
