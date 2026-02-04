@@ -72,7 +72,7 @@ export default function Navbar() {
           opacity: showNavbar ? 1 : 0
         }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-        className="fixed top-6 left-0 right-0 z-40 hidden md:flex justify-center pointer-events-none"
+        className="fixed top-6 left-0 right-0 z-[100] hidden md:flex justify-center pointer-events-none"
       >
         <div className="pointer-events-auto">
           <motion.div

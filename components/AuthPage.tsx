@@ -8,6 +8,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, Lock, CheckCircle, Github, Twitter, Facebook, Loader2, User, ArrowRight } from "lucide-react";
 
+
+
 interface AuthPageProps {
     initialMode: "login" | "signup";
 }
@@ -25,21 +27,7 @@ export default function AuthPage({ initialMode }: AuthPageProps) {
     });
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
-    const [stars, setStars] = useState<any[]>([]);
 
-    // Generate stars only on client to avoid hydration mismatch
-    useEffect(() => {
-        const generatedStars = Array.from({ length: 20 }).map(() => ({
-            width: Math.random() < 0.5 ? '2px' : '3px',
-            height: Math.random() < 0.5 ? '2px' : '3px',
-            top: -10,
-            left: `${Math.random() * 100}%`,
-            opacity: Math.random() * 0.5 + 0.2,
-            animation: `fall ${Math.random() * 10 + 10}s linear infinite`,
-            animationDelay: `-${Math.random() * 10}s`,
-        }));
-        setStars(generatedStars);
-    }, []);
 
     // Handle URL sync on mode change without full navigation reload
     const handleModeSwitch = (newMode: "login" | "signup") => {
@@ -195,89 +183,70 @@ export default function AuthPage({ initialMode }: AuthPageProps) {
                 <motion.div
                     initial={false}
                     animate={{ x: mode === "login" ? "0%" : "100%" }}
-                    transition={{ duration: 0.6, ease: [0.6, 0.05, 0.01, 0.9] }} // Premium Bezier
-                    className="absolute top-0 left-0 w-[50%] h-full bg-[#0B1320] text-white z-20 flex flex-col justify-between p-16 overflow-hidden shadow-2xl"
+                    transition={{ duration: 0.7, ease: [0.6, 0.05, 0.01, 0.9] }}
+                    className="absolute top-0 left-0 w-[50%] h-full bg-[#080c14] text-white z-20 overflow-hidden shadow-2xl flex flex-col items-center justify-center p-12"
                 >
-                    {/* Falling Stars Background */}
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(0,119,255,0.1),_transparent_70%)]"></div>
-                        {stars.map((star, i) => (
-                            <div
-                                key={i}
-                                className="absolute bg-blue-400/30 rounded-full"
-                                style={{
-                                    width: star.width,
-                                    height: star.height,
-                                    top: star.top,
-                                    left: star.left,
-                                    opacity: star.opacity,
-                                    animation: star.animation,
-                                    animationDelay: star.animationDelay,
-                                    boxShadow: '0 0 4px rgba(0, 119, 255, 0.4)'
-                                }}
-                            />
-                        ))}
-                        <style jsx>{`
-                            @keyframes fall {
-                                0% { transform: translateY(-10px) translateX(0); opacity: 0; }
-                                10% { opacity: 1; }
-                                90% { opacity: 1; }
-                                100% { transform: translateY(100vh) translateX(-20px); opacity: 0; }
-                            }
-                        `}</style>
-                    </div>
+                    {/* Animated Background */}
+                   
 
-                    {/* Grid Pattern */}
-                    <div
-                        className="absolute inset-0 opacity-[0.03]"
-                        style={{
-                            backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-                            backgroundSize: "40px 40px"
-                        }}
-                    ></div>
-
-                    {/* Content inside Panel */}
-                    <div className="relative z-20 h-full flex flex-col justify-between">
-                        <div className="flex items-center gap-2.5 select-none">
+                    {/* Glassmorphism Card for Content */}
+                    <div className="relative z-10 w-full h-full flex flex-col justify-between">
+                        {/* Branding */}
+                        <div className="flex-none">
                             <Image
                                 src="/creatzion_brand_logo.png"
-                                alt="Creatzion Logo"
-                                width={300}
-                                height={100}
-                                className="h-32 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]"
+                                alt="Creatzion"
+                                width={360}
+                                height={120}
+                                className="h-32 w-auto object-contain drop-shadow-lg"
                             />
                         </div>
 
+                        {/* Main Text Content */}
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={mode}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.4, delay: 0.1 }}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 1.05 }}
+                                transition={{ duration: 0.5 }}
+                                className="flex flex-col gap-6"
                             >
-                                <blockquote className="text-3xl font-medium leading-relaxed tracking-tight mb-8">
+                                <blockquote className="text-4xl font-bold leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-blue-300">
                                     {mode === "login" ? (
-                                        '"The platform for creators who demand excellence. Build, manage, and scale your digital presence."'
+                                        '"Empowering the next generation of digital creators."'
                                     ) : (
-                                        '"Join our community of innovators. Experience the future of web development today."'
+                                        '"Join a network of elite developers building the future."'
                                     )}
                                 </blockquote>
 
-                                <div className="flex items-center gap-4">
+                                <div className="space-y-4">
                                     {mode === "login" ? (
-                                        <></>
+                                        <div className="flex flex-col gap-3 text-lg text-blue-100/80">
+                                            <p>Access your dashboard to manage projects and track performance.</p>
+                                        </div>
                                     ) : (
                                         <div className="flex flex-col gap-3">
-                                            <div className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-400" /> <span className="text-gray-300">Enterprise Security</span></div>
-                                            <div className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-blue-400" /> <span className="text-gray-300">Real-time Analytics</span></div>
+                                            {[
+                                                "Enterprise-grade Security",
+                                                "Real-time Analytics Dashboard",
+                                                "Collaborative Workspaces"
+                                            ].map((item, i) => (
+                                                <div key={i} className="flex items-center gap-3 text-lg text-blue-100/90">
+                                                    <div className="w-6 h-6 rounded-full bg-[#0A66C2]/20 flex items-center justify-center">
+                                                        <CheckCircle className="w-4 h-4 text-[#4dabf7]" />
+                                                    </div>
+                                                    {item}
+                                                </div>
+                                            ))}
                                         </div>
                                     )}
                                 </div>
                             </motion.div>
                         </AnimatePresence>
 
-                        <div className="flex items-center gap-6 text-sm text-gray-500">
+                        {/* Footer */}
+                        <div className="flex-none flex items-center justify-between text-sm text-blue-400/60 border-t border-[#0A66C2]/30 pt-6">
                             <span>© 2025 Creatzion Inc.</span>
                         </div>
                     </div>
@@ -292,43 +261,46 @@ export default function AuthPage({ initialMode }: AuthPageProps) {
                     <Image
                         src="/creatzion_brand_logo.png"
                         alt="Creatzion Logo"
-                        width={240}
-                        height={80}
-                        className="h-24 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]"
+                        width={300}
+                        height={100}
+                        className="h-32 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]"
                     />
                 </div>
 
                 {/* Mobile Content: Card */}
                 <div className="flex-1 flex items-start justify-center p-4">
-                    <motion.div
-                        key={mode}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="w-full max-w-sm bg-white rounded-3xl shadow-2xl p-6 mb-8"
-                    >
-                        <div className="mb-6 text-center">
-                            <h1 className="text-2xl font-bold tracking-tight text-gray-900 mb-1">
-                                {mode === 'login' ? 'Welcome Back' : 'Create Account'}
-                            </h1>
-                            <p className="text-sm text-gray-500">
-                                {mode === 'login' ? 'Enter credentials to access account' : 'Get started with your free account'}
-                            </p>
-                        </div>
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={mode}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className="w-full max-w-sm bg-white rounded-3xl shadow-2xl p-6 mb-8"
+                        >
+                            <div className="mb-6 text-center">
+                                <h1 className="text-2xl font-bold tracking-tight text-gray-900 mb-1">
+                                    {mode === 'login' ? 'Welcome Back' : 'Create Account'}
+                                </h1>
+                                <p className="text-sm text-gray-500">
+                                    {mode === 'login' ? 'Enter credentials to access account' : 'Get started with your free account'}
+                                </p>
+                            </div>
 
-                        <AuthForm
-                            mode={mode}
-                            formData={formData}
-                            setFormData={setFormData}
-                            loading={loading}
-                            handleSubmit={handleSubmit}
-                            handleOAuth={handleOAuthSignIn}
-                            // error is handled inside form
-                            error={error}
-                            onSwitch={() => handleModeSwitch(mode === 'login' ? 'signup' : 'login')}
-                            showNameInput={mode === 'signup'}
-                        />
-                    </motion.div>
+                            <AuthForm
+                                mode={mode}
+                                formData={formData}
+                                setFormData={setFormData}
+                                loading={loading}
+                                handleSubmit={handleSubmit}
+                                handleOAuth={handleOAuthSignIn}
+                                // error is handled inside form
+                                error={error}
+                                onSwitch={() => handleModeSwitch(mode === 'login' ? 'signup' : 'login')}
+                                showNameInput={mode === 'signup'}
+                            />
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
             </div>
 
