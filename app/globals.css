@@ -10,7 +10,14 @@
   --dark-shade: #0B1320;
 }
 
-
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-blue: var(--primary-blue);
+  --color-bright-blue: var(--bright-blue);
+  --color-accent-orange: var(--accent-orange);
+  --color-dark-shade: var(--dark-shade);
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -36,4 +43,21 @@ html, body {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+@theme inline {
+  --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
+    var(--delay, 0ms);
+
+  @keyframes cell-ripple {
+    0% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
 }
