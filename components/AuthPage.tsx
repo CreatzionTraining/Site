@@ -187,19 +187,28 @@ export default function AuthPage({ initialMode }: AuthPageProps) {
                     className="absolute top-0 left-0 w-[50%] h-full bg-[#080c14] text-white z-20 overflow-hidden shadow-2xl flex flex-col items-center justify-center p-12"
                 >
                     {/* Animated Background */}
-                   
+
 
                     {/* Glassmorphism Card for Content */}
                     <div className="relative z-10 w-full h-full flex flex-col justify-between">
                         {/* Branding */}
-                        <div className="flex-none">
-                            <Image
-                                src="/creatzion_brand_logo.png"
-                                alt="Creatzion"
-                                width={360}
-                                height={120}
-                                className="h-32 w-auto object-contain drop-shadow-lg"
-                            />
+                        <div className="flex-none w-full flex">
+                            <motion.div
+                                layout
+                                transition={{ duration: 0.7, ease: [0.6, 0.05, 0.01, 0.9] }}
+                                className={`relative ${mode === "login" ? "mr-auto" : "ml-auto"}`}
+                            >
+                                {/* Glow Effect */}
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-blue-500/25 blur-3xl rounded-full pointer-events-none mix-blend-screen" />
+
+                                <Image
+                                    src="/creatzion_brand_logo.png"
+                                    alt="Creatzion"
+                                    width={360}
+                                    height={120}
+                                    className="relative z-10 h-32 w-auto object-contain drop-shadow-lg"
+                                />
+                            </motion.div>
                         </div>
 
                         {/* Main Text Content */}
@@ -400,10 +409,25 @@ function AuthForm({ mode, formData, setFormData, loading, handleSubmit, handleOA
                 <button
                     type="button"
                     onClick={() => handleOAuth('google')}
-                    className="group flex items-center justify-center w-14 h-14 border border-gray-100 rounded-full shadow-[0_0_8px_0_rgba(50,50,50,0.15)] bg-white transition-all duration-300 hover:shadow-[0_0_24px_0_#dd4b39]"
+                    className="group flex items-center justify-center w-14 h-14 border border-gray-100 rounded-full shadow-[0_0_8px_0_rgba(50,50,50,0.15)] bg-white transition-all duration-300 hover:shadow-[0_0_24px_0_#4285F4]"
                 >
-                    <svg className="w-7 h-7 fill-current text-[#dd4b39]" viewBox="-13 -13 72 72" aria-hidden="true">
-                        <path d="M48,22h-5v-5h-4v5h-5v4h5v5h4v-5h5 M16,21v6.24h8.72c-0.67,3.76-3.93,6.5-8.72,6.5c-5.28,0-9.57-4.47-9.57-9.75s4.29-9.74,9.57-9.74c2.38,0,4.51,0.82,6.19,2.42v0.01l4.51-4.51C23.93,9.59,20.32,8,16,8C7.16,8,0,15.16,0,24s7.16,16,16,16c9.24,0,15.36-6.5,15.36-15.64c0-1.17-0.11-2.29-0.31-3.36C31.05,21,16,21,16,21z" />
+                    <svg className="w-6 h-6" viewBox="0 0 24 24">
+                        <path
+                            fill="#4285F4"
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                        />
+                        <path
+                            fill="#34A853"
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                        />
+                        <path
+                            fill="#FBBC05"
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.66-2.02z"
+                        />
+                        <path
+                            fill="#EA4335"
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                        />
                     </svg>
                 </button>
 
@@ -411,10 +435,10 @@ function AuthForm({ mode, formData, setFormData, loading, handleSubmit, handleOA
                 <button
                     type="button"
                     onClick={() => handleOAuth('facebook')}
-                    className="group flex items-center justify-center w-14 h-14 border border-gray-100 rounded-full shadow-[0_0_8px_0_rgba(50,50,50,0.15)] bg-white transition-all duration-300 hover:shadow-[0_0_24px_0_#3b5998]"
+                    className="group flex items-center justify-center w-14 h-14 border border-gray-100 rounded-full shadow-[0_0_8px_0_rgba(50,50,50,0.15)] bg-white transition-all duration-300 hover:shadow-[0_0_24px_0_#1877F2]"
                 >
-                    <svg className="w-7 h-7 fill-current text-[#3b5998]" viewBox="0 -7 16 30" aria-hidden="true">
-                        <path d="M12 3.303h-2.285c-0.27 0-0.572 0.355-0.572 0.831v1.65h2.857v2.352h-2.857v7.064h-2.698v-7.063h-2.446v-2.353h2.446v-1.384c0-1.985 1.378-3.6 3.269-3.6h2.286v2.503z" />
+                    <svg className="w-6 h-6 fill-[#1877F2]" viewBox="0 0 24 24">
+                        <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.841c0-2.435 1.378-3.777 3.516-3.777 1.025 0 2.156.108 2.156.108v2.361h-1.215c-1.196 0-1.602.778-1.602 1.576v1.572h2.583l-.337 3.667h-2.246v7.98h-2.855z" />
                     </svg>
                 </button>
 
@@ -424,7 +448,7 @@ function AuthForm({ mode, formData, setFormData, loading, handleSubmit, handleOA
                     onClick={() => handleOAuth('apple')}
                     className="group flex items-center justify-center w-14 h-14 border border-gray-100 rounded-full shadow-[0_0_8px_0_rgba(50,50,50,0.15)] bg-white transition-all duration-300 hover:shadow-[0_0_24px_0_rgba(0,0,0,0.5)]"
                 >
-                    <svg className="w-6 h-6 fill-current text-black" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg className="w-6 h-6 fill-black" viewBox="0 0 24 24">
                         <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" />
                     </svg>
                 </button>
@@ -433,10 +457,10 @@ function AuthForm({ mode, formData, setFormData, loading, handleSubmit, handleOA
                 <button
                     type="button"
                     onClick={() => handleOAuth('github')}
-                    className="group flex items-center justify-center w-14 h-14 border border-gray-100 rounded-full shadow-[0_0_8px_0_rgba(50,50,50,0.15)] bg-white transition-all duration-300 hover:shadow-[0_0_24px_0_#4183c4]"
+                    className="group flex items-center justify-center w-14 h-14 border border-gray-100 rounded-full shadow-[0_0_8px_0_rgba(50,50,50,0.15)] bg-white transition-all duration-300 hover:shadow-[0_0_24px_0_#24292e]"
                 >
-                    <svg className="w-7 h-7 fill-current text-[#4183c4]" viewBox="-30 -30 150 150" aria-hidden="true">
-                        <path d="M61.896,52.548c-3.59,0-6.502,4.026-6.502,8.996c0,4.971,2.912,8.999,6.502,8.999 c3.588,0,6.498-4.028,6.498-8.999C68.395,56.574,65.484,52.548,61.896,52.548z M84.527,29.132c0.74-1.826,0.777-12.201-3.17-22.132 c0,0-9.057,0.993-22.76,10.396c-2.872-0.793-7.736-1.19-12.597-1.19s-9.723,0.396-12.598,1.189C19.699,7.993,10.645,7,10.645,7 c-3.948,9.931-3.913,20.306-3.172,22.132C2.834,34.169,0,40.218,0,48.483c0,35.932,29.809,36.508,37.334,36.508 c1.703,0,5.088,0.004,8.666,0.009c3.578-0.005,6.965-0.009,8.666-0.009C62.191,84.991,92,84.415,92,48.483 C92,40.218,89.166,34.169,84.527,29.132z M46.141,80.574H45.86c-18.859,0-33.545-2.252-33.545-20.58 c0-4.389,1.549-8.465,5.229-11.847c6.141-5.636,16.527-2.651,28.316-2.651c0.045,0,0.093-0.001,0.141-0.003 c0.049,0.002,0.096,0.003,0.141,0.003c11.789,0,22.178-2.984,28.316,2.651c3.68,3.382,5.229,7.458,5.229,11.847 C79.686,78.322,65,80.574,46.141,80.574z M30.104,52.548c-3.588,0-6.498,4.026-6.498,8.996c0,4.971,2.91,8.999,6.498,8.999 c3.592,0,6.502-4.028,6.502-8.999C36.605,56.574,33.695,52.548,30.104,52.548z" />
+                    <svg className="w-6 h-6 fill-[#24292e]" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                 </button>
             </div>
