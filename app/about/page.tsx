@@ -1,343 +1,282 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AboutScene3D from "@/components/AboutScene3D";
-import { Canvas } from "@react-three/fiber";
-import { Suspense, useRef } from "react";
-import { Brain, Rocket, Shield, Users, Globe, Zap, Target, Lightbulb } from "lucide-react";
-import Tilt from "react-parallax-tilt";
 import Image from "next/image";
+import Link from "next/link";
+import { useRef } from "react";
+import { ArrowUpRight, Globe2, Cpu, Sparkles } from "lucide-react";
 
-// Sample Data
-const coreValues = [
-    {
-        title: "Innovation First",
-        desc: "We don't just follow trends; we set them using cutting-edge technologies.",
-        icon: Rocket,
-        color: "text-blue-600",
-        bg: "bg-blue-50",
-    },
-    {
-        title: "Global Vision",
-        desc: "Connecting businesses worldwide with scalable, boundary-defying solutions.",
-        icon: Globe,
-        color: "text-indigo-600",
-        bg: "bg-indigo-50",
-    },
-    {
-        title: "Elite Expertise",
-        desc: "A team of world-class engineers dedicated to solving the most complex problems.",
-        icon: Brain,
-        color: "text-purple-600",
-        bg: "bg-purple-50",
-    },
-    {
-        title: "Client-Centric",
-        desc: "Your success is our obsession. We build partnerships, not just software.",
-        icon: Users,
-        color: "text-sky-600",
-        bg: "bg-sky-50",
-    },
-];
-
-const teamMembers = [
-    {
-        name: "Alex Sterling",
-        role: "CEO & Founder",
-        color: "bg-blue-600",
-        icon: Target
-    },
-    {
-        name: "Sarah Chen",
-        role: "Chief Technology Officer",
-        color: "bg-indigo-600",
-        icon: Lightbulb
-    },
-    {
-        name: "Marcus Thorne",
-        role: "Head of Design",
-        color: "bg-purple-600",
-        icon: Zap
-    },
-    {
-        name: "Elena Rodriguez",
-        role: "Lead Architect",
-        color: "bg-sky-600",
-        icon: Shield
-    }
-];
 
 export default function AboutPage() {
-    const containerVariants: Variants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.3
-            }
-        }
-    };
+    const containerRef = useRef<HTMLElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
 
-    const itemVariants: Variants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } }
+    // Parallax values - subtle float effects triggered by scroll
+    const y1 = useTransform(scrollYProgress, [0, 1], [0, -400]);
+    const y2 = useTransform(scrollYProgress, [0, 1], [0, -250]);
+    const y3 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
+    // Slight rotations for floating images to mimic the reference
+    const rotate1 = useTransform(scrollYProgress, [0, 1], [-1, 3]);
+    const rotate2 = useTransform(scrollYProgress, [0, 1], [3, -2]);
+
+    const fadeInUp: Variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } }
     };
 
     return (
-        <main className="min-h-screen bg-background text-slate-900 overflow-x-hidden">
+        <main ref={containerRef} className="bg-[#FAFAFA] text-[#111111] overflow-hidden selection:bg-[#0077FF]/20 selection:text-[#0A66C2] font-sans relative">
             <Navbar />
 
-            {/* --- HERO SECTION --- */}
-            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-white/50">
-                {/* Background Grid */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+            {/* Architectural Background Lines & Annotations */}
+            <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.12] mix-blend-multiply">
+                <svg className="absolute top-[10%] left-[-5%] w-[45vw] h-[45vw] max-w-[500px]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.15">
+                    <circle cx="50" cy="50" r="40" strokeDasharray="1 1.5" />
+                    <circle cx="50" cy="50" r="25" />
+                    <path d="M50 0 L50 100 M0 50 L100 50" strokeDasharray="4 4" />
+                </svg>
 
-                {/* Animated Background Gradients */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/50 via-transparent to-transparent opacity-70 blur-3xl pointer-events-none" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-100/50 via-transparent to-transparent opacity-70 blur-3xl pointer-events-none" />
+                <svg className="absolute top-[35%] right-[5%] w-[35vw] h-[35vw] max-w-[400px]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.2">
+                    <circle cx="80" cy="80" r="15" />
+                    <line x1="75" y1="85" x2="60" y2="100" />
+                    <line x1="10" y1="10" x2="90" y2="90" strokeDasharray="2 4" />
+                </svg>
 
-                <div className="container relative z-10 px-6 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full pt-20">
+                <svg className="absolute bottom-[-10%] left-[10%] w-[55vw] h-[55vw] max-w-[700px]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.1">
+                    <circle cx="50" cy="50" r="45" />
+                    <circle cx="50" cy="50" r="30" />
+                    <circle cx="50" cy="50" r="15" />
+                    <line x1="50" y1="50" x2="0" y2="0" strokeDasharray="1 2" />
+                </svg>
 
-                    {/* Text Content */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                        className="space-y-8"
+                <div className="absolute top-[28%] left-[20%] text-[10px] md:text-sm tracking-[0.2em] font-mono text-[#0B1320] transform -rotate-45">850.00</div>
+                <div className="absolute top-[18%] right-[15%] text-[10px] md:text-sm tracking-[0.2em] font-mono text-[#0B1320]">1350.CRTZ</div>
+            </div>
+
+            {/* --- HERO SECTION ---  */}
+            <section className="relative w-full pt-48 pb-10 px-4 md:px-12 lg:px-20 z-10 flex flex-col justify-start">
+
+                {/* The Huge Text Line 1 */}
+                <div className="w-full text-left relative z-10">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 80 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+                        className={`text-[25vw] sm:text-[20vw] md:text-[18vw] leading-[0.75] font-bold tracking-tight text-slate-900`}
                     >
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-semibold tracking-wide uppercase"
-                        >
-                            Who We Are
-                        </motion.div>
-
-                        <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
-                            We <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Architect</span> <br />
-                            The Impossible.
-                        </h1>
-
-                        <p className="text-xl text-slate-600 leading-relaxed max-w-lg">
-                            Creatzion Technology is a forward-thinking digital powerhouse. We merge art, science, and technology to redefine what's possible in the digital realm.
-                        </p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
-                            className="flex gap-4"
-                        >
-                            <button className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold shadow-xl hover:bg-blue-600 hover:shadow-blue-500/30 transition-all duration-300 transform hover:-translate-y-1">
-                                Our Vision
-                            </button>
-                        </motion.div>
-                    </motion.div>
-
-                    {/* 3D Visual */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.2, delay: 0.2 }}
-                        className="h-[500px] w-full lg:h-[700px] relative flex items-center justify-center"
-                    >
-                        {/* Enhanced Background Effects */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-indigo-500/10 blur-[80px] rounded-full pointer-events-none" />
-                        <div className="absolute w-[80%] h-[80%] border border-blue-500/20 rounded-full animate-pulse opacity-20 pointer-events-none" />
-
-                        <Canvas camera={{ position: [0, 0, 8], fov: 30 }} className="z-10">
-                            <Suspense fallback={null}>
-                                <AboutScene3D />
-                            </Suspense>
-                        </Canvas>
-                    </motion.div>
+                        Solve
+                    </motion.h1>
                 </div>
+
+                {/* The Huge Text Line 2 */}
+                <div className="w-full text-right relative z-10 mt-[-2vw] md:mt-[-4vw]">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 80 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                        className={`text-[26vw] sm:text-[22vw] md:text-[20vw] leading-[0.75] font-bold tracking-tight text-slate-900`}
+                    >
+                        Serve
+                    </motion.h1>
+                </div>
+
+                {/* Extra Large Introduction Content - Now left aligned */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 1.2 }}
+                    className="relative z-10 font-light text-left pl-4 md:pl-20 mt-20 md:mt-24 max-w-4xl"
+                >
+                    <p className="text-xl sm:text-2xl md:text-[28px] text-[#555] leading-[1.6] md:leading-[1.7] select-none text-balance">
+                        Creatzion focuses on living close to innovation; collapsing the boundary between visionary ideas and robust digital execution.
+                        We architect cloud-native platforms and AI systems that redefine global enterprise capabilities.
+                    </p>
+                </motion.div>
             </section>
 
-            {/* --- OUR STORY SECTION --- */}
-            <section className="py-24 relative bg-white overflow-hidden">
-                {/* Background Grid */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
-                <div className="container px-6 mx-auto relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
-                        >
-                            <h2 className="text-4xl font-bold mb-6 text-slate-900">
-                                Pioneering the <span className="text-indigo-600">Digital Frontier</span>
-                            </h2>
-                            <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
-                                <p>
-                                    At Creatzion, we believe that technology is more than just code—it's the brush with which we paint the future. Founded by a collective of elite engineers and visionary designers, we set out to bridge the gap between complex functionality and breathtaking aesthetics.
-                                </p>
-                                <p>
-                                    Our journey began with a simple question: <span className="font-semibold text-slate-800">"What if software felt as natural as thought?"</span> Today, we answer that question by building intuitive, AI-driven ecosystems that empower businesses to scale effortlessly.
-                                </p>
-                                <p>
-                                    From developing proprietary neural networks to crafting immersive 3D web experiences, our methodology is rooted in "First Principles" thinking. We deconstruct problems to their core and rebuild them with cleaner, faster, and more intelligent solutions.
-                                </p>
-                            </div>
 
-                            <div className="mt-8 flex gap-8">
-                                <div>
-                                    <h4 className="text-3xl font-bold text-blue-600">20+</h4>
-                                    <p className="text-sm text-slate-500 font-medium uppercase tracking-wider">Awards Won</p>
-                                </div>
-                                <div>
-                                    <h4 className="text-3xl font-bold text-indigo-600">500+</h4>
-                                    <p className="text-sm text-slate-500 font-medium uppercase tracking-wider">Global Clients</p>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            viewport={{ once: true }}
-                            className="relative"
-                        >
-                            <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-indigo-600/20 mix-blend-overlay z-10" />
-                                <Image
-                                    src="/meeting_room.png"
-                                    alt="Our Strategic Planning"
-                                    fill
-                                    className="object-cover hover:scale-105 transition-transform duration-700"
-                                />
-                            </div>
-                            {/* Decorative Elements */}
-                            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-50 rounded-full blur-3xl -z-10" />
-                            <div className="absolute -top-10 -right-10 w-40 h-40 bg-indigo-50 rounded-full blur-3xl -z-10" />
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* --- CORE VALUES SECTION --- */}
-            <section className="py-24 relative bg-slate-50/50">
-                <div className="container px-6 mx-auto">
-                    <div className="text-center mb-16 max-w-3xl mx-auto">
-                        <h2 className="text-4xl font-bold mb-6">Driven By <span className="text-blue-600">Excellence</span></h2>
-                        <p className="text-lg text-slate-600">
-                            Our core values define who we are and how we operate. We believe in pushing boundaries while maintaining the highest standards of integrity.
-                        </p>
-                    </div>
+            {/* --- SECTION 2: THE TYPOGRAPHY BLOCK --- */}
+            <section className="relative py-24 md:py-32 z-10 px-4 md:px-12 lg:px-20 overflow-hidden">
+                <div className="max-w-[70rem] mx-auto flex flex-col items-center justify-center text-center">
 
                     <motion.div
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-                        variants={containerVariants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
+                        variants={{
+                            hidden: { opacity: 0 },
+                            visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+                        }}
+                        className="w-full flex flex-col gap-2 md:gap-4 items-center"
                     >
-                        {coreValues.map((value, index) => (
-                            <motion.div key={index} variants={itemVariants}>
-                                <Tilt
-                                    className="bg-white p-8 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-300 h-full"
-                                    perspective={1000}
-                                    scale={1.03}
-                                >
-                                    <div className={`w-14 h-14 ${value.bg} ${value.color} rounded-xl flex items-center justify-center mb-6`}>
-                                        <value.icon size={28} />
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-3 text-slate-900">{value.title}</h3>
-                                    <p className="text-slate-600 leading-relaxed text-sm">{value.desc}</p>
-                                </Tilt>
+                        <motion.h2 variants={fadeInUp} className="text-[5.5vw] md:text-[4.5vw] lg:text-[5vw] font-bold tracking-tight text-slate-900 leading-[0.9]">
+                            This elegant <span className="font-semibold italic font-serif">approach</span>
+                        </motion.h2>
+
+                        <motion.h2 variants={fadeInUp} className="text-[5.5vw] md:text-[4.5vw] lg:text-[5vw] font-bold tracking-tight text-slate-900 leading-[0.9] flex items-center justify-center flex-wrap gap-4 md:gap-8">
+                            blends
+                            {/* Inline floating image block - Made LARGER per request */}
+                            <motion.div
+                                style={{ y: y3 }}
+                                className="relative w-[50vw] h-[35vw] md:w-[35vw] md:h-[22vw] max-w-[450px] max-h-[300px] z-30 shadow-2xl mx-2 md:mx-4 -rotate-3 overflow-hidden group mt-8 md:mt-12 bg-slate-100"
+                            >
+                                {/* Shine effect for this image too */}
+                                <div className="absolute inset-0 z-10 bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-[150%] skew-x-[-20deg] group-hover:animate-shine pointer-events-none"></div>
+
+                                <Image src="/creatzion_editorial_inline_1772296855403.png" fill alt="Botanical Contrast" className="object-cover hover:scale-[1.05] transition-all duration-[2s]" />
                             </motion.div>
-                        ))}
+                            logic
+                        </motion.h2>
+
+                        <motion.h2 variants={fadeInUp} className="text-[5.5vw] md:text-[4.5vw] lg:text-[5vw] font-bold tracking-tight text-slate-900 leading-[0.9]">
+                            into the <span className="text-[#0A66C2]">digital</span> unknown.
+                        </motion.h2>
+
+                        <motion.h2 variants={fadeInUp} className="text-[7.5vw] md:text-[6vw] lg:text-[6.5vw] font-bold tracking-tight text-slate-900 leading-[0.9] mt-6 md:mt-10 opacity-70">
+                            Creatzion thrives on new challenges.
+                        </motion.h2>
                     </motion.div>
                 </div>
             </section>
 
-            {/* --- STATS SECTION --- */}
-            <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
-                {/* Abstract Background Shapes */}
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
-                    <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-blue-600 rounded-full blur-[120px]" />
-                    <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-indigo-600 rounded-full blur-[120px]" />
-                </div>
+            {/* --- SECTION 3: EDITORIAL STATS & CTA --- */}
+            <section className="relative pt-10 pb-40 z-10 px-4 md:px-12 lg:px-20">
+                {/* Subtle horizontal line */}
+                <div className="w-full max-w-[90rem] mx-auto h-[1px] bg-[#0B1320]/15 mb-24 md:mb-36"></div>
 
-                <div className="container px-6 mx-auto relative z-10">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divider-y md:divider-y-0 md:divider-x divider-slate-700">
-                        {[
-                            { label: "Years Exp.", value: "15+" },
-                            { label: "Projects Done", value: "250+" },
-                            { label: "Team Members", value: "40+" },
-                            { label: "Client Satisfaction", value: "99%" }
-                        ].map((stat, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.1, duration: 0.8 }}
-                                viewport={{ once: true }}
-                                className="space-y-2"
-                            >
-                                <div className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
-                                    {stat.value}
-                                </div>
-                                <div className="text-slate-400 uppercase tracking-widest text-sm font-medium">
-                                    {stat.label}
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+                <div className="max-w-[90rem] mx-auto flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-24">
+                    <div className="w-full lg:w-[55%]">
+                        <motion.h3
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-2xl md:text-4xl font-bold tracking-tight text-slate-900 mb-8"
+                        >
+                            The People
+                        </motion.h3>
+                        <motion.p
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="text-lg md:text-2xl text-slate-500 font-light leading-[1.8] max-w-2xl"
+                        >
+                            We don’t rely on rigid hierarchies or siloed departments. Instead, we operate as a unified, elite collective of engineers, designers, and visionaries. Our culture empowers every individual to lead, innovate, and contribute directly to the breathtaking solutions we deliver for our clients.
+                        </motion.p>
 
-            {/* --- TEAM SECTION --- */}
-            <section className="py-24">
-                <div className="container px-6 mx-auto">
-                    <div className="mb-16 flex flex-col md:flex-row items-end justify-between gap-6">
-                        <div className="max-w-2xl">
-                            <h2 className="text-4xl font-bold mb-4">Meet The <span className="text-indigo-600">Visionaries</span></h2>
-                            <p className="text-lg text-slate-600">
-                                The brilliant minds behind Creatzion Technology. We are a diverse team of thinkers, makers, and doers.
-                            </p>
+                        <div className="mt-20 flex flex-wrap gap-16 md:gap-24">
+                            <div className="flex flex-col">
+                                <span className="text-6xl md:text-7xl font-bold tracking-tight text-slate-900 mb-4">300%</span>
+                                <span className="text-sm md:text-base uppercase tracking-[0.2em] text-[#0A66C2] font-semibold">Avg. Client ROI</span>
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-6xl md:text-7xl font-bold tracking-tight text-slate-900 mb-4">5+</span>
+                                <span className="text-sm md:text-base uppercase tracking-[0.2em] text-[#0A66C2] font-semibold">Active Platforms</span>
+                            </div>
                         </div>
+
+                        {/* New Content Block to fill the empty space */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="mt-32 md:mt-48 max-w-xl"
+                        >
+                            <h4 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-6">Our Engineering Philosophy</h4>
+                            <p className="text-xl text-slate-500 font-light leading-relaxed mb-6">
+                                We believe that true enterprise innovation requires removing friction between design and deep technical execution. While other agencies pass work between silos, our core engine merges them.
+                            </p>
+                            <p className="text-xl text-slate-500 font-light leading-relaxed">
+                                Every platform we build benefits from a singular, unified vision, resulting in products that are not only breathtakingly beautiful but architecturally sound at scale.
+                            </p>
+                            <Link href="/work" className="inline-flex items-center gap-2 mt-8 text-[#0A66C2] font-semibold tracking-widest uppercase text-sm hover:opacity-70 transition-opacity">
+                                Explore Our Work <ArrowUpRight className="w-4 h-4" />
+                            </Link>
+                        </motion.div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {teamMembers.map((member, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.1, duration: 0.6 }}
-                                viewport={{ once: true }}
-                                className="group relative"
-                            >
-                                <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 relative mb-4 shadow-md group-hover:shadow-2xl transition-all duration-300">
-                                    <div className={`absolute inset-0 ${member.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
-                                    <div className="absolute inset-0 flex items-center justify-center text-slate-300">
-                                        {/* Placeholder Avatar Concept */}
-                                        <member.icon size={64} className="opacity-50 group-hover:scale-110 transition-transform duration-500 text-slate-400" />
-                                    </div>
-                                    {/* Glass Card Overlay */}
-                                    <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                                        <p className="font-bold text-slate-900">{member.name}</p>
-                                        <p className="text-xs text-blue-600 font-semibold uppercase">{member.role}</p>
-                                    </div>
-                                </div>
-                                <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                                    {member.name}
-                                </h3>
-                                <p className="text-slate-500 text-sm">
-                                    {member.role}
-                                </p>
-                            </motion.div>
-                        ))}
+                    <div className="w-full lg:w-[45%] relative flex flex-col lg:items-end pb-10">
+                        <div className="text-left w-full max-w-sm ml-auto mb-16 mt-0">
+                            <p className="text-xl md:text-[22px] text-slate-500 font-light italic mb-8 leading-relaxed">
+                                "Gravity is a mindset. Great companies get weighed down. We exist to lift that weight."
+                            </p>
+                            <div className="flex items-center gap-10">
+                                <div className="w-12 h-[3px] bg-[#4A86E8]"></div>
+                                <span className="text-[11px] font-mono font-bold tracking-[0.2em] text-slate-200">1350.CRTZ</span>
+                            </div>
+                        </div>
+
+                        {/* Minimalist Tech Concept Image with Parallax Effects */}
+                        <motion.div
+                            style={{ y: y2, rotate: rotate2 }}
+                            className="relative w-full max-w-[32rem] aspect-[3/4] drop-shadow-2xl z-20 mt-20 md:mt-32 lg:mt-56"
+                        >
+                            <div className="relative w-full h-full overflow-hidden">
+                                <Image
+                                    src="/creatzion_editorial_tech_concept.png"
+                                    alt="Floating Conceptual Technology"
+                                    fill
+                                    className="object-cover hover:scale-105 transition-transform duration-[2s] grayscale-[20%] hover:grayscale-0"
+                                    unoptimized
+                                />
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
+
+                {/* Massive Enhanced Footer / CTA Area */}
+                <div className="max-w-[90rem] mx-auto mt-20 md:mt-32 relative z-30">
+                    <div className="w-full h-[1px] bg-[#0B1320]/10 mb-20 md:mb-32"></div>
+
+                    <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8 px-4 md:px-0">
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1 }}
+                            className="w-full lg:w-[30%] text-center lg:text-left"
+                        >
+                            <h4 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900 mb-6">Start A Project</h4>
+                            <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">Collaborate with our elite unit of engineers and designers to build solutions that will completely dominate your market sector.</p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true, margin: "100px" }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                            className="shrink-0 flex justify-center w-full lg:w-[40%]"
+                        >
+                            <Link href="/contact" className="group relative w-48 h-48 md:w-64 md:h-64 rounded-full border border-[#0B1320]/20 flex items-center justify-center overflow-hidden hover:border-[#0A66C2] shadow-sm hover:shadow-2xl hover:shadow-[#0077FF]/20 transition-all duration-700 bg-white">
+                                <span className="absolute inset-0 bg-[#0A66C2] translate-y-[101%] rounded-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+                                <span className="relative z-10 text-sm md:text-xl font-bold uppercase tracking-[0.25em] text-[#0B1320] group-hover:text-white transition-colors duration-500 flex flex-col items-center gap-2 md:gap-4">
+                                    Contact Us
+                                    <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8" />
+                                </span>
+                            </Link>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1 }}
+                            className="w-full lg:w-[30%] text-center lg:text-right"
+                        >
+                            <h4 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900 mb-6">Careers Hub</h4>
+                            <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed">We are always rigorously hunting for ambitious global talent. Join us and architect digital products that redefine the future.</p>
+                        </motion.div>
+                    </div>
+                </div>
+
             </section>
 
             <Footer />

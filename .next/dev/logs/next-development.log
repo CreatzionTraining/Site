@@ -1,91 +1,10 @@
-[00:00:03.914] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:04.392] Server  LOG      ✓ Ready in 3.3s
-[00:00:13.687] Server  LOG      ○ Compiling / ...
-[00:00:17.138] Server  ERROR    ⨯ ./Desktop/Site/components/AuthProvider.tsx:3:1
-Module not found: Can't resolve 'next-auth/react'
-  1 | "use client";
-  2 |
-> 3 | import { SessionProvider } from "next-auth/react";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  4 | import { ReactNode } from "react";
-  5 |
-  6 | interface AuthProviderProps {
-
-
-
-Import trace:
-  Server Component:
-    ./Desktop/Site/components/AuthProvider.tsx
-    ./Desktop/Site/app/layout.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:00:19.265] Browser ERROR   uncaughtError: Error: ./Desktop/Site/components/AuthProvider.tsx:3:1
-Module not found: Can't resolve 'next-auth/react'
-  1 | "use client";
-  2 |
-> 3 | import { SessionProvider } from "next-auth/react";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  4 | import { ReactNode } from "react";
-  5 |
-  6 | interface AuthProviderProps {
-
-
-
-Import trace:
-  Server Component:
-    ./Desktop/Site/components/AuthProvider.tsx
-    ./Desktop/Site/app/layout.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:00:19.467] Browser ERROR   ./Desktop/Site/components/AuthProvider.tsx:3:1
-Module not found: Can't resolve 'next-auth/react'
-  1 | "use client";
-  2 |
-> 3 | import { SessionProvider } from "next-auth/react";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  4 | import { ReactNode } from "react";
-  5 |
-  6 | interface AuthProviderProps {
-
-Import trace:
-  Server Component:
-    ./Desktop/Site/components/AuthProvider.tsx
-    ./Desktop/Site/app/layout.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-[00:00:19.695] Browser ERROR   ./Desktop/Site/components/AuthProvider.tsx:3:1
-Module not found: Can't resolve 'next-auth/react'
-  1 | "use client";
-  2 |
-> 3 | import { SessionProvider } from "next-auth/react";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  4 | import { ReactNode } from "react";
-  5 |
-  6 | interface AuthProviderProps {
-
-Import trace:
-  Server Component:
-    ./Desktop/Site/components/AuthProvider.tsx
-    ./Desktop/Site/app/layout.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-[00:01:05.464] Browser ERROR   ./Desktop/Site/components/AuthProvider.tsx:3:1
-Module not found: Can't resolve 'next-auth/react'
-  1 | "use client";
-  2 |
-> 3 | import { SessionProvider } from "next-auth/react";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  4 | import { ReactNode } from "react";
-  5 |
-  6 | interface AuthProviderProps {
-
-Import trace:
-  Server Component:
-    ./Desktop/Site/components/AuthProvider.tsx
-    ./Desktop/Site/app/layout.tsx
-
-https://nextjs.org/docs/messages/module-not-found
+[00:00:03.582] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:04.031] Server  LOG      ✓ Ready in 3s
+[00:00:22.651] Server  LOG      ○ Compiling / ...
+[00:00:26.099] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:28.483] Server  WARN    [next-auth][warn][NO_SECRET] "\nhttps://next-auth.js.org/warnings#no_secret"
+[00:00:28.484] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:00:28.487] Server  LOG     Redirect callback - url: "http://localhost:3000" "baseUrl:" "http://localhost:3000"
+[00:02:07.589] Browser WARN    Image with src "/office_team.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:02:13.320] Browser WARN    Image with src "/meeting_room.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:02:18.294] Browser WARN    Image with src "/tech_space.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF, OrbitControls, Float, Sparkles, Center, Environment } from "@react-three/drei";
 import * as THREE from "three";
@@ -35,17 +35,19 @@ function CyborgModel() {
 // --- OPTIMIZED PARTICLES ---
 function DataCloud() {
     const count = 300;
-    const positions = new Float32Array(count * 3);
+    const positions = useMemo(() => {
+        const pos = new Float32Array(count * 3);
+        for (let i = 0; i < count; i++) {
+            const r = 3 + Math.random() * 2; // Further out to surround the larger model
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.random() * Math.PI;
 
-    for (let i = 0; i < count; i++) {
-        const r = 3 + Math.random() * 2; // Further out to surround the larger model
-        const theta = Math.random() * Math.PI * 2;
-        const phi = Math.random() * Math.PI;
-
-        positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-        positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-        positions[i * 3 + 2] = r * Math.cos(phi);
-    }
+            pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+            pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+            pos[i * 3 + 2] = r * Math.cos(phi);
+        }
+        return pos;
+    }, [count]);
 
     const cloudRef = useRef<THREE.Points>(null);
     useFrame((state) => {
