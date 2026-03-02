@@ -1,0 +1,228 @@
+
+> creatzion-website@0.1.0 lint
+> eslint
+
+
+C:\Users\jarvi\Desktop\Site\app\about\page.tsx
+    9:24   warning  'Globe2' is defined but never used                               @typescript-eslint/no-unused-vars
+    9:32   warning  'Cpu' is defined but never used                                  @typescript-eslint/no-unused-vars
+    9:37   warning  'Sparkles' is defined but never used                             @typescript-eslint/no-unused-vars
+   20:11   warning  'y1' is assigned a value but never used                          @typescript-eslint/no-unused-vars
+   25:11   warning  'rotate1' is assigned a value but never used                     @typescript-eslint/no-unused-vars
+  209:33   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  209:119  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\jarvi\Desktop\Site\app\api\auth\register\route.ts
+  40:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\jarvi\Desktop\Site\app\login\page.tsx
+    4:20  warning  'useEffect' is defined but never used                            @typescript-eslint/no-unused-vars
+    7:8   warning  'Image' is defined but never used                                @typescript-eslint/no-unused-vars
+   42:14  warning  'error' is defined but never used                                @typescript-eslint/no-unused-vars
+   52:14  warning  'error' is defined but never used                                @typescript-eslint/no-unused-vars
+  192:18  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\jarvi\Desktop\Site\app\page.tsx
+  171:64  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\jarvi\Desktop\Site\app\services\page.tsx
+    5:18  warning  'useScroll' is defined but never used              @typescript-eslint/no-unused-vars
+    5:29  warning  'useTransform' is defined but never used           @typescript-eslint/no-unused-vars
+  108:11  warning  'containerRef' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\jarvi\Desktop\Site\app\signup\page.tsx
+  73:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  83:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\jarvi\Desktop\Site\components\AboutScene3D.tsx
+  41:27  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\jarvi\Desktop\Site\components\AboutScene3D.tsx:41:27
+  39 |         const pos = new Float32Array(count * 3);
+  40 |         for (let i = 0; i < count; i++) {
+> 41 |             const r = 3 + Math.random() * 2; // Further out to surround the larger model
+     |                           ^^^^^^^^^^^^^ Cannot call impure function
+  42 |             const theta = Math.random() * Math.PI * 2;
+  43 |             const phi = Math.random() * Math.PI;
+  44 |                                     react-hooks/purity
+  42:27  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\jarvi\Desktop\Site\components\AboutScene3D.tsx:42:27
+  40 |         for (let i = 0; i < count; i++) {
+  41 |             const r = 3 + Math.random() * 2; // Further out to surround the larger model
+> 42 |             const theta = Math.random() * Math.PI * 2;
+     |                           ^^^^^^^^^^^^^ Cannot call impure function
+  43 |             const phi = Math.random() * Math.PI;
+  44 |
+  45 |             pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);                        react-hooks/purity
+  43:25  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\jarvi\Desktop\Site\components\AboutScene3D.tsx:43:25
+  41 |             const r = 3 + Math.random() * 2; // Further out to surround the larger model
+  42 |             const theta = Math.random() * Math.PI * 2;
+> 43 |             const phi = Math.random() * Math.PI;
+     |                         ^^^^^^^^^^^^^ Cannot call impure function
+  44 |
+  45 |             pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+  46 |             pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);  react-hooks/purity
+
+C:\Users\jarvi\Desktop\Site\components\Careers.tsx
+  96:31  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\jarvi\Desktop\Site\components\ContactUsContent.tsx
+    4:8   warning  'Image' is defined but never used                                @typescript-eslint/no-unused-vars
+  169:22  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  178:43  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  178:94  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  348:78  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  367:85  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  714:56  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\jarvi\Desktop\Site\components\CookieConsent.tsx
+  53:53  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  53:64  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\jarvi\Desktop\Site\components\CookiePolicyContent.tsx
+    5:8   warning  'Link' is defined but never used                                 @typescript-eslint/no-unused-vars
+    8:3   warning  'Shield' is defined but never used                               @typescript-eslint/no-unused-vars
+    8:27  warning  'Users' is defined but never used                                @typescript-eslint/no-unused-vars
+    8:34  warning  'Globe' is defined but never used                                @typescript-eslint/no-unused-vars
+    8:41  warning  'ChevronRight' is defined but never used                         @typescript-eslint/no-unused-vars
+    9:3   warning  'CheckCircle' is defined but never used                          @typescript-eslint/no-unused-vars
+    9:22  warning  'Building2' is defined but never used                            @typescript-eslint/no-unused-vars
+    9:33  warning  'Scale' is defined but never used                                @typescript-eslint/no-unused-vars
+    9:40  warning  'AlertCircle' is defined but never used                          @typescript-eslint/no-unused-vars
+   10:12  warning  'Send' is defined but never used                                 @typescript-eslint/no-unused-vars
+   10:43  warning  'ToggleLeft' is defined but never used                           @typescript-eslint/no-unused-vars
+   18:47  warning  'onClose' is defined but never used                              @typescript-eslint/no-unused-vars
+  252:44  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  252:54  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  252:59  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  252:78  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  364:60  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  412:54  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\jarvi\Desktop\Site\components\Footer.tsx
+   20:5   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\jarvi\Desktop\Site\components\Footer.tsx:20:5
+  18 |
+  19 |   useEffect(() => {
+> 20 |     setMounted(true);
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  21 |   }, []);
+  22 |
+  23 |   const handleSubmit = (e: React.FormEvent) => {  react-hooks/set-state-in-effect
+  277:11  error  An empty interface declaration allows any non-nullish value, including literals like `0` and `""`.
+- If that's what you want, disable this lint rule with an inline comment or configure the 'allowInterfaces' rule option.
+- If you want a type meaning "any object", you probably want `object` instead.
+- If you want a type meaning "any value", you probably want `unknown` instead                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @typescript-eslint/no-empty-object-type
+
+C:\Users\jarvi\Desktop\Site\components\Home.tsx
+   15:3   warning  'Zap' is defined but never used                                                                                   @typescript-eslint/no-unused-vars
+   16:3   warning  'Target' is defined but never used                                                                                @typescript-eslint/no-unused-vars
+   17:3   warning  'ShieldCheck' is defined but never used                                                                           @typescript-eslint/no-unused-vars
+   18:3   warning  'Globe' is defined but never used                                                                                 @typescript-eslint/no-unused-vars
+   19:3   warning  'Building2' is defined but never used                                                                             @typescript-eslint/no-unused-vars
+   20:3   warning  'Rocket' is defined but never used                                                                                @typescript-eslint/no-unused-vars
+   21:3   warning  'Lightbulb' is defined but never used                                                                             @typescript-eslint/no-unused-vars
+   22:3   warning  'Cpu' is defined but never used                                                                                   @typescript-eslint/no-unused-vars
+   23:3   warning  'Star' is defined but never used                                                                                  @typescript-eslint/no-unused-vars
+  111:9   warning  'containerRef' is assigned a value but never used                                                                 @typescript-eslint/no-unused-vars
+  333:16  warning  'inView' is assigned a value but never used                                                                       @typescript-eslint/no-unused-vars
+  377:6   warning  React Hook useEffect has a missing dependency: 'slides.length'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\jarvi\Desktop\Site\components\Jobs.tsx
+   28:17  warning  'session' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+  325:11  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\jarvi\Desktop\Site\components\Jobs.tsx:325:11
+  323 |         const job = jobs.find(j => j.id === parseInt(jobId));
+  324 |         if (job) {
+> 325 |           setSelectedJob(job);
+      |           ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  326 |           setShowApplicationForm(true);
+  327 |           // Clean up URL
+  328 |           window.history.replaceState({}, '', '/careers/jobs');  react-hooks/set-state-in-effect
+  332:6   warning  React Hook useEffect has a missing dependency: 'jobs'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-hooks/exhaustive-deps
+  891:31  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react/no-unescaped-entities
+
+C:\Users\jarvi\Desktop\Site\components\Navbar.tsx
+  5:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\jarvi\Desktop\Site\components\NewsSection.tsx
+  82:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\jarvi\Desktop\Site\components\PrivacyPolicyContent.tsx
+     5:8   warning  'Link' is defined but never used                                 @typescript-eslint/no-unused-vars
+     9:40  warning  'ArrowLeft' is defined but never used                            @typescript-eslint/no-unused-vars
+    10:3   warning  'Download' is defined but never used                             @typescript-eslint/no-unused-vars
+    10:13  warning  'ExternalLink' is defined but never used                         @typescript-eslint/no-unused-vars
+    18:48  warning  'onClose' is defined but never used                              @typescript-eslint/no-unused-vars
+   243:22  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   243:33  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   243:35  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   243:39  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   243:41  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   243:46  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   243:51  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   243:54  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   771:66  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   886:25  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  1032:58  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\jarvi\Desktop\Site\components\TermsOfServiceContent.tsx
+    5:8   warning  'Link' is defined but never used                                 @typescript-eslint/no-unused-vars
+    8:3   warning  'Shield' is defined but never used                               @typescript-eslint/no-unused-vars
+    8:34  warning  'Globe' is defined but never used                                @typescript-eslint/no-unused-vars
+    9:22  warning  'Building2' is defined but never used                            @typescript-eslint/no-unused-vars
+    9:40  warning  'AlertCircle' is defined but never used                          @typescript-eslint/no-unused-vars
+   10:3   warning  'Info' is defined but never used                                 @typescript-eslint/no-unused-vars
+   10:12  warning  'Send' is defined but never used                                 @typescript-eslint/no-unused-vars
+   18:49  warning  'onClose' is defined but never used                              @typescript-eslint/no-unused-vars
+   22:10  warning  'contactForm' is assigned a value but never used                 @typescript-eslint/no-unused-vars
+   22:23  warning  'setContactForm' is assigned a value but never used              @typescript-eslint/no-unused-vars
+  519:60  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  567:54  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\jarvi\Desktop\Site\components\UserNav.tsx
+  22:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\jarvi\Desktop\Site\lib\auth.ts
+   18:10  warning  'PrismaAdapter' is defined but never used  @typescript-eslint/no-unused-vars
+  149:35  warning  'profile' is defined but never used        @typescript-eslint/no-unused-vars
+  234:39  warning  'trigger' is defined but never used        @typescript-eslint/no-unused-vars
+  315:35  warning  'profile' is defined but never used        @typescript-eslint/no-unused-vars
+  315:44  warning  'isNewUser' is defined but never used      @typescript-eslint/no-unused-vars
+  339:21  warning  'session' is defined but never used        @typescript-eslint/no-unused-vars
+  339:30  warning  'token' is defined but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\jarvi\Desktop\Site\middleware.ts
+  9:28  warning  'request' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\jarvi\Desktop\Site\tailwind.config.js
+  1:1  warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\jarvi\Desktop\Site\types\next-auth.d.ts
+  1:8  warning  'NextAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 109 problems (41 errors, 68 warnings)
+

@@ -105,7 +105,7 @@ export default function Navbar() {
                   <Link
                     href={
                       item === "Home" ? "/" :
-                        item === "Services" ? "/#services" :
+                        item === "Services" ? "/services" :
                           item === "Work" ? "/careers" :
                             item === "About" ? "/about" :
                               item === "Contact" ? "/contact" :
@@ -151,7 +151,7 @@ export default function Navbar() {
                     <Link
                       href={
                         item === "Home" ? "/" :
-                          item === "Services" ? "/#services" :
+                          item === "Services" ? "/services" :
                             item === "Work" ? "/careers" :
                               item === "About" ? "/about" :
                                 item === "Contact" ? "/contact" :
